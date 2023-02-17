@@ -1,131 +1,137 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
+import { NavLink } from 'react-router-dom';
+import logo from '../../../assets/logo.png'
 
-const Navbar = () => {
-  const [isOpen, setisOpen] = useState(true);
-  return (
-    <div>
-      <nav
-        x-data='{ isOpen: false }'
-        class='relative bg-white shadow dark:bg-gray-800'
-      >
-        <div class='container px-6 py-4 mx-auto md:flex md:justify-between md:items-center'>
-          <div class='flex items-center justify-between'>
-            <a href='/'>
-              <img
-                class='w-auto h-6 sm:h-7'
-                src='https://merakiui.com/images/full-logo.svg'
-                alt=''
-              />
-            </a>
 
-            {/* <!-- Mobile menu button --> */}
-            <div class='flex lg:hidden'>
-              <button
-                // x-cloak @click="isOpen = !isOpen"
-                type='button'
-                class='text-gray-500 dark:text-gray-200 hover:text-gray-600 dark:hover:text-gray-400 focus:outline-none focus:text-gray-600 dark:focus:text-gray-400'
-                aria-label='toggle menu'
-              >
-                <svg
-                  x-show='!isOpen'
-                  xmlns='http://www.w3.org/2000/svg'
-                  class='w-6 h-6'
-                  fill='none'
-                  viewBox='0 0 24 24'
-                  stroke='currentColor'
-                  stroke-width='2'
+const Navbar = () => { 
+
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
+    let activeStyle = {
+        textDecoration: "underline",
+        color: 'yellow'
+    };
+
+
+    return (
+        <div className="px-4 py-5 mx-auto md:px-24 bg-slate-900">
+            <div className="relative flex items-center justify-between">
+
+
+                <NavLink
+                    to="/"
+                    aria-label="FreelanceNation"
+                    title="FreelanceNation"
+                    className="inline-flex items-center"
                 >
-                  <path
-                    stroke-linecap='round'
-                    stroke-linejoin='round'
-                    d='M4 8h16M4 16h16'
-                  />
-                </svg>
 
-                <svg
-                  x-show='isOpen'
-                  xmlns='http://www.w3.org/2000/svg'
-                  class='w-6 h-6'
-                  fill='none'
-                  viewBox='0 0 24 24'
-                  stroke='currentColor'
-                  stroke-width='2'
-                >
-                  <path
-                    stroke-linecap='round'
-                    stroke-linejoin='round'
-                    d='M6 18L18 6M6 6l12 12'
-                  />
-                </svg>
-              </button>
+                    <img className='w-0 h-0 md:w-14 md:h-14 rounded-lg invisible md:visible' src={logo} alt="sell phone bd" />
+
+                    <span className="ml-2 text-xl font-bold tracking-wide text-green-500 uppercase">
+                       FreelanceNation
+                    </span>
+                </NavLink>
+
+
+                <ul className="flex items-center hidden space-x-8 lg:flex">
+                    <li>
+                        <NavLink
+                            style={({ isActive }) =>
+                                isActive ? activeStyle : undefined
+                            }
+                            to="/home"
+                            aria-label="home"
+                            title="home"
+                            className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                        >
+                            Home
+                        </NavLink>
+                    </li>
+                   
+                </ul>
+                <div className="lg:hidden">
+                    <button
+                        aria-label="Open Menu"
+                        title="Open Menu"
+                        className="p-2 -mr-1 transition duration-200 rounded focus:outline-none focus:shadow-outline hover:bg-deep-purple-50 focus:bg-deep-purple-50"
+                        onClick={() => setIsMenuOpen(true)}
+                    >
+                        <svg className="w-5 text-gray-100" viewBox="0 0 24 24">
+                            <path
+                                fill="currentColor"
+                                d="M23,13H1c-0.6,0-1-0.4-1-1s0.4-1,1-1h22c0.6,0,1,0.4,1,1S23.6,13,23,13z"
+                            />
+                            <path
+                                fill="currentColor"
+                                d="M23,6H1C0.4,6,0,5.6,0,5s0.4-1,1-1h22c0.6,0,1,0.4,1,1S23.6,6,23,6z"
+                            />
+                            <path
+                                fill="currentColor"
+                                d="M23,20H1c-0.6,0-1-0.4-1-1s0.4-1,1-1h22c0.6,0,1,0.4,1,1S23.6,20,23,20z"
+                            />
+                        </svg>
+                    </button>
+                    {isMenuOpen && (
+                        <div className="z-10 absolute top-0 left-0 w-full">
+                            <div className="p-5 bg-gray-900 border rounded shadow-sm">
+                                <div className="flex items-center justify-between mb-4">
+                                    <div>
+                                        <NavLink
+                                            to="/"
+                                            aria-label="  FreelanceNation"
+                                            title="  FreelanceNation"
+                                            className="inline-flex items-center"
+                                        >
+
+                                            <img className='w-14 h-14 rounded-lg' src={logo} alt="sell phone bd" />
+
+                                            <span className="ml-2 text-xl font-bold tracking-wide text-green-500 uppercase">
+                                                  FreelanceNation
+                                            </span>
+                                        </NavLink>
+                                    </div>
+                                    <div>
+                                        <button
+                                            aria-label="Close Menu"
+                                            title="Close Menu"
+                                            className="p-2 -mt-2 -mr-2 transition duration-200 rounded hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+                                            onClick={() => setIsMenuOpen(false)}
+                                        >
+                                            <svg className="w-5 text-gray-100" viewBox="0 0 24 24">
+                                                <path
+                                                    fill="currentColor"
+                                                    d="M19.7,4.3c-0.4-0.4-1-0.4-1.4,0L12,10.6L5.7,4.3c-0.4-0.4-1-0.4-1.4,0s-0.4,1,0,1.4l6.3,6.3l-6.3,6.3 c-0.4,0.4-0.4,1,0,1.4C4.5,19.9,4.7,20,5,20s0.5-0.1,0.7-0.3l6.3-6.3l6.3,6.3c0.2,0.2,0.5,0.3,0.7,0.3s0.5-0.1,0.7-0.3 c0.4-0.4,0.4-1,0-1.4L13.4,12l6.3-6.3C20.1,5.3,20.1,4.7,19.7,4.3z"
+                                                />
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </div>
+                                <nav>
+                                    <ul className="space-y-4">
+                                        <li>
+                                            <NavLink
+                                                style={({ isActive }) =>
+                                                    isActive ? activeStyle : undefined
+                                                }
+                                                to="/home"
+                                                aria-label="home"
+                                                title="home"
+                                                className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                                            >
+                                                Home
+                                            </NavLink>
+                                        </li>
+
+                                        
+                                        
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                    )}
+                </div>
             </div>
-          </div>
-
-          {/* <!-- Mobile Menu open: "block", Menu closed: "hidden" --> */}
-          <div
-            style={{
-              transform: isOpen ? "translateX(0)" : "translateX(-100%)",
-              opacity: isOpen ? 1 : 0,
-            }}
-            // x-cloak :class="[isOpen ? 'translate-x-0 opacity-100 ' : 'opacity-0 -translate-x-full']"
-
-            class='absolute inset-x-0 z-20 w-full px-6 py-4 transition-all duration-300 ease-in-out bg-white dark:bg-gray-800 md:mt-0 md:p-0 md:top-0 md:relative md:bg-transparent md:w-auto md:opacity-100 md:translate-x-0 md:flex md:items-center'
-          >
-            <div class='flex flex-col md:flex-row md:mx-6'>
-              <a
-                class='my-2 text-gray-700 transition-colors duration-300 transform dark:text-gray-200 hover:text-blue-500 dark:hover:text-blue-400 md:mx-4 md:my-0'
-                href='/'
-              >
-                Home
-              </a>
-              <a
-                class='my-2 text-gray-700 transition-colors duration-300 transform dark:text-gray-200 hover:text-blue-500 dark:hover:text-blue-400 md:mx-4 md:my-0'
-                href='/'
-              >
-                Shop
-              </a>
-              <a
-                class='my-2 text-gray-700 transition-colors duration-300 transform dark:text-gray-200 hover:text-blue-500 dark:hover:text-blue-400 md:mx-4 md:my-0'
-                href='/'
-              >
-                Contact
-              </a>
-              <a
-                class='my-2 text-gray-700 transition-colors duration-300 transform dark:text-gray-200 hover:text-blue-500 dark:hover:text-blue-400 md:mx-4 md:my-0'
-                href='/'
-              >
-                About
-              </a>
-            </div>
-
-            <div class='flex justify-center md:block'>
-              <a
-                class='relative text-gray-700 transition-colors duration-300 transform dark:text-gray-200 hover:text-gray-600 dark:hover:text-gray-300'
-                href='/'
-              >
-                <svg
-                  class='w-5 h-5'
-                  viewBox='0 0 24 24'
-                  fill='none'
-                  xmlns='http://www.w3.org/2000/svg'
-                >
-                  <path
-                    d='M3 3H5L5.4 5M7 13H17L21 5H5.4M7 13L5.4 5M7 13L4.70711 15.2929C4.07714 15.9229 4.52331 17 5.41421 17H17M17 17C15.8954 17 15 17.8954 15 19C15 20.1046 15.8954 21 17 21C18.1046 21 19 20.1046 19 19C19 17.8954 18.1046 17 17 17ZM9 19C9 20.1046 8.10457 21 7 21C5.89543 21 5 20.1046 5 19C5 17.8954 5.89543 17 7 17C8.10457 17 9 17.8954 9 19Z'
-                    stroke='currentColor'
-                    stroke-width='2'
-                    stroke-linecap='round'
-                    stroke-linejoin='round'
-                  />
-                </svg>
-
-                <span class='absolute top-0 left-0 p-1 text-xs text-white bg-blue-500 rounded-full'></span>
-              </a>
-            </div>
-          </div>
         </div>
-      </nav>
-    </div>
-  );
+    );
 };
 
 export default Navbar;
