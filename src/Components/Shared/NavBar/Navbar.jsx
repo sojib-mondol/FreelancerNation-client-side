@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import logo from '../../../assets/logo.png'
 
 
-const Navbar = () => { 
+const Navbar = () => {
 
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     let activeStyle = {
@@ -27,7 +27,7 @@ const Navbar = () => {
                     <img className='w-0 h-0 md:w-14 md:h-14 rounded-lg invisible md:visible' src={logo} alt="sell phone bd" />
 
                     <span className="ml-2 text-xl font-bold tracking-wide text-green-500 uppercase">
-                       FreelanceNation
+                        FreelanceNation
                     </span>
                 </NavLink>
 
@@ -38,15 +38,30 @@ const Navbar = () => {
                             style={({ isActive }) =>
                                 isActive ? activeStyle : undefined
                             }
-                            to="/home"
-                            aria-label="home"
-                            title="home"
+                            to="/"
+                            aria-label="explore"
+                            title="explore"
                             className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-deep-purple-accent-400"
                         >
-                            Home
+                            Explore
                         </NavLink>
                     </li>
-                   
+                    <li>
+                        <NavLink
+                            style={({ isActive }) =>
+                                isActive ? activeStyle : undefined
+                            }
+                            to="/becomeASeller"
+                            aria-label="Become a Seller"
+                            title="Become a Seller"
+                            className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                        >
+                            Become a Seller
+                        </NavLink>
+                    </li>
+                    <li>
+                        <button className='btn p-3 bg-green-400 hover:bg-green-500 border-none text-white rounded-xl' >Join</button>
+                    </li>
                 </ul>
                 <div className="lg:hidden">
                     <button
@@ -78,14 +93,14 @@ const Navbar = () => {
                                         <NavLink
                                             to="/"
                                             aria-label="  FreelanceNation"
-                                            title="  FreelanceNation"
+                                            title="FreelanceNation"
                                             className="inline-flex items-center"
                                         >
 
                                             <img className='w-14 h-14 rounded-lg' src={logo} alt="sell phone bd" />
 
                                             <span className="ml-2 text-xl font-bold tracking-wide text-green-500 uppercase">
-                                                  FreelanceNation
+                                                FreelanceNation
                                             </span>
                                         </NavLink>
                                     </div>
@@ -107,22 +122,39 @@ const Navbar = () => {
                                 </div>
                                 <nav>
                                     <ul className="space-y-4">
+
+
                                         <li>
                                             <NavLink
                                                 style={({ isActive }) =>
                                                     isActive ? activeStyle : undefined
                                                 }
-                                                to="/home"
-                                                aria-label="home"
-                                                title="home"
+                                                to="/"
+                                                aria-label="explore"
+                                                title="explore"
                                                 className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-deep-purple-accent-400"
                                             >
-                                                Home
+                                                Explore
+                                            </NavLink>
+                                        </li>
+                                        <li>
+                                            <NavLink
+                                                style={({ isActive }) =>
+                                                    isActive ? activeStyle : undefined
+                                                }
+                                                to="/becomeASeller"
+                                                aria-label="Become a Seller"
+                                                title="Become a Seller"
+                                                className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                                            >
+                                                Become a Seller
                                             </NavLink>
                                         </li>
 
-                                        
-                                        
+                                        <li>
+                                        <button className='btn p-3 bg-green-400 hover:bg-green-500 border-none text-white rounded-xl'>Join</button>
+                                        </li>
+
                                     </ul>
                                 </nav>
                             </div>

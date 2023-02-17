@@ -1,5 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
+import BecomeASeller from "../BecomeASeller/BecomeASeller";
 import Home from "../Home/Home/Home";
+import JoinForm from "../JoinForm/JoinForm";
 import Main from "../Layout/Main";
 
 export const router = createBrowserRouter([{
@@ -7,12 +9,17 @@ export const router = createBrowserRouter([{
     element: <Main></Main>,
     children:[
         {
-            path:'/home',
+            path:'/',
             element: <Home></Home>,
         },
         {
-            path:'/',
-            element: <Home></Home>,
-        }
+            path:'/becomeASeller',
+            element: <BecomeASeller></BecomeASeller>,
+        },
+        {
+            path:'/join',
+            element: <JoinForm></JoinForm>,
+        },
+
     ]
 }])
