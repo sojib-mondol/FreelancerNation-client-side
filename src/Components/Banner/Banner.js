@@ -12,7 +12,7 @@ const Banner = () => {
                     <div>
                         <div className="relative flex flex-col md:flex-row items-center mt-2">
                             <span className="absolute pl-5">
-                                <FaSistrix className='text-slate-400 text-xl text-start' ></FaSistrix>
+                                <FaSistrix className='text-slate-400 text-xl text-start hidden md:block' ></FaSistrix>
                             </span>
 
                             <input type="email" placeholder={`Try "building mobile app"`} className="block w-full py-2.5 text-gray-700 placeholder-gray-400/70 bg-white pl-11 pr-5 rtl:pr-11 rtl:pl-5 dark:text-gray-300 dark:focus:border-blue-300 focus:outline-none " />

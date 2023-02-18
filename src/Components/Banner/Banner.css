@@ -8,18 +8,18 @@
 
     0%,
     100% {
-        background-image: url(../../assets/hero-banner-1.jpg);
-    }
-
-    25% {
         background-image: url(../../assets/hero-banner-2.jpg);
     }
 
-    50% {
+    25% {
         background-image: url(../../assets/hero-banner-3.jpg);
     }
 
-    75% {
+    50% {
         background-image: url(../../assets/hero-banner-4.jpg);
+    }
+
+    75% {
+        background-image: url(../../assets/hero-banner-5.jpg);
     }
 }
