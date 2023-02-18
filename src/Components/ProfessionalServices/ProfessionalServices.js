@@ -18,50 +18,50 @@ const servicesImgs = [
 
     },
     {
-        name: "AI Artists",
-        shortDes: "Add talent to AI",
+        name: "SEO",
+        shortDes: "Unlock growth online",
         image: "seo.jpg",
         id: 4
 
     },
     {
-        name: "AI Artists",
-        shortDes: "Add talent to AI",
+        name: "Social Media",
+        shortDes: "Reach more customers",
         image: "social-media.jpg",
         id: 5
 
     },
     {
-        name: "AI Artists",
-        shortDes: "Add talent to AI",
+        name: "Logo Design",
+        shortDes: "Build your brand",
         image: "logo-design.jpg",
         id: 3
 
     },
     {
-        name: "AI Artists",
-        shortDes: "Add talent to AI",
+        name: "Video Explainer",
+        shortDes: "Engage your audience",
         image: "video-explainer.jpg",
         id: 6
 
     },
     {
-        name: "AI Artists",
-        shortDes: "Add talent to AI",
+        name: "Voice Over",
+        shortDes: "Share your message",
         image: "voice-over.jpg",
         id: 7
 
     },
     {
-        name: "AI Artists",
-        shortDes: "Add talent to AI",
+        name: "WordPress",
+        shortDes: "Customize your site",
         image: "wordpress.jpg",
         id: 8
 
     },
     {
-        name: "AI Artists",
-        shortDes: "Add talent to AI",
+        name: "illustration",
+        shortDes: "Color your dream",
         image: "illustration.jpg",
         id: 2
 
@@ -94,6 +94,10 @@ const ProfessionalServices = () => {
                         slidesPerView: 3,
                         spaceBetween: 30,
                     },
+                    1280: {
+                        slidesPerView: 5,
+                        spaceBetween: 20,
+                    }
                 }}
             >
                 {servicesImgs.map(service => {
