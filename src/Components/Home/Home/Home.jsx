@@ -1,9 +1,10 @@
 import React from 'react';
+import FeatureBanner from '../../FeatuteBanner/FeatureBanner';
 
 const Home = () => {
     return (
         <div>
-            This is the Home component
+            <FeatureBanner></FeatureBanner>
         </div>
     );
 };
