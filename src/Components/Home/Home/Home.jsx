@@ -1,9 +1,12 @@
 import React from 'react';
+import Explore from '../../Explore/Explore';
+import FeatureBanner from '../../FeatuteBanner/FeatureBanner';
 
 const Home = () => {
     return (
         <div>
-            This is the Home component
+            <FeatureBanner></FeatureBanner>
+            <Explore></Explore>
         </div>
     );
 };
