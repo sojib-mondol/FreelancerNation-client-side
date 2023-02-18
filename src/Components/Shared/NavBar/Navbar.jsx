@@ -32,7 +32,7 @@ const Navbar = () => {
                 </NavLink>
 
 
-                <ul className="flex items-center hidden space-x-8 lg:flex">
+                <ul className="flex items-center hidden space-x-8 lg:flex font-roboto">
                     <li>
                         <NavLink
                             style={({ isActive }) =>
