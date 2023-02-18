@@ -7,7 +7,7 @@ const Banner = () => {
             <div className='grid grid-cols-1 justify-center items-center'>
                 <div className='my-20 xl:mt-52 md:w-11/12 lg:w-8/12 xl:w-7/12 text-white'>
                     <div>
-                        <h1 className=' text-3xl xl:text-5xl leading-snug font-semibold'>Find the perfect <i>freelance</i> services for your business</h1>
+                        <h1 className=' text-3xl xl:text-5xl leading-snug font-semibold mb-5'>Find the perfect <i>freelance</i> services for your business</h1>
                     </div>
                     <div>
                         <div className="relative flex flex-col md:flex-row items-center mt-2">
