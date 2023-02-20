@@ -3,10 +3,10 @@ import React from 'react';
 const BusinessSection = () => {
     return (
         <div>
-<<<<<<< HEAD
+
             <h3>Get inspired with projects made by our freelancers</h3>
             
-=======
+
            <section className='bg-[#0d084d]'>
                 <div className='container flex flex-col px-6 py-10 mx-auto space-y-6 lg:h-[40rem] lg:py-16 lg:flex-row lg:items-center'>
                     <div className='w-full lg:w-1/2'>
@@ -102,7 +102,7 @@ const BusinessSection = () => {
                     </div>
                 </div>
             </section>
->>>>>>> deebddce163d6406710eccaa04c94c1bf8156a73
+
         </div>
     );
 };
