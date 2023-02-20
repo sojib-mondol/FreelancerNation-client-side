@@ -34,18 +34,15 @@ const Navbar = () => {
 
                 <ul className="flex items-center hidden space-x-8 lg:flex font-roboto">
                     <li>
-                        <NavLink
-                            style={({ isActive }) =>
-                                isActive ? activeStyle : undefined
-                            }
-                            to="/"
+                        <p
                             aria-label="explore"
                             title="explore"
                             className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-deep-purple-accent-400"
                         >
                             Explore
-                        </NavLink>
+                        </p>
                     </li>
+
                     <li>
                         <NavLink
                             style={({ isActive }) =>
@@ -125,17 +122,13 @@ const Navbar = () => {
 
 
                                         <li>
-                                            <NavLink
-                                                style={({ isActive }) =>
-                                                    isActive ? activeStyle : undefined
-                                                }
-                                                to="/"
+                                            <p
                                                 aria-label="explore"
                                                 title="explore"
                                                 className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-deep-purple-accent-400"
                                             >
                                                 Explore
-                                            </NavLink>
+                                            </p>
                                         </li>
                                         <li>
                                             <NavLink
