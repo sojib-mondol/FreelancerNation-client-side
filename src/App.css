@@ -28,10 +28,28 @@
   color: #61dafb;
 }
 
+/* Swiper slider custom code */
+.swiper-button-next,
+.swiper-button-prev {
+  color: black;
+  background-color: white;
+  padding: 15px;
+  border-radius: 50%;
+  padding: 20px;
+}
+
+.swiper-button-next:after,
+.swiper-button-prev:after {
+  font-size: 15px !important;
+  font-weight: 700;
+}
+
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
