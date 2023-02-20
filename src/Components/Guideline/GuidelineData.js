@@ -1,6 +1,6 @@
-import image1 from "../../../assets/guideline-image/guideline-1.jpg"
-import image2 from "../../../assets/guideline-image/guideline-2.jpg"
-import image3 from "../../../assets/guideline-image/guideline-3.jpg"
+import image1 from "../../assets/guideline-image/guideline-1.jpg"
+import image2 from "../../assets/guideline-image/guideline-2.jpg"
+import image3 from "../../assets/guideline-image/guideline-3.jpg"
 export const guidelineData = [
     {
         id: 1, 

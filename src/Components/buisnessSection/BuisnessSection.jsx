@@ -98,6 +98,7 @@ const BusinessSection = () => {
                     </div>
                 </div>
             </section>
+
         </div>
     );
 };
