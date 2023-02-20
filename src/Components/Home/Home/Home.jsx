@@ -16,17 +16,17 @@ const Home = () => {
             <BusinessSection></BusinessSection>
 
 
-<<<<<<< HEAD
-            <FreelancerNationGuid></FreelancerNationGuid>
+
+            {/* <FreelancerNationGuid></FreelancerNationGuid> */}
 
 
             <Guideline/> 
             <TalentBanner/>
-=======
+
             <Guideline/>
             <TalentBanner />
             
->>>>>>> deebddce163d6406710eccaa04c94c1bf8156a73
+
 
         </div>
     );
