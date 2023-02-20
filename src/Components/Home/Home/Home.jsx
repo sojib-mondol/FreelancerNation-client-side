@@ -2,10 +2,10 @@ import React from 'react';
 import BusinessSection from '../../buisnessSection/BuisnessSection';
 import Explore from '../../Explore/Explore';
 import FeatureBanner from '../../FeatuteBanner/FeatureBanner';
-import FreelancerNationGuid from '../../freelancerNationGuide/FreelancerNationGuid';
+import Guideline from '../../Guideline/Guideline';
 import ReviewSlider from '../../ReviewSlider/ReviewSlider';
-import Guideline from '../Guideline/Guideline';
-import TalentBanner from '../TalentBanner/TalentBanner';
+import TalentBanner from '../../TalentBanner/TalentBanner';
+
 
 const Home = () => {
     return (
@@ -16,11 +16,17 @@ const Home = () => {
             <BusinessSection></BusinessSection>
 
 
+<<<<<<< HEAD
             <FreelancerNationGuid></FreelancerNationGuid>
 
 
             <Guideline/> 
             <TalentBanner/>
+=======
+            <Guideline/>
+            <TalentBanner />
+            
+>>>>>>> deebddce163d6406710eccaa04c94c1bf8156a73
 
         </div>
     );
