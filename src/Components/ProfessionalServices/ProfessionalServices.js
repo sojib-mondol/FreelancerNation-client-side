@@ -71,7 +71,7 @@ const servicesImgs = [
 
 const ProfessionalServices = () => {
     return (
-        <div className='px-4 py-5 mx-auto md:px-24 my-10 xl:my-24'>
+        <div className='px-4 py-5 mx-auto md:px-14 my-10 xl:my-24'>
             <h2 className="text-2xl xl:text-4xl font-bold mb-5 text-[#1f2937]">Popular professional services</h2>
             <Swiper
                 spaceBetween={30}
@@ -101,8 +101,8 @@ const ProfessionalServices = () => {
                 }}
             >
                 {servicesImgs.map(service => {
-                    return <SwiperSlide key={service.id} className="rounded-xl">
-                        <div className='relative transition-all'>
+                    return <SwiperSlide key={service.id} className="rounded-xl ">
+                        <div className='relative transition-all w-full h-72'>
                             <img src={service.image} alt="service_image" className='h-72 w-full rounded-xl' />
                             <div className='absolute top-2 text-white px-5'>
                                 <span className='text-sm'>{service.shortDes}</span>
