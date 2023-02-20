@@ -19,7 +19,7 @@ const Home = () => {
             <FreelancerNationGuid></FreelancerNationGuid>
 
 
-            <Guideline/>
+            <Guideline/> 
             <TalentBanner/>
 
         </div>
