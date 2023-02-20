@@ -17,7 +17,8 @@ const Home = () => {
 
 
             <Guideline/>
-            <TalentBanner/>
+            <TalentBanner />
+            
 
         </div>
     );
