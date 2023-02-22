@@ -1,13 +1,15 @@
 import { createBrowserRouter } from "react-router-dom";
 import BecomeASeller from "../BecomeASeller/BecomeASeller";
+import Error from "../Error/Error";
 import Home from "../Home/Home/Home";
-import JoinForm from "../JoinForm/JoinForm";
+import Login from "../JoinForm/Login";
 import Main from "../Layout/Main";
 import Registration from "../Registration/Registration";
 
 export const router = createBrowserRouter([{
     path: '/',
     element: <Main></Main>,
+    errorElement: <Error></Error>,
     children: [
         {
             path: '/',
@@ -18,8 +20,8 @@ export const router = createBrowserRouter([{
             element: <BecomeASeller></BecomeASeller>,
         },
         {
-            path: '/join',
-            element: <JoinForm></JoinForm>,
+            path: '/login',
+            element: <Login></Login>
         },
         {
             path: '/registration',
