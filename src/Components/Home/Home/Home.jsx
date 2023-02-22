@@ -12,12 +12,12 @@ const Home = () => {
         <div>
             <Banner />
             <ProfessionalServices />
-            <FeatureBanner></FeatureBanner>
-            <Explore></Explore>
-            <ReviewSlider></ReviewSlider>
-            <BusinessSection></BusinessSection>
-            <Guideline/> 
-            <TalentBanner/>
+            <FeatureBanner />
+            <Explore />
+            <ReviewSlider />
+            <BusinessSection />
+            <Guideline /> 
+            <TalentBanner />
         </div>
     );
 };

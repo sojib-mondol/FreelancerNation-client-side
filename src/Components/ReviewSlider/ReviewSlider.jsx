@@ -15,7 +15,7 @@ import Slider from "./slider/Slider";
 
 const ReviewSlider = () => {
     return (
-        <div className='font-roboto my-10'>
+        <div className='font-roboto py-10'>
            
             <Swiper
                 slidesPerView={1}
