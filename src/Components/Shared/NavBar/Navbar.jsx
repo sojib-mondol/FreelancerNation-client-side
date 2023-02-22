@@ -148,13 +148,13 @@ const Navbar = () => {
                                         </li>
 
                                         <li>
-<<<<<<< HEAD
+
                                             <button className='btn p-3 bg-green-400 hover:bg-green-500 border-none text-white rounded-xl'>Join</button>
-=======
+
                                         <Link to="/login">
                                         <button className='btn p-3 bg-green-400 hover:bg-green-500 border-none text-white rounded-xl'>Join</button>
                                         </Link>
->>>>>>> 3c74846dad4370aee727bdc0c5a6479590301707
+
                                         </li>
 
                                     </ul>
