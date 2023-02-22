@@ -3,6 +3,8 @@ import { FaChevronRight } from "react-icons/fa";
 import GuidelineCard from "./GuidelineCard";
 import { guidelineData } from "./GuidelineData";
 
+
+
 const Guideline = () => {
   return (
     <section className="guideline px-4 py-5 mx-auto md:px-24 mt-10">
