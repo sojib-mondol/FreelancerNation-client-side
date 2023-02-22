@@ -2,15 +2,15 @@ import React from "react";
 
 const SubFooter = () => {
   return (
-    <footer class='bg-slate-50 py-6 lg:py-8'>
-      <div class='max-w-7xl mx-auto px-4 lg:px-8'>
-        <div class='flex items-center justify-between'>
-          <div class='text-gray-400 text-sm lg:text-base'>
-            <span class='mr-2'>&copy; 2023 Freelance Nation</span>
+    <footer className='bg-slate-50 py-6 lg:py-8'>
+      <div className='max-w-7xl mx-auto px-4 lg:px-8'>
+        <div className='flex items-center justify-between'>
+          <div className='text-gray-400 text-sm lg:text-base'>
+            <span className='mr-2'>&copy; 2023 Freelance Nation</span>
             <span>All Rights Reserved.</span>
           </div>
-          <div class='flex space-x-4'>
-            <a href='#' class='text-gray-400 hover:text-gray-300'>
+          <div className='flex space-x-4'>
+            <a href='#' className='text-gray-400 hover:text-gray-300'>
               <svg
                 fill='#000000'
                 width='64px'
@@ -19,20 +19,20 @@ const SubFooter = () => {
                 version='1.1'
                 xmlns='http://www.w3.org/2000/svg'
               >
-                <g id='SVGRepo_bgCarrier' stroke-width='0'></g>
+                <g id='SVGRepo_bgCarrier' strokeWidth='0'></g>
                 <g
                   id='SVGRepo_tracerCarrier'
-                  stroke-linecap='round'
-                  stroke-linejoin='round'
+                  strokeLinecap='round'
+                  strokeLinejoin='round'
                 ></g>
                 <g id='SVGRepo_iconCarrier'>
-                  
+
                   <title>facebook</title>{" "}
                   <path d='M30.996 16.091c-0.001-8.281-6.714-14.994-14.996-14.994s-14.996 6.714-14.996 14.996c0 7.455 5.44 13.639 12.566 14.8l0.086 0.012v-10.478h-3.808v-4.336h3.808v-3.302c-0.019-0.167-0.029-0.361-0.029-0.557 0-2.923 2.37-5.293 5.293-5.293 0.141 0 0.281 0.006 0.42 0.016l-0.018-0.001c1.199 0.017 2.359 0.123 3.491 0.312l-0.134-0.019v3.69h-1.892c-0.086-0.012-0.185-0.019-0.285-0.019-1.197 0-2.168 0.97-2.168 2.168 0 0.068 0.003 0.135 0.009 0.202l-0.001-0.009v2.812h4.159l-0.665 4.336h-3.494v10.478c7.213-1.174 12.653-7.359 12.654-14.814v-0z'></path>{" "}
                 </g>
               </svg>
             </a>
-            <a href='#' class='text-gray-400 hover:text-gray-300'>
+            <a href='#' className='text-gray-400 hover:text-gray-300'>
               <svg
                 width='64px'
                 height='64px'
@@ -40,31 +40,31 @@ const SubFooter = () => {
                 fill='none'
                 xmlns='http://www.w3.org/2000/svg'
               >
-                <g id='SVGRepo_bgCarrier' stroke-width='0'></g>
+                <g id='SVGRepo_bgCarrier' strokeWidth='0'></g>
                 <g
                   id='SVGRepo_tracerCarrier'
-                  stroke-linecap='round'
-                  stroke-linejoin='round'
+                  strokeLinecap='round'
+                  strokeLinejoin='round'
                 ></g>
                 <g id='SVGRepo_iconCarrier'>
-                  
+
                   <circle cx='24' cy='24' r='20' fill='#000000'></circle>{" "}
                   <path
-                    fill-rule='evenodd'
-                    clip-rule='evenodd'
+                    fillRule='evenodd'
+                    clipRule='evenodd'
                     d='M18.7747 14.2839C18.7747 15.529 17.8267 16.5366 16.3442 16.5366C14.9194 16.5366 13.9713 15.529 14.0007 14.2839C13.9713 12.9783 14.9193 12 16.3726 12C17.8267 12 18.7463 12.9783 18.7747 14.2839ZM14.1199 32.8191V18.3162H18.6271V32.8181H14.1199V32.8191Z'
                     fill='white'
                   ></path>
                   <path
-                    fill-rule='evenodd'
-                    clip-rule='evenodd'
+                    fillRule='evenodd'
+                    clipRule='evenodd'
                     d='M22.2393 22.9446C22.2393 21.1357 22.1797 19.5935 22.1201 18.3182H26.0351L26.2432 20.305H26.3322C26.9254 19.3854 28.4079 17.9927 30.8101 17.9927C33.7752 17.9927 35.9995 19.9502 35.9995 24.219V32.821H31.4922V24.7838C31.4922 22.9144 30.8404 21.6399 29.2093 21.6399C27.9633 21.6399 27.2224 22.4999 26.9263 23.3297C26.8071 23.6268 26.7484 24.0412 26.7484 24.4574V32.821H22.2411V22.9446H22.2393Z'
                     fill='white'
                   ></path>{" "}
                 </g>
               </svg>
             </a>
-            <a href='#' class='text-gray-400 hover:text-gray-300'>
+            <a href='#' className='text-gray-400 hover:text-gray-300'>
               <svg
                 width='64px'
                 height='64px'
@@ -72,11 +72,11 @@ const SubFooter = () => {
                 xmlns='http://www.w3.org/2000/svg'
                 fill='#000000'
               >
-                <g id='SVGRepo_bgCarrier' stroke-width='0'></g>
+                <g id='SVGRepo_bgCarrier' strokeWidth='0'></g>
                 <g
                   id='SVGRepo_tracerCarrier'
-                  stroke-linecap='round'
-                  stroke-linejoin='round'
+                  strokeLinecap='round'
+                  strokeLinejoin='round'
                 ></g>
                 <g id='SVGRepo_iconCarrier'>
                   {" "}
