@@ -2,7 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import BecomeASeller from "../BecomeASeller/BecomeASeller";
 import Error from "../Error/Error";
 import Home from "../Home/Home/Home";
-import JoinForm from "../JoinForm/JoinForm";
+import Login from "../JoinForm/Login";
 import Main from "../Layout/Main";
 
 export const router = createBrowserRouter([{
@@ -19,8 +19,8 @@ export const router = createBrowserRouter([{
             element: <BecomeASeller></BecomeASeller>,
         },
         {
-            path:'/join',
-            element: <JoinForm></JoinForm>,
+            path:'/login',
+            element: <Login></Login>
         },
 
     ]

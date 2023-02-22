@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import logo from '../../../assets/logo.png'
 
 
@@ -56,8 +56,11 @@ const Navbar = () => {
                             Become a Seller
                         </NavLink>
                     </li>
+
                     <li>
+                        <Link to="/login">
                         <button className='btn p-3 bg-green-400 hover:bg-green-500 border-none text-white rounded-xl' >Join</button>
+                        </Link>
                     </li>
                 </ul>
                 <div className="lg:hidden">
@@ -83,7 +86,7 @@ const Navbar = () => {
                         </svg>
                     </button>
                     {isMenuOpen && (
-                        <div className="z-10 absolute top-0 left-0 w-full">
+                        <div className="z-30 absolute top-0 left-0 w-full">
                             <div className="p-5 bg-gray-900 border rounded shadow-sm">
                                 <div className="flex items-center justify-between mb-4">
                                     <div>
@@ -145,7 +148,9 @@ const Navbar = () => {
                                         </li>
 
                                         <li>
+                                        <Link to="/login">
                                         <button className='btn p-3 bg-green-400 hover:bg-green-500 border-none text-white rounded-xl'>Join</button>
+                                        </Link>
                                         </li>
 
                                     </ul>
