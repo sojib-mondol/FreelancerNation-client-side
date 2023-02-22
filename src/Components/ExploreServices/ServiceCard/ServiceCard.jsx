@@ -1,20 +1,30 @@
-import React from 'react';
+import React from "react";
 
 const ServiceCard = ({ singleCategory }) => {
-    console.log(singleCategory);
-    return (
-        <div class="lg:flex">
-                <img class="object-cover w-full h-56 rounded-lg lg:w-64" src="https://images.unsplash.com/photo-1515378960530-7c0da6231fb1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" alt=""/>
+  // console.log(singleCategory);
+  const { service_name, service_image } = singleCategory;
+  return (
+    <div class='flex flex-col justify-center items-center text-4xl'>
+      <img
+        class='object-cover w-full h-56 rounded-lg lg:w-64'
+        src={service_image}
+        alt={service_name}
+      />
 
-                <div class="flex flex-col justify-between py-6 lg:mx-6">
-                    <a href="/" class="text-xl font-semibold text-gray-800 hover:underline dark:text-white ">
-                        How to use sticky note for problem solving
-                    </a>
-                    
-                    <span class="text-sm text-gray-500 dark:text-gray-300">On: 20 October 2019</span>
-                </div>
-            </div>
-    );
+      <div class='flex flex-col justify-between py-6 lg:mx-6'>
+        <p class='text-xl font-semibold font-roboto text-gray-900 mb-3'>
+          {service_name}
+        </p>
+
+        <button class='group relative border-green-500 h-12 w-48 overflow-hidden rounded-lg bg-white text-lg shadow'>
+          <div class='absolute inset-0 w-3 bg-green-500 transition-all duration-[250ms] ease-out group-hover:w-full'></div>
+          <span class='relative text-black group-hover:text-white font-roboto'>
+            Join
+          </span>
+        </button>
+      </div>
+    </div>
+  );
 };
 
 export default ServiceCard;

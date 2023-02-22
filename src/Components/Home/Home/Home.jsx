@@ -16,7 +16,7 @@ const Home = () => {
             <Explore />
             <ReviewSlider />
             <BusinessSection />
-            <Guideline /> 
+            <Guideline />
             <TalentBanner />
         </div>
     );
