@@ -1,0 +1,127 @@
+[
+  {
+    
+    "service_name": "Writing",
+    "service_image": "https://i.ibb.co/LC5rMjz/Writing.jpg"
+  },
+  {
+   
+    "service_name": "Graphic Design",
+    "service_image": "https://i.ibb.co/sjLhJRV/Graphic-Design.jpg"
+  },
+  {
+    
+    "service_name": "Web Design",
+    "service_image": "https://i.ibb.co/LJScyB6/Web-Development.jpg"
+  },
+  {
+    
+    "service_name": "Social Media Management",
+    "service_image": "https://i.ibb.co/xXjqfKz/Social-Media-Management.jpg"
+  },
+  {
+    
+    "service_name": "Video Editing",
+    "service_image": "https://i.ibb.co/XZ0NfQW/Video-Editing.jpg"
+  },
+  {
+    
+    "service_name": "Translation Services",
+    "service_image": "https://i.ibb.co/ZcGd9S7/Translate.jpg"
+  },
+  {
+    
+    "service_name": "Copywriting",
+    "service_image": "https://i.ibb.co/ck8pSvK/Copywrite.jpg"
+  },
+  {
+    
+    "service_name": "SEO Services",
+    "service_image": "https://i.ibb.co/7bSBWQm/SEO.jpg"
+  },
+  {
+    
+    "service_name": "Content Marketing",
+    "service_image": "https://i.ibb.co/hCLY4tK/Content-Marketing.jpg"
+  },
+  {
+    
+    "service_name": "Photography",
+    "service_image": "https://i.ibb.co/sPDyLzj/Photography.jpg"
+  },
+  {
+    
+    "service_name": "Voice Over Services",
+    "service_image": "https://i.ibb.co/KmWFYtr/Voice-Over.jpg"
+  },
+  {
+    
+    "service_name": "Virtual Assistance",
+    "service_image": "https://i.ibb.co/vZJtXyB/Virtual-Assistant.jpg"
+  },
+  {
+    
+    "service_name": "Logo Design",
+    "service_image": "https://example.com/images/logo-design.png"
+  },
+  {
+    
+    "service_name": "Illustration",
+    "service_image": "https://i.ibb.co/mHd5w5T/Illustration.jpg"
+  },
+  {
+    
+    "service_name": "Animation",
+    "service_image": "https://i.ibb.co/qJcQxFp/Animation.jpg"
+  },
+  {
+    
+    "service_name": "Mobile App Development",
+    "service_image": "https://i.ibb.co/9r3pGLD/App-Development.jpg"
+  },
+  {
+    
+    "service_name": "Web Development",
+    "service_image": "https://example.com/images/web-development.png"
+  },
+  {
+    
+    "service_name": "E-commerce Development",
+    "service_image": "https://example.com/images/ecommerce-development.png"
+  },
+  {
+    
+    "service_name": "Game Development",
+    "service_image": "https://example.com/images/game-development.png"
+  },
+  {
+    
+    "service_name": "UX/UI Design",
+    "service_image": "https://example.com/images/ux-ui-design.png"
+  },
+  {
+    
+    "service_name": "Accounting and Bookkeeping",
+    "service_image": "https://example.com/images/accounting-and-bookkeeping.png"
+  },
+  {
+    
+    "service_name": "Business Consulting",
+    "service_image": "https://example.com/images/business-consulting.png"
+  },
+  {
+    
+    "service_name": "Legal Services",
+    "service_image": "https://example.com/images/legal-services.png"
+  },
+  {
+    
+    "service_name": "Financial Planning",
+    "service_image": "https://example.com/images/financial-planning.png"
+  },
+  {
+    
+    "service_name": "Project Management",
+    "service_image": "https://example.com/images/project-management.png"
+  }
+]
