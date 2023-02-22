@@ -3,23 +3,28 @@ import BecomeASeller from "../BecomeASeller/BecomeASeller";
 import Home from "../Home/Home/Home";
 import JoinForm from "../JoinForm/JoinForm";
 import Main from "../Layout/Main";
+import Registration from "../Registration/Registration";
 
 export const router = createBrowserRouter([{
     path: '/',
     element: <Main></Main>,
-    children:[
+    children: [
         {
-            path:'/',
+            path: '/',
             element: <Home></Home>,
         },
         {
-            path:'/becomeASeller',
+            path: '/becomeASeller',
             element: <BecomeASeller></BecomeASeller>,
         },
         {
-            path:'/join',
+            path: '/join',
             element: <JoinForm></JoinForm>,
         },
+        {
+            path: '/registration',
+            element: <Registration></Registration>
+        }
 
     ]
 }])

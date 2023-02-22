@@ -16,17 +16,9 @@ const Home = () => {
             <BusinessSection></BusinessSection>
 
 
-<<<<<<< HEAD
-            <FreelancerNationGuid></FreelancerNationGuid>
-
-
-            <Guideline/> 
-            <TalentBanner/>
-=======
-            <Guideline/>
+            <Guideline />
             <TalentBanner />
-            
->>>>>>> deebddce163d6406710eccaa04c94c1bf8156a73
+
 
         </div>
     );

@@ -1,10 +1,13 @@
 import React from 'react';
 
+
 const JoinForm = () => {
     return (
         <div>
-            join form here
+
+            <h2>Login</h2>
         </div>
+
     );
 };
 
