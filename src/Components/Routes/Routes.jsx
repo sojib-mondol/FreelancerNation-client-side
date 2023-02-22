@@ -4,24 +4,29 @@ import Error from "../Error/Error";
 import Home from "../Home/Home/Home";
 import Login from "../JoinForm/Login";
 import Main from "../Layout/Main";
+import Registration from "../Registration/Registration";
 
 export const router = createBrowserRouter([{
     path: '/',
     element: <Main></Main>,
     errorElement: <Error></Error>,
-    children:[
+    children: [
         {
-            path:'/',
+            path: '/',
             element: <Home></Home>,
         },
         {
-            path:'/becomeASeller',
+            path: '/becomeASeller',
             element: <BecomeASeller></BecomeASeller>,
         },
         {
-            path:'/login',
+            path: '/login',
             element: <Login></Login>
         },
+        {
+            path: '/registration',
+            element: <Registration></Registration>
+        }
 
     ]
 }])
