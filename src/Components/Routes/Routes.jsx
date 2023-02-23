@@ -8,6 +8,7 @@ import Main from "../Layout/Main";
 import Registration from "../Registration/Registration";
 import SellerRegistrationForm from "../SellerRegForm/SellerRegForm";
 
+
 export const router = createBrowserRouter([{
     path: '/',
     element: <Main></Main>,
