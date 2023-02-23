@@ -3,26 +3,26 @@ import { Link } from "react-router-dom";
 
 const BecomeASeller = () => {
   return (
-    <section class='pt-24 bg-white py-10'>
-      <div class='px-12 mx-auto max-w-7xl'>
-        <div class='w-full mx-auto text-left md:w-11/12 xl:w-9/12 md:text-center'>
-          <h1 class='mb-8 text-4xl font-extrabold leading-none tracking-normal text-gray-900 md:text-6xl md:tracking-tight'>
+    <section className='pt-24 bg-white py-10'>
+      <div className='px-12 mx-auto max-w-7xl'>
+        <div className='w-full mx-auto text-left md:w-11/12 xl:w-9/12 md:text-center'>
+          <h1 className='mb-8 text-4xl font-extrabold leading-none tracking-normal text-gray-900 md:text-6xl md:tracking-tight'>
             <span>Get paid for doing</span>{" "}
-            <span class='block w-full py-2 text-transparent bg-clip-text leading-12 bg-gradient-to-r from-green-400 to-purple-500 lg:inline'>
+            <span className='block w-full py-2 text-transparent bg-clip-text leading-12 bg-gradient-to-r from-green-400 to-purple-500 lg:inline'>
               what you love
             </span>{" "}
             <span>on our freelancing platform</span>
           </h1>
-          <p class='px-0 mb-8 text-lg text-gray-600 md:text-xl lg:px-24'>
+          <p className='px-0 mb-8 text-lg text-gray-600 md:text-xl lg:px-24'>
             Revolutionizing the Freelancing Industry: Discover a Better Way to
             Work...
           </p>
-          <div class='mb-4 space-x-0 md:space-x-2 md:mb-8'>
+          <div className='mb-4 space-x-0 md:space-x-2 md:mb-8'>
             <Link to='service_category'>
-              <button class='inline-flex items-center justify-center w-full px-6 py-3 mb-2 text-lg text-white bg-green-500 rounded-2xl sm:w-auto sm:mb-0'>
+              <button className='inline-flex items-center justify-center w-full px-6 py-3 mb-2 text-lg text-white bg-green-500 rounded-2xl sm:w-auto sm:mb-0'>
                 Get Started
                 <svg
-                  class='w-4 h-4 ml-1'
+                  className='w-4 h-4 ml-1'
                   xmlns='http://www.w3.org/2000/svg'
                   viewBox='0 0 20 20'
                   fill='currentColor'
@@ -36,10 +36,10 @@ const BecomeASeller = () => {
               </button>
             </Link>
             <Link>
-              <button class='inline-flex items-center justify-center w-full px-6 py-3 mb-2 text-lg bg-gray-100 rounded-2xl sm:w-auto sm:mb-0'>
+              <button className='inline-flex items-center justify-center w-full px-6 py-3 mb-2 text-lg bg-gray-100 rounded-2xl sm:w-auto sm:mb-0'>
                 Learn More
                 <svg
-                  class='w-4 h-4 ml-1'
+                  className='w-4 h-4 ml-1'
                   fill='none'
                   stroke='currentColor'
                   viewBox='0 0 24 24'
@@ -56,14 +56,14 @@ const BecomeASeller = () => {
             </Link>
           </div>
         </div>
-        <div class='w-full mx-auto mt-20 text-center md:w-10/12'>
-          <div class='relative z-0 w-full mt-8'>
-            <div class='relative overflow-hidden shadow-2xl'>
-              <div class='flex items-center flex-none px-4 bg-green-500 rounded-b-none h-11 rounded-xl'>
-                <div class='flex space-x-1.5'>
-                  <div class='w-3 h-3 border-2 border-white rounded-full'></div>
-                  <div class='w-3 h-3 border-2 border-white rounded-full'></div>
-                  <div class='w-3 h-3 border-2 border-white rounded-full'></div>
+        <div className='w-full mx-auto mt-20 text-center md:w-10/12'>
+          <div className='relative z-0 w-full mt-8'>
+            <div className='relative overflow-hidden shadow-2xl'>
+              <div className='flex items-center flex-none px-4 bg-green-500 rounded-b-none h-11 rounded-xl'>
+                <div className='flex space-x-1.5'>
+                  <div className='w-3 h-3 border-2 border-white rounded-full'></div>
+                  <div className='w-3 h-3 border-2 border-white rounded-full'></div>
+                  <div className='w-3 h-3 border-2 border-white rounded-full'></div>
                 </div>
               </div>
               <img
