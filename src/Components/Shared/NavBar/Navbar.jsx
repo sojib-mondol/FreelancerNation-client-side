@@ -148,9 +148,19 @@ const Navbar = () => {
                                         </li>
 
                                         <li>
+<<<<<<< HEAD
                                             <Link to="/login">
                                                 <button className='btn p-3 bg-green-400 hover:bg-green-500 border-none text-white rounded-xl'>Join</button>
                                             </Link>
+=======
+
+                                            <button className='btn p-3 bg-green-400 hover:bg-green-500 border-none text-white rounded-xl'>Join</button>
+
+                                        <Link to="/login">
+                                        <button className='btn p-3 bg-green-400 hover:bg-green-500 border-none text-white rounded-xl'>Join</button>
+                                        </Link>
+
+>>>>>>> 43ea426f68feddb909b1f2e5d2e287bfa5f1f8dc
                                         </li>
 
                                     </ul>

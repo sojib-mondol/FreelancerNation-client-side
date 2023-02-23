@@ -1,6 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import BecomeASeller from "../BecomeASeller/BecomeASeller";
 import Error from "../Error/Error";
+import ExploreService from "../ExploreServices/ExploreService";
 import Home from "../Home/Home/Home";
 import Login from "../JoinForm/Login";
 import Main from "../Layout/Main";
@@ -25,9 +26,15 @@ export const router = createBrowserRouter([{
             element: <Login></Login>
         },
         {
+
+            path:'/becomeASeller/service_category',
+            element: <ExploreService></ExploreService>,
+        },
+        {
             path: '/registration',
             element: <Registration></Registration>
         }
+
 
     ]
 }])
