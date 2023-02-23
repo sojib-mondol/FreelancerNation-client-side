@@ -6,6 +6,7 @@ import Login from "../JoinForm/Login";
 import Main from "../Layout/Main";
 import Registration from "../Registration/Registration";
 
+
 export const router = createBrowserRouter([{
     path: '/',
     element: <Main></Main>,
