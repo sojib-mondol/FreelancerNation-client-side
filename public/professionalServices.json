@@ -1,0 +1,50 @@
+[
+    {
+        "name": "AI Artists",
+        "shortDes": "Add talent to AI",
+        "image": "https://i.ibb.co/5Y7QNdr/ai-artics.jpg",
+        "id": 1
+    },
+    {
+        "name": "SEO",
+        "shortDes": "Unlock growth online",
+        "image": "https://i.ibb.co/800QjfS/seo.jpg",
+        "id": 4
+    },
+    {
+        "name": "Social Media",
+        "shortDes": "Reach more customers",
+        "image": "https://i.ibb.co/sHz2h0k/social-media.jpg",
+        "id": 5
+    },
+    {
+        "name": "Logo Design",
+        "shortDes": "Build your brand",
+        "image": "https://i.ibb.co/R44sLfK/logo-design.jpg",
+        "id": 3
+    },
+    {
+        "name": "Video Explainer",
+        "shortDes": "Engage your audience",
+        "image": "https://i.ibb.co/M2dybNn/video-explainer.jpg",
+        "id": 6
+    },
+    {
+        "name": "Voice Over",
+        "shortDes": "Share your message",
+        "image": "https://i.ibb.co/pjZNqNc/voice-over.jpg",
+        "id": 7
+    },
+    {
+        "name": "WordPress",
+        "shortDes": "Customize your site",
+        "image": "https://i.ibb.co/wQz38mT/wordpress.jpg",
+        "id": 8
+    },
+    {
+        "name": "illustration",
+        "shortDes": "Color your dream",
+        "image": "https://i.ibb.co/c27MWpv/illustration.jpg",
+        "id": 2
+    }
+]

@@ -1,26 +1,20 @@
 import React from 'react';
 
-const Slider = () => {
+const Slider = ({ slider }) => {
     return (
         <div>
             <section className="bg-white py-10">
-
-
-                <div className="container grid grid-cols-2 gap-10 py-10 px-5">
-                    <div className="mt-10 font-roboto">
-
-                        <h5 className='text-2xl text-gray-800'>Caitlin Tormey, Chief Commercial Officer | NAADAM</h5>
+                <div className="container grid grid-cols-1 md:grid-cols-2 gap-10 px-6 py-10 mx-auto space-y-6 lg:py-16">
+                    <div className="mt-10 font-roboto text-start">
+                        <h5 className='text-2xl text-gray-800'>{slider.title}</h5>
                         <blockquote className='font-semibold mt-3'>
                             <i className='text-gray-800'>
-                                "We've used Fiverr for Shopify web development, graphic design, and backend web development. Working with Fiverr makes my job a little easier every day."
+                                {`"${slider.reviewText}"`}
                             </i>
                         </blockquote>
                     </div>
-
-                    <div className="">
-
-                        <video className='rounded-md' controls src="https://fiverr-res.cloudinary.com/video/upload/t_fiverr_hd/rb8jtakrisiz0xtsffwi"></video>
-
+                    <div>
+                        <video className='rounded-md' controls src={slider.video_URL}></video>
                     </div>
                 </div>
             </section>

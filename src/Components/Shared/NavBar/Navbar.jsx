@@ -59,7 +59,9 @@ const Navbar = () => {
                             Become a Seller
                         </NavLink>
                     </li>
-
+                    <li className='font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-deep-purple-accent-400'>
+                        <Link to='/seller_dashboard'>Seller Dashboard</Link>
+                    </li>
                     <li>
                         <Link to="/login">
                             <button className='btn p-3 bg-green-400 hover:bg-green-500 border-none text-white rounded-xl' >Join</button>
