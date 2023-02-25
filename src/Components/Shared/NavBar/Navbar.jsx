@@ -70,8 +70,8 @@ const Navbar = () => {
                                 isActive ? activeStyle : undefined
                             }
                             to='/seller_dashboard'
-                            aria-label="Become a Seller"
-                            title="Become a Seller"
+                            aria-label="Seller Dashboard"
+                            title="Seller Dashboard"
                             className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-deep-purple-accent-400"
                         >
                             Seller Dashboard
@@ -184,8 +184,8 @@ const Navbar = () => {
                                                     isActive ? activeStyle : undefined
                                                 }
                                                 to="/seller_dashboard"
-                                                aria-label="Become a Seller"
-                                                title="Become a Seller"
+                                                aria-label="Seller Dashboard"
+                                                title="Seller Dashboard"
                                                 className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-deep-purple-accent-400"
                                             >
                                                 Seller Dashboard
