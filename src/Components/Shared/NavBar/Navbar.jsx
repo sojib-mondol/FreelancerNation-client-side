@@ -149,9 +149,12 @@ const Navbar = () => {
 
                                         <li>
 
+
                                             <Link to="/login">
                                                 <button className='btn p-3 bg-green-400 hover:bg-green-500 border-none text-white rounded-xl'>Join</button>
                                             </Link>
+
+
 
 
                                             <button className='btn p-3 bg-green-400 hover:bg-green-500 border-none text-white rounded-xl'>Join</button>
@@ -159,6 +162,8 @@ const Navbar = () => {
                                         <Link to="/login">
                                         <button className='btn p-3 bg-green-400 hover:bg-green-500 border-none text-white rounded-xl'>Join</button>
                                         </Link>
+
+
 
 
                                         </li>
