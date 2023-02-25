@@ -1,16 +1,19 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import logo from '../../../assets/logo.png'
+import { AuthContext } from '../../../context/AuthProvider';
 
 
 const Navbar = () => {
 
+    const { user } = useContext(AuthContext);
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     let activeStyle = {
         textDecoration: "underline",
         color: 'yellow'
     };
 
+    console.log(user)
 
     return (
         <div className="px-4 py-5 mx-auto md:px-24 bg-slate-900">
@@ -148,19 +151,13 @@ const Navbar = () => {
                                         </li>
 
                                         <li>
-<<<<<<< HEAD
-                                            <Link to="/login">
-                                                <button className='btn p-3 bg-green-400 hover:bg-green-500 border-none text-white rounded-xl'>Join</button>
-                                            </Link>
-=======
 
                                             <button className='btn p-3 bg-green-400 hover:bg-green-500 border-none text-white rounded-xl'>Join</button>
 
-                                        <Link to="/login">
-                                        <button className='btn p-3 bg-green-400 hover:bg-green-500 border-none text-white rounded-xl'>Join</button>
-                                        </Link>
+                                            <Link to="/login">
+                                                <button className='btn p-3 bg-green-400 hover:bg-green-500 border-none text-white rounded-xl'>Join</button>
+                                            </Link>
 
->>>>>>> 43ea426f68feddb909b1f2e5d2e287bfa5f1f8dc
                                         </li>
 
                                     </ul>
