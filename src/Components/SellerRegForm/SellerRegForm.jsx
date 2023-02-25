@@ -1,41 +1,46 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
+import { toast } from "react-hot-toast";
 
 function SellerRegistrationForm() {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
+  const {register,handleSubmit,
+    formState: { errors }, reset
   } = useForm();
+  
   const [skills, setSkills] = useState([]);
-  const onSubmit = (data) => {
-    console.log(data);
+  const handelSellerData = (data) => {
+    
+    const fullname = data.fullName;
+    const email = data.email;
+    const phoneNumber = data.phoneNumber;
+    const pricing = data.pricing;
+    const skills = data.skills;
+    const paymentMethod = data.paymentMethod;
 
-  };
-
-  // const onSkillChange = (event) => {
-  //   const value = event.target.value.trim();
-  //   if (event.code === 'Comma' && value && !skills.includes(value)) {
-  //     setSkills([...skills, value]);
-  //     event.target.value = "";
-  //   }
-  // };
-
-  const onSkillChange = (event) => {
-    const value = event.target.value.trim();
-    if (KeyboardEvent.code ==="Comma" && value && !skills.includes(value)) {
-      setSkills([...skills, value]);
-      event.target.value = "";
+    const sellerinfo = {
+      fullname, email, phoneNumber, pricing, skills, paymentMethod
     }
+    console.log(sellerinfo);
+    fetch(`http://localhost:5000/saveseller`, {
+      method: 'POST',
+      headers: {
+        "content-type":"application/json"
+      },
+      body: JSON.stringify(sellerinfo)
+    })
+      .then(res => res.json())
+      .then(data => {
+        console.log(data);
+        reset();
+        toast.success(`Succesfully Registered as a ${sellerinfo?.skills}`)
+    })
+
   };
-  const removeSkill = (skill) => {
-    const updatedSkills = skills.filter((s) => s !== skill);
-    setSkills(updatedSkills);
-  };
+
   return (
     <div className='p-8 flex flex-col'>
       <form
-        onSubmit={handleSubmit(onSubmit)}
+        onSubmit={handleSubmit(handelSellerData)}
         className='bg-gradient-to-b from-green-500 to-green-700 py-10 px-4 sm:w-full md:w-3/4 md:mx-auto md:grid md:grid-cols-1 md:gap-4 rounded-lg'
       >
         <label htmlFor='fullName' className='block text-white mb-2'>
@@ -44,6 +49,7 @@ function SellerRegistrationForm() {
         <input
           type='text'
           id='fullName'
+          name='fullName'
           {...register("fullName", { required: true })}
           placeholder='Enter your full name'
           className='w-full bg-gray-100 rounded-md py-2 px-4 mb-4'
@@ -58,6 +64,7 @@ function SellerRegistrationForm() {
         <input
           type='email'
           id='email'
+          name='email'
           {...register("email", { required: true })}
           placeholder='Enter your email address'
           className='w-full bg-gray-100 rounded-md py-2 px-4 mb-4'
@@ -75,6 +82,7 @@ function SellerRegistrationForm() {
         <input
           type='tel'
           id='phoneNumber'
+          name='phoneNumber'
           {...register("phoneNumber", { required: true, pattern: /^\d{11}$/ })}
           placeholder='Enter your phone number'
           className='w-full bg-gray-200 rounded-md py-2 px-4 mb-4'
@@ -100,7 +108,6 @@ function SellerRegistrationForm() {
               <span className='mr-2'>{skill}</span>
               <button
                 type='button'
-                onClick={() => removeSkill(skill)}
                 className='text-white hover:text-gray-200 focus:outline-none'
               >
                 <svg
@@ -121,7 +128,8 @@ function SellerRegistrationForm() {
           <input
             type='text'
             id='skills'
-            onChange={onSkillChange}
+            name='skills'
+            {...register("skills", { required: true })}
             placeholder='Enter your skills separated by commas'
             className='w-full bg-gray-200 rounded-md py-2 px-4'
           />
@@ -135,6 +143,7 @@ function SellerRegistrationForm() {
         </label>
         <input
           type='number'
+          name='pricing'
           id='pricing'
           {...register("pricing", { required: true })}
           placeholder='Enter your pricing'
@@ -149,6 +158,7 @@ function SellerRegistrationForm() {
         </label>
         <select
           id='paymentMethod'
+          name='paymentMethod'
           {...register("paymentMethod", { required: true })}
           className='w-full bg-gray-100 rounded-md py-2 px-4 mb-4'
         >
