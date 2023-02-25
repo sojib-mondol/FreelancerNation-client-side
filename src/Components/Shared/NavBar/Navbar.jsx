@@ -62,8 +62,22 @@ const Navbar = () => {
                         >
                             Become a Seller
                         </NavLink>
-                    </li>
 
+                    </li>
+                    <li>
+                        <NavLink
+                            style={({ isActive }) =>
+                                isActive ? activeStyle : undefined
+                            }
+                            to='/seller_dashboard'
+                            aria-label="Seller Dashboard"
+                            title="Seller Dashboard"
+                            className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                        >
+                            Seller Dashboard
+                        </NavLink>
+
+                    </li>
                     {
                         user?.email ?
                             <>
@@ -162,6 +176,19 @@ const Navbar = () => {
                                                 className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-deep-purple-accent-400"
                                             >
                                                 Become a Seller
+                                            </NavLink>
+                                        </li>
+                                        <li>
+                                            <NavLink
+                                                style={({ isActive }) =>
+                                                    isActive ? activeStyle : undefined
+                                                }
+                                                to="/seller_dashboard"
+                                                aria-label="Seller Dashboard"
+                                                title="Seller Dashboard"
+                                                className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                                            >
+                                                Seller Dashboard
                                             </NavLink>
                                         </li>
 

@@ -6,6 +6,7 @@ import Home from "../Home/Home/Home";
 import Login from "../JoinForm/Login";
 import Main from "../Layout/Main";
 import Registration from "../Registration/Registration";
+import SellerDashboard from "../SellerDashboard/SellerDashboard";
 import SellerRegistrationForm from "../SellerRegForm/SellerRegForm";
 
 
@@ -28,13 +29,17 @@ export const router = createBrowserRouter([{
         },
         {
 
-            path:'/becomeASeller/service_category',
+            path: '/becomeASeller/service_category',
             element: <ExploreService></ExploreService>,
         },
         {
 
-            path:'/becomeASeller/service_category/registerseller',
+            path: '/becomeASeller/service_category/registerseller',
             element: <SellerRegistrationForm></SellerRegistrationForm>,
+        }, {
+            path: '/seller_dashboard',
+            element: <SellerDashboard />
+
         },
         {
             path: '/registration',
