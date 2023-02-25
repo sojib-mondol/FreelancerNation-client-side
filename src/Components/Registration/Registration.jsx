@@ -1,10 +1,28 @@
-import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { GoogleAuthProvider } from 'firebase/auth';
+import React, { useContext, useState } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthProvider';
 import './Registration.css';
 
 const Registration = () => {
+    const [error, setError] = useState('');
     const { providerSignIn, createUser, updateUserProfile } = useContext(AuthContext);
+
+    const navigate = useNavigate();
+    const location = useLocation();
+
+    const from = location.state?.from?.pathname || '/';
+
+    const handleGoogleSignIn = () => {
+        const provider = new GoogleAuthProvider();
+        providerSignIn(provider)
+            .then(result => {
+                const user = result.user;
+                setError('');
+                navigate(from, { replace: true })
+            })
+            .catch(err => setError(err.message))
+    }
 
     const handleSubmit = e => {
         e.preventDefault();
@@ -16,9 +34,23 @@ const Registration = () => {
 
         const name = firstName + lastName;
 
-        console.log(name, email, password)
+        createUser(email, password)
+            .then(result => {
+                setError('');
+                handleUpdateUserProfile(name)
+                form.reset();
+                navigate(from, { replace: true })
+            })
+            .catch(err => setError(err.message))
 
     }
+    const handleUpdateUserProfile = (name) => {
+        const profile = { displayName: name };
+        updateUserProfile(profile)
+            .then(() => { })
+            .catch(error => console.error(error))
+    }
+
     return (
         <div className='regi-background'>
             <div className="py-10" >
@@ -35,7 +67,7 @@ const Registration = () => {
                             <p className="mb-4">
                                 Create your account. It’s free and only take a minute
                             </p>
-                            <form onSubmit={handleSubmit}>
+                            <form onSubmit={handleSubmit} className="mb-4">
                                 <div className="grid grid-cols-2 gap-5">
                                     <input name='firstName' type="text" placeholder="Firstname" className="border border-gray-400 py-1 px-2" />
                                     <input name='lastName' type="text" placeholder="Lastname" className="border border-gray-400 py-1 px-2" />
@@ -58,6 +90,13 @@ const Registration = () => {
                                 </div>
                             </form>
 
+                            <Link to='/login'>Already have an account? <span className='font-bold underline'>Login</span></Link>
+
+                            <div className='mt-4'>
+                                <button onClick={handleGoogleSignIn} className="w-full flex justify-center bg-black border-solid border-2 hover:bg-white text-white hover:text-black p-3  rounded-full tracking-wide font-semibold  shadow-lg cursor-pointer transition ease-in duration-500">
+                                    Google
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
