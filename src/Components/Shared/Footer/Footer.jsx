@@ -11,37 +11,37 @@ const Footer = () => {
                     Categories
                 </div>
 
-                <Link className="block mt-5 text-sm font-medium text-gray-500 duration-700 dark:text-gray-300 hover:text-gray-400 dark:hover:text-gray-200 hover:underline">
+                <Link className="block mt-5 text-sm font-medium text-gray-500 duration-700  hover:text-gray-400 hover:underline">
                 Graphics & Design
                 </Link>
-                <Link className="block mt-3 text-sm font-medium text-gray-500 duration-700 dark:text-gray-300 hover:text-gray-400 dark:hover:text-gray-200 hover:underline">
+                <Link className="block mt-3 text-sm font-medium text-gray-500 duration-700  hover:text-gray-400 hover:underline">
                 Digital Marketing
                 </Link>
-                <Link className="block mt-3 text-sm font-medium text-gray-500 duration-700 dark:text-gray-300 hover:text-gray-400 dark:hover:text-gray-200 hover:underline">
+                <Link className="block mt-3 text-sm font-medium text-gray-500 duration-700  hover:text-gray-400 hover:underline">
                 Writing & Translation
                 </Link>
-                <Link className="block mt-3 text-sm font-medium text-gray-500 duration-700 dark:text-gray-300 hover:text-gray-400 dark:hover:text-gray-200 hover:underline">
+                <Link className="block mt-3 text-sm font-medium text-gray-500 duration-700  hover:text-gray-400 hover:underline">
                 Video & Animation
                 </Link>
-                <Link className="block mt-3 text-sm font-medium text-gray-500 duration-700 dark:text-gray-300 hover:text-gray-400 dark:hover:text-gray-200 hover:underline">
+                <Link className="block mt-3 text-sm font-medium text-gray-500 duration-700  hover:text-gray-400 hover:underline">
                 Music & Audio
                 </Link>
-                <Link className="block mt-3 text-sm font-medium text-gray-500 duration-700 dark:text-gray-300 hover:text-gray-400 dark:hover:text-gray-200 hover:underline">
+                <Link className="block mt-3 text-sm font-medium text-gray-500 duration-700  hover:text-gray-400 hover:underline">
                 Programming & Tech
                 </Link>
-                <Link className="block mt-3 text-sm font-medium text-gray-500 duration-700 dark:text-gray-300 hover:text-gray-400 dark:hover:text-gray-200 hover:underline">
+                <Link className="block mt-3 text-sm font-medium text-gray-500 duration-700  hover:text-gray-400 hover:underline">
                 Data
                 </Link>
-                <Link className="block mt-3 text-sm font-medium text-gray-500 duration-700 dark:text-gray-300 hover:text-gray-400 dark:hover:text-gray-200 hover:underline">
+                <Link className="block mt-3 text-sm font-medium text-gray-500 duration-700  hover:text-gray-400 hover:underline">
                 Business
                 </Link>
-                <Link className="block mt-3 text-sm font-medium text-gray-500 duration-700 dark:text-gray-300 hover:text-gray-400 dark:hover:text-gray-200 hover:underline">
+                <Link className="block mt-3 text-sm font-medium text-gray-500 duration-700  hover:text-gray-400 hover:underline">
                 LifeStyle
                 </Link>
-                <Link className="block mt-3 text-sm font-medium text-gray-500 duration-700 dark:text-gray-300 hover:text-gray-400 dark:hover:text-gray-200 hover:underline">
+                <Link className="block mt-3 text-sm font-medium text-gray-500 duration-700  hover:text-gray-400 hover:underline">
                 Photography
                 </Link>
-                <Link className="block mt-3 text-sm font-medium text-gray-500 duration-700 dark:text-gray-300 hover:text-gray-400 dark:hover:text-gray-200 hover:underline">
+                <Link className="block mt-3 text-sm font-medium text-gray-500 duration-700  hover:text-gray-400 hover:underline">
                 Sitemap
                 </Link>
             </div>
@@ -51,25 +51,25 @@ const Footer = () => {
                     About
                 </div>
 
-                <Link className="block mt-5 text-sm font-medium text-gray-500 duration-700 dark:text-gray-300 hover:text-gray-400 dark:hover:text-gray-200 hover:underline">
+                <Link className="block mt-5 text-sm font-medium text-gray-500 duration-700  hover:text-gray-400 hover:underline">
                     Carrers
                 </Link>
-                <Link className="block mt-3 text-sm font-medium text-gray-500 duration-700 dark:text-gray-300 hover:text-gray-400 dark:hover:text-gray-200 hover:underline">
+                <Link className="block mt-3 text-sm font-medium text-gray-500 duration-700  hover:text-gray-400 hover:underline">
                     Press & News
                 </Link>
-                <Link className="block mt-3 text-sm font-medium text-gray-500 duration-700 dark:text-gray-300 hover:text-gray-400 dark:hover:text-gray-200 hover:underline">
+                <Link className="block mt-3 text-sm font-medium text-gray-500 duration-700  hover:text-gray-400 hover:underline">
                     Partnership 
                 </Link>
-                <Link className="block mt-3 text-sm font-medium text-gray-500 duration-700 dark:text-gray-300 hover:text-gray-400 dark:hover:text-gray-200 hover:underline">
+                <Link className="block mt-3 text-sm font-medium text-gray-500 duration-700  hover:text-gray-400 hover:underline">
                     Privacy & policy
                 </Link>
-                <Link className="block mt-3 text-sm font-medium text-gray-500 duration-700 dark:text-gray-300 hover:text-gray-400 dark:hover:text-gray-200 hover:underline">
+                <Link className="block mt-3 text-sm font-medium text-gray-500 duration-700  hover:text-gray-400 hover:underline">
                 Intellectual Property Claims
                 </Link>
-                <Link className="block mt-3 text-sm font-medium text-gray-500 duration-700 dark:text-gray-300 hover:text-gray-400 dark:hover:text-gray-200 hover:underline">
+                <Link className="block mt-3 text-sm font-medium text-gray-500 duration-700  hover:text-gray-400 hover:underline">
                 Investor Relations
                 </Link>
-                <Link className="block mt-3 text-sm font-medium text-gray-500 duration-700 dark:text-gray-300 hover:text-gray-400 dark:hover:text-gray-200 hover:underline">
+                <Link className="block mt-3 text-sm font-medium text-gray-500 duration-700  hover:text-gray-400 hover:underline">
                     IntelliSense
                 </Link>
             </div>
@@ -79,16 +79,16 @@ const Footer = () => {
                     Support
                 </div>
 
-                <Link className="block mt-5 text-sm font-medium text-gray-500 duration-700 dark:text-gray-300 hover:text-gray-400 dark:hover:text-gray-200 hover:underline">
+                <Link className="block mt-5 text-sm font-medium text-gray-500 duration-700  hover:text-gray-400 hover:underline">
                     Help & Support
                 </Link>
-                <Link className="block mt-3 text-sm font-medium text-gray-500 duration-700 dark:text-gray-300 hover:text-gray-400 dark:hover:text-gray-200 hover:underline">
+                <Link className="block mt-3 text-sm font-medium text-gray-500 duration-700  hover:text-gray-400 hover:underline">
                     Trust & Safety
                 </Link>
-                <Link className="block mt-3 text-sm font-medium text-gray-500 duration-700 dark:text-gray-300 hover:text-gray-400 dark:hover:text-gray-200 hover:underline">
+                <Link className="block mt-3 text-sm font-medium text-gray-500 duration-700  hover:text-gray-400 hover:underline">
                     Selling on Freelancer Nation
                 </Link>
-                <Link className="block mt-3 text-sm font-medium text-gray-500 duration-700 dark:text-gray-300 hover:text-gray-400 dark:hover:text-gray-200 hover:underline">
+                <Link className="block mt-3 text-sm font-medium text-gray-500 duration-700  hover:text-gray-400 hover:underline">
                     Buying on Freelancer Nation
                 </Link>
                 
@@ -99,25 +99,25 @@ const Footer = () => {
                     Community
                 </div>
 
-                <Link className="block mt-5 text-sm font-medium text-gray-500 duration-700 dark:text-gray-300 hover:text-gray-400 dark:hover:text-gray-200 hover:underline">
+                <Link className="block mt-5 text-sm font-medium text-gray-500 duration-700  hover:text-gray-400 hover:underline">
                     Installation
                 </Link>
-                <Link className="block mt-3 text-sm font-medium text-gray-500 duration-700 dark:text-gray-300 hover:text-gray-400 dark:hover:text-gray-200 hover:underline">
+                <Link className="block mt-3 text-sm font-medium text-gray-500 duration-700  hover:text-gray-400 hover:underline">
                     Release Notes
                 </Link>
-                <Link className="block mt-3 text-sm font-medium text-gray-500 duration-700 dark:text-gray-300 hover:text-gray-400 dark:hover:text-gray-200 hover:underline">
+                <Link className="block mt-3 text-sm font-medium text-gray-500 duration-700  hover:text-gray-400 hover:underline">
                     Upgrade Guide
                 </Link>
-                <Link className="block mt-3 text-sm font-medium text-gray-500 duration-700 dark:text-gray-300 hover:text-gray-400 dark:hover:text-gray-200 hover:underline">
+                <Link className="block mt-3 text-sm font-medium text-gray-500 duration-700  hover:text-gray-400 hover:underline">
                     Using with Preprocessors
                 </Link>
-                <Link className="block mt-3 text-sm font-medium text-gray-500 duration-700 dark:text-gray-300 hover:text-gray-400 dark:hover:text-gray-200 hover:underline">
+                <Link className="block mt-3 text-sm font-medium text-gray-500 duration-700  hover:text-gray-400 hover:underline">
                     Optimizing for Production
                 </Link>
-                <Link className="block mt-3 text-sm font-medium text-gray-500 duration-700 dark:text-gray-300 hover:text-gray-400 dark:hover:text-gray-200 hover:underline">
+                <Link className="block mt-3 text-sm font-medium text-gray-500 duration-700  hover:text-gray-400 hover:underline">
                     Browser Support
                 </Link>
-                <Link className="block mt-3 text-sm font-medium text-gray-500 duration-700 dark:text-gray-300 hover:text-gray-400 dark:hover:text-gray-200 hover:underline">
+                <Link className="block mt-3 text-sm font-medium text-gray-500 duration-700  hover:text-gray-400 hover:underline">
                     IntelliSense
                 </Link>
             </div>

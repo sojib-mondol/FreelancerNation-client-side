@@ -6,14 +6,18 @@ import { AuthContext } from '../../../context/AuthProvider';
 
 const Navbar = () => {
 
-    const { user } = useContext(AuthContext);
+    const { user, logOut } = useContext(AuthContext);
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     let activeStyle = {
         textDecoration: "underline",
         color: 'yellow'
     };
 
-    console.log(user)
+    const handleLogOut = () => {
+        logOut()
+            .then()
+            .catch()
+    }
 
     return (
         <div className="px-4 py-5 mx-auto md:px-24 bg-slate-900">
@@ -59,14 +63,23 @@ const Navbar = () => {
                             Become a Seller
                         </NavLink>
                     </li>
-                    <li className='font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-deep-purple-accent-400'>
-                        <Link to='/seller_dashboard'>Seller Dashboard</Link>
-                    </li>
-                    <li>
-                        <Link to="/login">
-                            <button className='btn p-3 bg-green-400 hover:bg-green-500 border-none text-white rounded-xl' >Join</button>
-                        </Link>
-                    </li>
+
+                    {
+                        user?.email ?
+                            <>
+                                <p className='text-white font-bold border-solid border-2 px-2 py-4 rounded-lg'>{user?.displayName}</p>
+                                <li>
+                                    <button onClick={handleLogOut} className='btn p-3 bg-red-400 hover:bg-red-500 border-none text-white rounded-xl' >Sign out</button>
+                                </li>
+
+                            </>
+                            :
+                            <><li>
+                                <Link to="/login">
+                                    <button className='btn p-3 bg-green-400 hover:bg-green-500 border-none text-white rounded-xl' >Join</button>
+                                </Link>
+                            </li></>
+                    }
                 </ul>
                 <div className="lg:hidden">
                     <button
@@ -152,27 +165,23 @@ const Navbar = () => {
                                             </NavLink>
                                         </li>
 
-                                        <li>
-
-
-
-
-                                            <Link to="/login">
-                                                <button className='btn p-3 bg-green-400 hover:bg-green-500 border-none text-white rounded-xl'>Join</button>
-                                            </Link>
-
-
-
-
-
-                                            <button className='btn p-3 bg-green-400 hover:bg-green-500 border-none text-white rounded-xl'>Join</button>
-
-                                            <Link to="/login">
-                                                <button className='btn p-3 bg-green-400 hover:bg-green-500 border-none text-white rounded-xl'>Join</button>
-                                            </Link>
-
-
-                                        </li>
+                                        {
+                                            user?.email ?
+                                                <>
+                                                    <p className='text-white font-bold border-solid border-2 px-2 py-4 rounded-lg'>{user?.displayName}</p>
+                                                    <li>
+                                                        <button onClick={handleLogOut} className='btn p-3 bg-red-400 hover:bg-red-500 border-none text-white rounded-xl' >Sign out</button>
+                                                    </li>
+                                                </>
+                                                :
+                                                <>
+                                                    <li>
+                                                        <Link to="/login">
+                                                            <button className='btn p-3 bg-green-400 hover:bg-green-500 border-none text-white rounded-xl'>Join</button>
+                                                        </Link>
+                                                    </li>
+                                                </>
+                                        }
 
                                     </ul>
                                 </nav>

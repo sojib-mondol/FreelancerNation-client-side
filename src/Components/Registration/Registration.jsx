@@ -32,7 +32,7 @@ const Registration = () => {
         const email = form.email.value;
         const password = form.password.value;
 
-        const name = firstName + lastName;
+        const name = firstName + ' ' + lastName;
 
         createUser(email, password)
             .then(result => {
@@ -57,13 +57,13 @@ const Registration = () => {
                 <div className="container mx-auto">
                     <div className="flex flex-col lg:flex-row w-10/12 lg:w-10/12 backdrop-blur-md bg-white/30  rounded-xl mx-auto shadow-lg overflow-hidden">
                         <div className="w-full lg:w-1/2 flex flex-col items-center justify-center p-12 bg-no-repeat bg-cover bg-center" >
-                            <h1 className="text-black text-3xl mb-3">Welcome</h1>
+                            <h1 className="text-black mb-3 font-bold text-5xl">Welcome</h1>
                             <div>
-                                <p className="text-black">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean suspendisse aliquam varius rutrum purus maecenas ac <Link to='#' className="text-green-400 hover:text-green-500 font-semibold">Learn more</Link></p>
+                                <p className="text-black">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean suspendisse aliquam varius rutrum purus maecenas ac.</p>
                             </div>
                         </div>
                         <div className="w-full lg:w-1/2 py-16 px-12">
-                            <h2 className="text-3xl mb-4">Register</h2>
+                            <h2 className="mb-4 font-semibold text-2xl text-gray-800">Register</h2>
                             <p className="mb-4">
                                 Create your account. It’s free and only take a minute
                             </p>
