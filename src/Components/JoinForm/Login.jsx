@@ -51,9 +51,8 @@ const Login = () => {
                     <div className="flex-col flex  self-center p-10 sm:max-w-5xl xl:max-w-2xl  z-10">
                         <div className="self-start hidden lg:flex flex-col  text-white">
 
-                            <h1 className="mb-3 font-bold text-5xl">Hi ? Welcome Back</h1>
-                            <p className="pr-3">Lorem ipsum is placeholder text commonly used in the graphic, print,
-                                and publishing industries for previewing layouts and visual mockups</p>
+                            <h1 className="mb-3 font-bold text-5xl">Hi 💚 Welcome Back</h1>
+                            <p className="pr-3">Welcome back just sign in now to start where you left of. You are just one step away from experiencing out world class services.</p>
                         </div>
                     </div>
 
@@ -62,16 +61,16 @@ const Login = () => {
                         <div className="p-12 bg-white mx-auto rounded-2xl w-100 backdrop-blur-md bg-white/30">
                             <form onSubmit={handleSubmit} className='mb-4'>
                                 <div className="mb-4">
-                                    <h3 className="font-semibold text-2xl text-gray-800">Sign In </h3>
-                                    <p>Please sign in to your account.</p>
+                                    <h3 className="font-semibold text-2xl text-white">Sign In </h3>
+                                    <p className='text-white'>Please sign in to your account.</p>
                                 </div>
                                 <div className="space-y-5">
                                     <div className="space-y-2">
-                                        <label className="text-sm font-medium text-gray-700 tracking-wide">Email</label>
+                                        <label className="text-sm font-medium text-white tracking-wide">Email</label>
                                         <input name='email' className=" w-full text-base px-4 py-2 border  border-gray-300 rounded-lg focus:outline-none focus:border-green-400" type="" placeholder="mail@gmail.com" />
                                     </div>
                                     <div className="space-y-2">
-                                        <label className="mb-5 text-sm font-medium text-gray-700 tracking-wide">
+                                        <label className="mb-5 text-sm font-medium text-white tracking-wide">
                                             Password
                                         </label>
                                         <input name='password' className="w-full content-center text-base px-4 py-2 border  border-gray-300 rounded-lg focus:outline-none focus:border-green-400" type="" placeholder="Enter your password" />
@@ -79,30 +78,32 @@ const Login = () => {
                                     <div className="flex items-center justify-between">
                                         <div className="flex items-center">
                                             <input id="remember_me" name="remember_me" type="checkbox" className="h-4 w-4 bg-blue-500 focus:ring-blue-400 border-gray-300 rounded" />
-                                            <label htmlFor="remember_me" className="ml-2 block text-sm text-gray-800">
+                                            <label htmlFor="remember_me" className="ml-2 block text-sm text-white">
                                                 Remember me
                                             </label>
                                         </div>
                                         <div className="text-sm">
-                                            <a href="/" className="text-green-400 hover:text-green-900">
+                                            <p className="font-bold underline text-green-400 hover:text-white">
                                                 Forgot your password?
-                                            </a>
+                                            </p>
                                         </div>
 
                                     </div>
                                     <div>
-                                        <button type="submit" className="w-full flex justify-center bg-green-400  hover:bg-green-500 text-gray-100 p-3  rounded-full tracking-wide font-semibold  shadow-lg cursor-pointer transition ease-in duration-500">
+                                        <button type="submit" className="w-full flex justify-center bg-green-400  hover:bg-white text-white hover:text-black p-3  rounded-full tracking-wide font-semibold  shadow-lg cursor-pointer transition ease-in duration-500">
                                             Sign in
                                         </button>
+                                        <div>
+                                <p className='mt-2 text-center text-red-500'>{error}</p>
+                            </div>
                                     </div>
+                                    
                                 </div>
                             </form>
-                            <Link to='/registration'>Didn't have any account? <span className='font-bold underline'>Register</span></Link>
-                            <div>
-                                <p className='text-red-500'>{error}</p>
-                            </div>
+                            <Link to='/registration' className='text-white font-roboto'>Didn't have any account? <span className='font-bold underline text-green-400 hover:text-white'>Register </span></Link>
+                            
                             <div className='mt-4'>
-                                <button onClick={handleGoogleSignIn} className="w-full flex justify-center bg-black border-solid border-2 hover:bg-white text-white hover:text-black p-3  rounded-full tracking-wide font-semibold  shadow-lg cursor-pointer transition ease-in duration-500">
+                                <button onClick={handleGoogleSignIn} className="w-full flex justify-center bg-green-400 border-none border-2 hover:bg-white text-white hover:text-black p-3  rounded-full tracking-wide font-semibold  shadow-lg cursor-pointer transition ease-in duration-500">
                                     Google
                                 </button>
                             </div>
