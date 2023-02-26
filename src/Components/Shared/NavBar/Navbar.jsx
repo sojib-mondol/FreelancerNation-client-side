@@ -1,21 +1,24 @@
 import React, { useContext, useState } from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
 import logo from '../../../assets/logo.png'
 import { AuthContext } from '../../../context/AuthProvider';
 
 
 const Navbar = () => {
-
     const { user, logOut } = useContext(AuthContext);
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const navigate = useNavigate();
+
     let activeStyle = {
         textDecoration: "underline",
         color: 'yellow'
     };
-
+    
     const handleLogOut = () => {
         logOut()
-            .then()
+            .then(
+                navigate('/')
+            )
             .catch()
     }
 
@@ -81,9 +84,11 @@ const Navbar = () => {
                     {
                         user?.email ?
                             <>
-                                <p className='text-white font-bold border-solid border-2 px-2 py-4 rounded-lg'>{user?.displayName}</p>
                                 <li>
-                                    <button onClick={handleLogOut} className='btn p-3 bg-red-400 hover:bg-red-500 border-none text-white rounded-xl' >Sign out</button>
+                                    <img className='w-12 h-12 rounded-full' src={user?.photoURL} alt="userPhoto" />
+                                </li>
+                                <li>
+                                    <button onClick={handleLogOut} className='btn p-3 bg-gray-100 hover:bg-gray-200 border-none text-black rounded-xl' >Sign out</button>
                                 </li>
 
                             </>
@@ -195,9 +200,12 @@ const Navbar = () => {
                                         {
                                             user?.email ?
                                                 <>
-                                                    <p className='text-white font-bold border-solid border-2 px-2 py-4 rounded-lg'>{user?.displayName}</p>
                                                     <li>
-                                                        <button onClick={handleLogOut} className='btn p-3 bg-red-400 hover:bg-red-500 border-none text-white rounded-xl' >Sign out</button>
+                                                        <img className='w-20 h-20 rounded-full' src={user?.photoURL} alt="userPhoto" />
+                                                    </li>
+
+                                                    <li>
+                                                        <button onClick={handleLogOut} className='btn p-3 bg-gray-100 hover:bg-gray-200 border-none text-black rounded-xl' >Sign out</button>
                                                     </li>
                                                 </>
                                                 :
