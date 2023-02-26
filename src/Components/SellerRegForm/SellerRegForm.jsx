@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 
 function SellerRegistrationForm() {
   const {register,handleSubmit,
@@ -8,17 +9,20 @@ function SellerRegistrationForm() {
   } = useForm();
   
   const [skills, setSkills] = useState([]);
+  const [ServiceCategories, setServiceCategories] = useState([]);
+  const nanigate = useNavigate();
   const handelSellerData = (data) => {
     
     const fullname = data.fullName;
     const email = data.email;
     const phoneNumber = data.phoneNumber;
+    const service = data.service;
     const pricing = data.pricing;
     const skills = data.skills;
     const paymentMethod = data.paymentMethod;
 
     const sellerinfo = {
-      fullname, email, phoneNumber, pricing, skills, paymentMethod
+      fullname, email, phoneNumber, pricing, service, skills, paymentMethod
     }
     console.log(sellerinfo);
     fetch(`http://localhost:5000/saveseller`, {
@@ -32,11 +36,20 @@ function SellerRegistrationForm() {
       .then(data => {
         console.log(data);
         reset();
-        toast.success(`Succesfully Registered as a ${sellerinfo?.skills}`)
+        toast.success(`Succesfully Registered as a ${sellerinfo?.skills}`);
+        nanigate('/seller_dashboard')
     })
 
   };
+  // loaded service category
+  useEffect(() => {
+    fetch(`http://localhost:5000/serviceCategoty`)
+      .then((res) => res.json())
+      .then((data) => setServiceCategories(data));
+  }, []);
 
+   
+  
   return (
     <div className='p-8 flex flex-col'>
       <form
@@ -95,6 +108,32 @@ function SellerRegistrationForm() {
             Please enter a valid phone number (exactly 11 digits)
           </span>
         )}
+
+<label htmlFor='paymentMethod' className='block text-white mb-2'>
+          Select Service:
+        </label>
+        <select
+          id='service'
+          name='service'
+          {...register("services", { required: true })}
+          className='w-full bg-gray-100 rounded-md py-2 px-4 mb-4'
+        >
+          <option defaultValue=''>Select a Desire Service</option>
+          
+          {
+            ServiceCategories.map(service =><option value={service?.service_name}>{service?.service_name}</option>)
+          }
+          
+        </select>
+        {errors.service&& (
+          <span className='text-red-500'>This field is required</span>
+        )}
+
+
+
+
+
+
 
         <label htmlFor='skills' className='block text-gray-700 font-bold mb-2'>
           Skills:
