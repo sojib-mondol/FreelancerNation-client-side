@@ -1,14 +1,16 @@
 import React, { useContext, useState } from 'react';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
-import logo from '../../../assets/logo.png'
+import logo from '../../../assets/logo.png';
 import { AuthContext } from '../../../context/AuthProvider';
+import './Navbar.css'
 
 
 const Navbar = () => {
     const { user, logOut } = useContext(AuthContext);
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const navigate = useNavigate();
-
+    const [showExploreMenu, setShowExploreMenu] = useState(false)
+  
     let activeStyle = {
         textDecoration: "underline",
         color: 'yellow'
@@ -21,6 +23,42 @@ const Navbar = () => {
             )
             .catch()
     }
+
+    //explore now sub-menu data
+    const exploreNowData = [
+        {
+            title: "Discover",
+            text: "Inspiring projects made on Freelancer Nation"       
+        },
+        {
+            title: "Community",
+            text: "Connect with fiver teams and community"       
+        },
+        {
+            title: "Guides",
+            text: "In depth guides covering business topics"       
+        },
+        {
+            title: "Podcast",
+            text: "Inside tips from top business mind"       
+        },
+        {
+            title: "Lead",
+            text: "Professional online courses lead by experts"       
+        },
+        {
+            title: "Blog",
+            text: "News information and community stories"       
+        },
+        {
+            title: "Logo Maker",
+            text: "Create logo instantly"       
+        },
+        {
+            title: "F.N. workspace",
+            text: "One place to mange your business"       
+        },
+    ]
 
     return (
         <div className="px-4 py-5 mx-auto md:px-24 bg-slate-900">
@@ -44,13 +82,29 @@ const Navbar = () => {
 
                 <ul className="flex items-center hidden space-x-8 lg:flex font-roboto">
                     <li>
-                        <p
+                        <Link
                             aria-label="explore"
                             title="explore"
-                            className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                            onClick={() => setShowExploreMenu(!showExploreMenu)}
+                            className="font-medium tracking-wide text-gray-100 cursor-pointer transition-colors duration-200 hover:text-deep-purple-accent-400 relative z-50"
                         >
                             Explore
-                        </p>
+                        </Link>
+
+                        {/* explore now sub menu section  */}
+
+                       {
+                        showExploreMenu&&  <div className="explore-sub-menu w-[500px] bg-white p-5 rounded ">
+                        <div className="explore-sub-menu-data grid grid-cols-2 gap-5">
+                            {
+                                exploreNowData.map(data => <div>
+                                    <h2 className="font-medium cursor-pointer  text-gray-700 mb-2 text-lg">{data.title}</h2>
+                                    <p className='text-gray-400 cursor-pointer '>{data.text}</p>
+                                </div>)
+                            }
+                        </div>
+                    </div>
+                       }
                     </li>
 
                     <li>
