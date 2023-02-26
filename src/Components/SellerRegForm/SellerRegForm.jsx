@@ -4,41 +4,41 @@ import { toast } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 
 function SellerRegistrationForm() {
-  const {register,handleSubmit,
+  const { register, handleSubmit,
     formState: { errors }, reset
   } = useForm();
-  
-  const [skills, setSkills] = useState([]);
+
   const [ServiceCategories, setServiceCategories] = useState([]);
-  const nanigate = useNavigate();
+  const navigate = useNavigate();
   const handelSellerData = (data) => {
-    
+
     const fullname = data.fullName;
     const email = data.email;
+    const location = data.location;
     const phoneNumber = data.phoneNumber;
     const service = data.service;
     const pricing = data.pricing;
     const skills = data.skills;
     const paymentMethod = data.paymentMethod;
 
-    const sellerinfo = {
-      fullname, email, phoneNumber, pricing, service, skills, paymentMethod
+    const sellerInfo = {
+      fullname, email, location, phoneNumber, pricing, service, skills, paymentMethod
     }
-    console.log(sellerinfo);
+    // console.log(sellerInfo);
     fetch(`http://localhost:5000/saveseller`, {
       method: 'POST',
       headers: {
-        "content-type":"application/json"
+        "content-type": "application/json"
       },
-      body: JSON.stringify(sellerinfo)
+      body: JSON.stringify(sellerInfo)
     })
       .then(res => res.json())
       .then(data => {
-        console.log(data);
+        // console.log(data);
         reset();
-        toast.success(`Succesfully Registered as a ${sellerinfo?.skills}`);
-        nanigate('/seller_dashboard')
-    })
+        toast.success(`Successfully Registered!!`);
+        navigate('/seller_dashboard')
+      })
 
   };
   // loaded service category
@@ -48,15 +48,15 @@ function SellerRegistrationForm() {
       .then((data) => setServiceCategories(data));
   }, []);
 
-   
-  
+
+
   return (
-    <div className='p-8 flex flex-col'>
+    <div className='p-2 md:p-8 flex flex-col'>
       <form
         onSubmit={handleSubmit(handelSellerData)}
-        className='bg-gradient-to-b from-green-500 to-green-700 py-10 px-4 sm:w-full md:w-3/4 md:mx-auto md:grid md:grid-cols-1 md:gap-4 rounded-lg'
+        className='bg-gradient-to-l from-green-400 to-green-600 py-10 px-4 sm:w-full md:w-3/4 md:mx-auto md:grid md:grid-cols-1 md:gap-4 rounded-lg'
       >
-        <label htmlFor='fullName' className='block text-white mb-2'>
+        <label htmlFor='fullName' className='block font-bold text-white mb-2'>
           Full Name:
         </label>
         <input
@@ -71,8 +71,8 @@ function SellerRegistrationForm() {
           <span className='text-red-500'>This field is required</span>
         )}
 
-        <label htmlFor='email' className='block text-white mb-2'>
-          Email Address:
+        <label htmlFor='email' className='block font-bold text-white mb-2'>
+          Email:
         </label>
         <input
           type='email'
@@ -86,9 +86,28 @@ function SellerRegistrationForm() {
           <span className='text-red-500'>This field is required</span>
         )}
 
+
+        <label htmlFor='address' className='block font-bold text-white mb-2'>
+          Address:
+        </label>
+        <input
+          type='text'
+          id='address'
+          name='location'
+          {...register("location", { required: true })}
+          placeholder='Enter your location'
+          className='w-full bg-gray-100 rounded-md py-2 px-4 mb-4'
+        />
+        {errors.location && (
+          <span className='text-red-500'>This field is required</span>
+        )}
+
+
+
+
         <label
           htmlFor='phoneNumber'
-          className='block text-gray-700 font-bold mb-2'
+          className='block text-white font-bold mb-2'
         >
           Phone Number:
         </label>
@@ -109,7 +128,7 @@ function SellerRegistrationForm() {
           </span>
         )}
 
-<label htmlFor='paymentMethod' className='block text-white mb-2'>
+        <label htmlFor='paymentMethod' className='block font-bold text-white mb-2'>
           Select Service:
         </label>
         <select
@@ -119,13 +138,13 @@ function SellerRegistrationForm() {
           className='w-full bg-gray-100 rounded-md py-2 px-4 mb-4'
         >
           <option defaultValue=''>Select a Desire Service</option>
-          
+
           {
-            ServiceCategories.map(service =><option value={service?.service_name}>{service?.service_name}</option>)
+            ServiceCategories?.map((service, i) => <option key={i} value={service?.service_name}>{service?.service_name}</option>)
           }
-          
+
         </select>
-        {errors.service&& (
+        {errors.service && (
           <span className='text-red-500'>This field is required</span>
         )}
 
@@ -135,41 +154,16 @@ function SellerRegistrationForm() {
 
 
 
-        <label htmlFor='skills' className='block text-gray-700 font-bold mb-2'>
+        <label htmlFor='skills' className='block text-white font-bold mb-2'>
           Skills:
         </label>
         <div className='flex flex-wrap gap-2 mb-4'>
-          {skills.map((skill) => (
-            <div
-              key={skill}
-              className='bg-blue-500 text-white rounded-md py-2 px-4 flex items-center'
-            >
-              <span className='mr-2'>{skill}</span>
-              <button
-                type='button'
-                className='text-white hover:text-gray-200 focus:outline-none'
-              >
-                <svg
-                  xmlns='http://www.w3.org/2000/svg'
-                  className='h-4 w-4'
-                  viewBox='0 0 20 20'
-                  fill='currentColor'
-                >
-                  <path
-                    fillRule='evenodd'
-                    d='M10 18a8 8 0 100-16 8 8 0 000 16zm-1.414-8.414a1 1 0 011.414 0L10 10.586l1.414-1.414a1 1 0 011.414 1.414L11.414 12l1.414 1.414a1 1 0 01-1.414 1.414L10 13.414l-1.414 1.414a1 1 0 01-1.414-1.414L8.586 12 7.172 10.586a1 1 0 010-1.414z'
-                    clipRule='evenodd'
-                  />
-                </svg>
-              </button>
-            </div>
-          ))}
           <input
             type='text'
             id='skills'
             name='skills'
             {...register("skills", { required: true })}
-            placeholder='Enter your skills separated by commas'
+            placeholder='Enter your skills'
             className='w-full bg-gray-200 rounded-md py-2 px-4'
           />
         </div>
@@ -177,7 +171,7 @@ function SellerRegistrationForm() {
           <span className='text-red-500'>This field is required</span>
         )}
 
-        <label htmlFor='pricing' className='block text-white mb-2'>
+        <label htmlFor='pricing' className='block font-bold text-white mb-2'>
           Pricing:
         </label>
         <input
@@ -192,7 +186,7 @@ function SellerRegistrationForm() {
           <span className='text-red-500'>This field is required</span>
         )}
 
-        <label htmlFor='paymentMethod' className='block text-white mb-2'>
+        <label htmlFor='paymentMethod' className='block font-bold text-white mb-2'>
           Payment Method:
         </label>
         <select
@@ -209,12 +203,16 @@ function SellerRegistrationForm() {
         {errors.paymentMethod && (
           <span className='text-red-500'>This field is required</span>
         )}
-        <button
-          type='submit'
-          className='bg-green-600 text-white py-2 px-4 rounded-md hover:bg-blue-500 hover:text-white transition-colors duration-300'
-        >
-          Submit
-        </button>
+
+        <div className="flex justify-center ">
+          <button
+            type='submit'
+            className='bg-yellow-300 text-black font-roboto font-black  py-4 px-5 rounded-md  transition-colors duration-300'
+          >
+            Submit
+          </button>
+        </div>
+
       </form>
     </div>
   );

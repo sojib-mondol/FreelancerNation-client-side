@@ -15,7 +15,7 @@ const Navbar = () => {
         textDecoration: "underline",
         color: 'yellow'
     };
-    
+
     const handleLogOut = () => {
         logOut()
             .then(
@@ -139,7 +139,15 @@ const Navbar = () => {
                         user?.email ?
                             <>
                                 <li>
-                                    <img className='w-12 h-12 rounded-full' src={user?.photoURL} alt="userPhoto" />
+                                    {
+                                        user?.photoURL === null ?
+
+                                            <p className='text-white border-solid border-2 px-2 py-1'>{user?.displayName}</p>
+
+                                            :
+                                            <img className='w-12 h-12 rounded-full' src={user?.photoURL} alt="userPhoto" />
+
+                                    }
                                 </li>
                                 <li>
                                     <button onClick={handleLogOut} className='btn p-3 bg-gray-100 hover:bg-gray-200 border-none text-black rounded-xl' >Sign out</button>
@@ -255,7 +263,14 @@ const Navbar = () => {
                                             user?.email ?
                                                 <>
                                                     <li>
-                                                        <img className='w-20 h-20 rounded-full' src={user?.photoURL} alt="userPhoto" />
+                                                        {
+
+                                                            user?.photoURL === null ?
+
+                                                                <p className='text-white border-solid border-2 px-2 py-1'>{user?.displayName}</p>
+                                                                :
+                                                                <img className='w-20 h-20 rounded-full' src={user?.photoURL} alt="userPhoto" />
+                                                        }
                                                     </li>
 
                                                     <li>
