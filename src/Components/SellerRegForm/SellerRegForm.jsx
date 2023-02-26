@@ -8,7 +8,6 @@ function SellerRegistrationForm() {
     formState: { errors }, reset
   } = useForm();
 
-  const [skills, setSkills] = useState([]);
   const [ServiceCategories, setServiceCategories] = useState([]);
   const navigate = useNavigate();
   const handelSellerData = (data) => {
@@ -25,7 +24,7 @@ function SellerRegistrationForm() {
     const sellerInfo = {
       fullname, email, location, phoneNumber, pricing, service, skills, paymentMethod
     }
-    console.log(sellerInfo);
+    // console.log(sellerInfo);
     fetch(`http://localhost:5000/saveseller`, {
       method: 'POST',
       headers: {
@@ -35,7 +34,7 @@ function SellerRegistrationForm() {
     })
       .then(res => res.json())
       .then(data => {
-        console.log(data);
+        // console.log(data);
         reset();
         toast.success(`Successfully Registered!!`);
         navigate('/seller_dashboard')
@@ -141,7 +140,7 @@ function SellerRegistrationForm() {
           <option defaultValue=''>Select a Desire Service</option>
 
           {
-            ServiceCategories.map(service => <option value={service?.service_name}>{service?.service_name}</option>)
+            ServiceCategories?.map((service, i) => <option key={i} value={service?.service_name}>{service?.service_name}</option>)
           }
 
         </select>
@@ -159,31 +158,6 @@ function SellerRegistrationForm() {
           Skills:
         </label>
         <div className='flex flex-wrap gap-2 mb-4'>
-          {skills.map((skill) => (
-            <div
-              key={skill}
-              className='bg-blue-500 text-white rounded-md py-2 px-4 flex items-center'
-            >
-              <span className='mr-2'>{skill}</span>
-              <button
-                type='button'
-                className='text-white hover:text-gray-200 focus:outline-none'
-              >
-                <svg
-                  xmlns='http://www.w3.org/2000/svg'
-                  className='h-4 w-4'
-                  viewBox='0 0 20 20'
-                  fill='currentColor'
-                >
-                  <path
-                    fillRule='evenodd'
-                    d='M10 18a8 8 0 100-16 8 8 0 000 16zm-1.414-8.414a1 1 0 011.414 0L10 10.586l1.414-1.414a1 1 0 011.414 1.414L11.414 12l1.414 1.414a1 1 0 01-1.414 1.414L10 13.414l-1.414 1.414a1 1 0 01-1.414-1.414L8.586 12 7.172 10.586a1 1 0 010-1.414z'
-                    clipRule='evenodd'
-                  />
-                </svg>
-              </button>
-            </div>
-          ))}
           <input
             type='text'
             id='skills'
