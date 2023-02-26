@@ -120,13 +120,13 @@ const Login = () => {
                                 <div className="space-y-5">
                                     <div className="space-y-2">
                                         <label className="text-sm font-medium text-white tracking-wide">Email</label>
-                                        <input name='email' className=" w-full text-base px-4 py-2 border  border-gray-300 rounded-lg focus:outline-none focus:border-green-400" type="" placeholder="mail@gmail.com" />
+                                        <input name='email' className=" w-full text-base px-4 py-2 border  border-gray-300 rounded-lg focus:outline-none focus:border-green-400" type="email" placeholder="mail@gmail.com" />
                                     </div>
                                     <div className="space-y-2">
                                         <label className="mb-5 text-sm font-medium text-white tracking-wide">
                                             Password
                                         </label>
-                                        <input name='password' className="w-full content-center text-base px-4 py-2 border  border-gray-300 rounded-lg focus:outline-none focus:border-green-400" type="" placeholder="Enter your password" />
+                                        <input type='password' name='password' className="w-full content-center text-base px-4 py-2 border  border-gray-300 rounded-lg focus:outline-none focus:border-green-400" placeholder="Enter your password" />
                                     </div>
                                     <div className="flex items-center justify-between">
                                         <div className="text-sm">
