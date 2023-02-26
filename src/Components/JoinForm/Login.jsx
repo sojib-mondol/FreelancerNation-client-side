@@ -1,5 +1,6 @@
 import { GoogleAuthProvider } from 'firebase/auth';
 import React, { useContext, useState } from 'react';
+import { toast } from 'react-hot-toast';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthProvider';
 
@@ -7,22 +8,52 @@ const Login = () => {
     const [error, setError] = useState('');
     const { providerSignIn, signIn } = useContext(AuthContext);
 
+
     const navigate = useNavigate();
     const location = useLocation();
-
     const from = location.state?.from?.pathname || '/';
 
+
+    // google login system--------
     const handleGoogleSignIn = () => {
         const provider = new GoogleAuthProvider();
         providerSignIn(provider)
             .then(result => {
                 const user = result.user;
-                setError('');
-                navigate(from, { replace: true })
+
+                const buyerInfo = {
+                    name: user?.displayName,
+                    email: user?.email,
+                    buyer: true,
+                }
+
+
+                fetch(`http://localhost:5000/buyerData`, {
+                    method: 'PUT',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(buyerInfo)
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        // console.log(data);
+                        toast.success("Login successful");
+                        setError('');
+                        navigate(from, { replace: true })
+                    })
+
+
+
+
             })
             .catch(err => setError(err.message))
     }
 
+
+
+
+    // handle save data-------------
     const handleSubmit = e => {
         e.preventDefault();
         const form = e.target;
@@ -32,10 +63,32 @@ const Login = () => {
         signIn(email, password)
             .then(result => {
                 const user = result.user;
-                form.reset();
-                setError('');
-                navigate(from, { replace: true })
-                console.log(user)
+
+                const buyerInfo = {
+                    name: user?.displayName,
+                    email: user?.email,
+                    buyer: true,
+                }
+
+                fetch(`http://localhost:5000/buyerData`, {
+                    method: 'PUT',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(buyerInfo)
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        // console.log(data);
+                        toast.success("Login successful");
+                        form.reset();
+                        navigate(from, { replace: true })
+                    })
+
+
+
+
+
             })
             .catch(err => setError(err.message))
     }
@@ -76,32 +129,29 @@ const Login = () => {
                                         <input name='password' className="w-full content-center text-base px-4 py-2 border  border-gray-300 rounded-lg focus:outline-none focus:border-green-400" type="" placeholder="Enter your password" />
                                     </div>
                                     <div className="flex items-center justify-between">
-                                        <div className="flex items-center">
-                                            <input id="remember_me" name="remember_me" type="checkbox" className="h-4 w-4 bg-blue-500 focus:ring-blue-400 border-gray-300 rounded" />
-                                            <label htmlFor="remember_me" className="ml-2 block text-sm text-white">
-                                                Remember me
-                                            </label>
-                                        </div>
                                         <div className="text-sm">
-                                            <p className="font-bold underline text-green-400 hover:text-white">
+                                            <p className="font-bold underline hover:text-green-400 text-white">
                                                 Forgot your password?
                                             </p>
                                         </div>
 
                                     </div>
                                     <div>
-                                        <button type="submit" className="w-full flex justify-center bg-green-400  hover:bg-white text-white hover:text-black p-3  rounded-full tracking-wide font-semibold  shadow-lg cursor-pointer transition ease-in duration-500">
+                                        <button type='submit' className="w-full flex justify-center bg-green-400  hover:bg-white text-white hover:text-black p-3  rounded-full tracking-wide font-semibold  shadow-lg cursor-pointer transition ease-in duration-500">
                                             Sign in
                                         </button>
+
                                         <div>
-                                <p className='mt-2 text-center text-red-500'>{error}</p>
-                            </div>
+                                        <p className='mt-2 text-center text-red-500 bg-white rounded-md'>{error}</p>
                                     </div>
-                                    
+                                    </div>
+
                                 </div>
                             </form>
+
+
                             <Link to='/registration' className='text-white font-roboto'>Didn't have any account? <span className='font-bold underline text-green-400 hover:text-white'>Register </span></Link>
-                            
+
                             <div className='mt-4'>
                                 <button onClick={handleGoogleSignIn} className="w-full flex justify-center bg-green-400 border-none border-2 hover:bg-white text-white hover:text-black p-3  rounded-full tracking-wide font-semibold  shadow-lg cursor-pointer transition ease-in duration-500">
                                     Google

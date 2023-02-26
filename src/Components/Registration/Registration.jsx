@@ -1,5 +1,6 @@
 import { GoogleAuthProvider } from 'firebase/auth';
 import React, { useContext, useState } from 'react';
+import { toast } from 'react-hot-toast';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthProvider';
 import './Registration.css';
@@ -7,23 +8,49 @@ import './Registration.css';
 const Registration = () => {
     const [error, setError] = useState('');
     const { providerSignIn, createUser, updateUserProfile } = useContext(AuthContext);
+    const [isDisabled, setIsDisabled] = useState(false);
 
     const navigate = useNavigate();
     const location = useLocation();
 
     const from = location.state?.from?.pathname || '/';
 
+    // google login system-----------
     const handleGoogleSignIn = () => {
         const provider = new GoogleAuthProvider();
         providerSignIn(provider)
             .then(result => {
                 const user = result.user;
-                setError('');
-                navigate(from, { replace: true })
+                const buyerInfo = {
+                    name: user?.displayName,
+                    email: user?.email,
+                    buyer: true,
+                }
+
+                fetch(`http://localhost:5000/buyerData`, {
+                    method: 'PUT',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(buyerInfo)
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        // console.log(data);
+                        toast.success("Login successful");
+                        setError('');
+                        navigate(from, { replace: true })
+                    })
+
+
+
+
             })
             .catch(err => setError(err.message))
     }
 
+
+    // handle form data-------
     const handleSubmit = e => {
         e.preventDefault();
         const form = e.target;
@@ -31,26 +58,51 @@ const Registration = () => {
         const lastName = form.lastName.value;
         const email = form.email.value;
         const password = form.password.value;
-
         const name = firstName + ' ' + lastName;
 
+
+        // register data here--------------
         createUser(email, password)
             .then(result => {
                 setError('');
-                handleUpdateUserProfile(name)
-                form.reset();
-                navigate(from, { replace: true })
+
+                // update user profile
+                const profile = { displayName: name };
+                updateUserProfile(profile)
+                    .then(() => {
+
+                        const buyerInfo = {
+                            name,
+                            email,
+                            buyer: true,
+                        }
+
+                        fetch(`http://localhost:5000/buyerData`, {
+                            method: 'PUT',
+                            headers: {
+                                'content-type': 'application/json'
+                            },
+                            body: JSON.stringify(buyerInfo)
+                        })
+                            .then(res => res.json())
+                            .then(data => {
+                                // console.log(data);
+                                toast.success("Login successful");
+                                form.reset();
+                                navigate(from, { replace: true })
+                            })
+
+
+
+                    })
+                    .catch(error => console.error(error))
+
             })
-            .catch(err => setError(err.message))
+            .catch(err => setError(err.message));
 
-    }
 
-    // reset user password
-    const handleUpdateUserProfile = (name) => {
-        const profile = { displayName: name };
-        updateUserProfile(profile)
-            .then(() => { })
-            .catch(error => console.error(error))
+
+
     }
 
     return (
@@ -82,15 +134,27 @@ const Registration = () => {
                                 </div>
 
                                 <div className="mt-5 flex justify-start  items-center">
-                                    <input type="checkbox" className="border mr-2 pt-2 border-gray-400" />
+                                    <input onClick={() => setIsDisabled(true)} type="checkbox" className="border mr-2 pt-2 border-gray-400" />
                                     <p className='text-white font-roboto'>
                                         I accept the <Link to='#' className="text-green-400 hover:text-green-500 font-semibold">Terms of Use</Link> &  <Link to='#' className="text-green-400 hover:text-green-500 font-semibold">Privacy Policy</Link>
                                     </p>
                                 </div>
                                 <div className="mt-5">
-                                    <button className="w-full flex justify-center bg-green-500 border-none border-2 hover:bg-white text-white hover:text-black  p-3  rounded-full tracking-wide font-semibold  shadow-lg cursor-pointer transition ease-in duration-500 ">Register Now</button>
+
+                                    {
+                                        isDisabled === false ?
+
+                                            <button className="w-full flex justify-center bg-green-500 border-none border-2 hover:bg-white text-white hover:text-black  p-3  rounded-full tracking-wide font-semibold  shadow-lg cursor-pointer transition ease-in duration-500 " disabled>Register Now</button>
+                                            :
+                                            <button className="w-full flex justify-center bg-green-500 border-none border-2 hover:bg-white text-white hover:text-black  p-3  rounded-full tracking-wide font-semibold  shadow-lg cursor-pointer transition ease-in duration-500 ">Register Now</button>
+                                    }
+                                    <div>
+                                        <p className='mt-2 text-center text-red-500 bg-white rounded-md'>{error}</p>
+                                    </div>
                                 </div>
+
                             </form>
+
 
                             <Link to='/login' className='text-white font-roboto'>Already have an account? <span className='font-bold underline text-green-400'> Login</span></Link>
 
