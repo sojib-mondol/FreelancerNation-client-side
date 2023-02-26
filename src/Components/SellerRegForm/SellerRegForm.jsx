@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 
 function SellerRegistrationForm() {
   const {register,handleSubmit,
@@ -9,7 +10,7 @@ function SellerRegistrationForm() {
   
   const [skills, setSkills] = useState([]);
   const [ServiceCategories, setServiceCategories] = useState([]);
-
+  const nanigate = useNavigate();
   const handelSellerData = (data) => {
     
     const fullname = data.fullName;
@@ -35,10 +36,12 @@ function SellerRegistrationForm() {
       .then(data => {
         console.log(data);
         reset();
-        toast.success(`Succesfully Registered as a ${sellerinfo?.skills}`)
+        toast.success(`Succesfully Registered as a ${sellerinfo?.skills}`);
+        nanigate('/seller_dashboard')
     })
 
   };
+  // loaded service category
   useEffect(() => {
     fetch(`http://localhost:5000/serviceCategoty`)
       .then((res) => res.json())
