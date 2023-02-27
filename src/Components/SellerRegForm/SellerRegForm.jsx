@@ -25,7 +25,7 @@ function SellerRegistrationForm() {
       fullname, email, location, phoneNumber, pricing, service, skills, paymentMethod
     }
     // console.log(sellerInfo);
-    fetch(`http://localhost:5000/saveseller`, {
+    fetch(`https://freelancer-nation-backend.vercel.app/saveseller`, {
       method: 'POST',
       headers: {
         "content-type": "application/json"
@@ -43,7 +43,7 @@ function SellerRegistrationForm() {
   };
   // loaded service category
   useEffect(() => {
-    fetch(`http://localhost:5000/serviceCategoty`)
+    fetch(`https://freelancer-nation-backend.vercel.app/serviceCategoty`)
       .then((res) => res.json())
       .then((data) => setServiceCategories(data));
   }, []);

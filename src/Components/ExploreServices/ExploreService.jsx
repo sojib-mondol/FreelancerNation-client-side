@@ -5,7 +5,7 @@ const ExploreService = () => {
   const [ServiceCategories, setServiceCategories] = useState([]);
   console.log(ServiceCategories);
   useEffect(() => {
-    fetch(`http://localhost:5000/serviceCategoty`)
+    fetch(`https://freelancer-nation-backend.vercel.app/serviceCategoty`)
       .then((res) => res.json())
       .then((data) => setServiceCategories(data));
   }, []);

@@ -28,7 +28,7 @@ const Login = () => {
                 }
 
 
-                fetch(`http://localhost:5000/buyerData`, {
+                fetch(`https://freelancer-nation-backend.vercel.app/buyerData`, {
                     method: 'PUT',
                     headers: {
                         'content-type': 'application/json'
@@ -70,7 +70,7 @@ const Login = () => {
                     buyer: true,
                 }
 
-                fetch(`http://localhost:5000/buyerData`, {
+                fetch(`https://freelancer-nation-backend.vercel.app/buyerData`, {
                     method: 'PUT',
                     headers: {
                         'content-type': 'application/json'
