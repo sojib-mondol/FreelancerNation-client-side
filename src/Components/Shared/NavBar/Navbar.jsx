@@ -72,7 +72,7 @@ const Navbar = () => {
                     className="inline-flex items-center"
                 >
 
-                    <img className='w-0 h-0 md:w-14 md:h-14 rounded-lg invisible md:visible' src={logo} alt="sell phone bd" />
+                    <img className='w-0 h-0 md:w-20 md:h-20 rounded-lg invisible md:visible' src={logo} alt="sell phone bd" />
 
                     <span className="ml-2 text-xl font-bold tracking-wide text-green-500 uppercase">
                         FreelanceNation
