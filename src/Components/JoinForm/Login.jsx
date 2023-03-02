@@ -142,8 +142,8 @@ const Login = () => {
                                         </button>
 
                                         <div>
-                                        <p className='mt-2 text-center text-red-500 bg-white rounded-md'>{error}</p>
-                                    </div>
+                                            <p className='mt-2 text-center text-red-500 bg-white rounded-md'>{error}</p>
+                                        </div>
                                     </div>
 
                                 </div>
