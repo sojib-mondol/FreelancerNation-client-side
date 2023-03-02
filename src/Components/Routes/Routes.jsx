@@ -1,5 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import BecomeASeller from "../BecomeASeller/BecomeASeller";
+import BuyerDashboard from "../BuyerDashboard/BuyerDashboard";
 import Error from "../Error/Error";
 import ExploreService from "../ExploreServices/ExploreService";
 import Home from "../Home/Home/Home";
@@ -44,6 +45,10 @@ export const router = createBrowserRouter([{
         {
             path: '/registration',
             element: <Registration></Registration>
+        },
+        {
+            path: '/buyer_dashboard',
+            element: <BuyerDashboard></BuyerDashboard>
         }
 
 

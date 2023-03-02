@@ -1,0 +1,18 @@
+.explore-sub-menu{
+    position: absolute;
+    top: 120%;
+    transform: translateX(-50%);
+    z-index: 50;
+
+}
+.explore-sub-menu::after {
+  content: "";
+  position: absolute;
+  top: -2%;
+  left: 54%;
+  transform: translate(-50%, -50%);
+  border-top: 30px solid transparent;
+  border-left: 30px solid transparent;
+  border-bottom: 30px solid white;
+  border-right: 30px solid transparent;
+}
