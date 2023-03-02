@@ -1,5 +1,6 @@
 import { GoogleAuthProvider } from 'firebase/auth';
 import React, { useContext, useState } from 'react';
+import { toast } from 'react-hot-toast';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthProvider';
 
@@ -94,14 +95,14 @@ const Login = () => {
                                             Sign in
                                         </button>
                                         <div>
-                                <p className='mt-2 text-center text-red-500'>{error}</p>
-                            </div>
+                                            <p className='mt-2 text-center text-red-500'>{error}</p>
+                                        </div>
                                     </div>
-                                    
+
                                 </div>
                             </form>
                             <Link to='/registration' className='text-white font-roboto'>Didn't have any account? <span className='font-bold underline text-green-400 hover:text-white'>Register </span></Link>
-                            
+
                             <div className='mt-4'>
                                 <button onClick={handleGoogleSignIn} className="w-full flex justify-center bg-green-400 border-none border-2 hover:bg-white text-white hover:text-black p-3  rounded-full tracking-wide font-semibold  shadow-lg cursor-pointer transition ease-in duration-500">
                                     Google
