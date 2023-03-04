@@ -1,6 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import BecomeASeller from "../BecomeASeller/BecomeASeller";
 import BuyerDashboard from "../BuyerDashboard/BuyerDashboard";
+import Chat from "../Chat/Chat";
 import Error from "../Error/Error";
 import ExploreService from "../ExploreServices/ExploreService";
 import Home from "../Home/Home/Home";
@@ -49,6 +50,10 @@ export const router = createBrowserRouter([{
         {
             path: '/buyer_dashboard',
             element: <BuyerDashboard></BuyerDashboard>
+        },
+        {
+            path: '/buyer_dashboard/chat',
+            element: <Chat></Chat>,
         }
 
 
