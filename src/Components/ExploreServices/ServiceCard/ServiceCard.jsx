@@ -5,10 +5,12 @@ import JoinButton from "./JoinButton/JoinButton";
 const ServiceCard = ({ singleCategory }) => {
   // console.log(singleCategory);
   const { service_name, service_image } = singleCategory;
+
+
   return (
-    <div className='flex flex-col justify-center items-center text-4xl'>
+    <div className='flex flex-col justify-center items-center text-4xl border rounded-lg hover:shadow-xl'>
       <img
-        className='object-cover w-full h-56 rounded-lg lg:w-64'
+        className='object-cover w-full h-56 rounded-lg lg:w-86'
         src={service_image}
         alt={service_name}
       />
