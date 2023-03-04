@@ -10,6 +10,7 @@ import Main from "../Layout/Main";
 import Registration from "../Registration/Registration";
 import SellerDashboard from "../SellerDashboard/SellerDashboard";
 import SellerRegistrationForm from "../SellerRegForm/SellerRegForm";
+import NavbarExplores from "../Shared/Navbar_Explores/NavbarExplores";
 
 
 export const router = createBrowserRouter([{
@@ -54,7 +55,12 @@ export const router = createBrowserRouter([{
         {
             path: '/buyer_dashboard/chat',
             element: <Chat></Chat>,
-        }
+        },
+        {
+            path: '/explores',
+            element: <NavbarExplores></NavbarExplores>,
+        },
+
 
 
     ]
