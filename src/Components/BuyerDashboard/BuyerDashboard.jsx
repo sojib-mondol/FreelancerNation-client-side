@@ -73,8 +73,11 @@ const BuyerDashboard = () => {
                                                 <small>Status</small>
                                                 <small className='bg-orange-400 rounded-2xl px-2 py-1 text-white'>Incomplete</small>
                                             </div>
-                                            <div>
+                                            <div className='flex gap-2'>
                                                 <button className='text-green-500'>View</button>
+                                                <Link to='/buyer_dashboard/chat'>
+                                                <button className='text-green-500'>Message</button>
+                                                </Link>
                                             </div>
                                         </div>
 
