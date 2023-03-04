@@ -23,10 +23,10 @@ const SellerDashboard = () => {
                         <div className='flex gap-2 justify-center'>
                             {
                                 [1, 2, 3, 4, 5].map((start, index) => {
-                                    return <>
-                                        <FaStar className='text-yellow-500 font-bold text-lg' key={index} />
+                                    return <div key={index}>
+                                        <FaStar className='text-yellow-500 font-bold text-lg' />
 
-                                    </>
+                                    </div>
                                 })
                             }
                             <span className='text-base'>{`6 ( reviews )`}</span>
@@ -60,7 +60,7 @@ const SellerDashboard = () => {
                         <div className='grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5 mt-5 xl:mt-10'>
                             {
                                 [1, 2, 3, 4, 5, 6].map((cart, index) => {
-                                    return <>
+                                    return <div key={index}>
                                         <div className="w-full overflow-hidden bg-white border border-slate-300" key={index}>
                                             <img className="object-cover w-full h-36" src="https://images.unsplash.com/photo-1542156822-6924d1a71ace?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="avatar" />
 
@@ -76,7 +76,7 @@ const SellerDashboard = () => {
                                             </div>
                                         </div>
 
-                                    </>
+                                    </div>
                                 })
                             }
                             <Link to='/' className="w-full overflow-hidden bg-white border border-slate-300 flex flex-col justify-center items-center py-7">
