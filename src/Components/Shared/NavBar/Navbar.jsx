@@ -126,6 +126,20 @@ const Navbar = () => {
                             style={({ isActive }) =>
                                 isActive ? activeStyle : undefined
                             }
+                            to="/buyer_dashboard"
+                            aria-label="Buyer Dashboard"
+                            title="Buyer Dashboard"
+                            className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                        >
+                            Buyer Dashboard
+                        </NavLink>
+
+                    </li>
+                    <li>
+                        <NavLink
+                            style={({ isActive }) =>
+                                isActive ? activeStyle : undefined
+                            }
                             to='/seller_dashboard'
                             aria-label="Seller Dashboard"
                             title="Seller Dashboard"
@@ -256,6 +270,19 @@ const Navbar = () => {
                                                 className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-deep-purple-accent-400"
                                             >
                                                 Seller Dashboard
+                                            </NavLink>
+                                        </li>
+                                        <li>
+                                            <NavLink
+                                                style={({ isActive }) =>
+                                                    isActive ? activeStyle : undefined
+                                                }
+                                                to="/buyer_dashboard"
+                                                aria-label="Buyer Dashboard"
+                                                title="Buyer Dashboard"
+                                                className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                                            >
+                                                Buyer Dashboard
                                             </NavLink>
                                         </li>
 
