@@ -8,6 +8,7 @@ const SellerDashboard = () => {
         <div className='px-4 py-5 mx-auto md:px-10 lg:px-24 lg:py-16'>
             <div className='grid grid-cols-1 md:grid-cols-2 xl:grid-cols-12 gap-5 xl:gap-16 items-start'>
                 <div className='xl:col-span-4 bg-white flex flex-col items-center p-5 border border-slate-300'>
+
                     <div className='w-48 h-48 rounded-full relative'>
                         <img className='w-full h-full rounded-full' src="https://i.ibb.co/wQz38mT/wordpress.jpg" alt="" srcSet="" />
                         <div className='absolute top-[153px] left-[120px]'>
@@ -17,9 +18,12 @@ const SellerDashboard = () => {
                             </label>
                         </div>
                     </div>
+                    
                     <div className='flex flex-col gap-2 items-center mt-5'>
                         <h2 className='font-bold text-lg'>Webattom</h2>
                         <h3 className='italic'>WordPress And eCommerce expert</h3>
+
+
                         <div className='flex gap-2 justify-center'>
                             {
                                 [1, 2, 3, 4, 5].map((start, index) => {
@@ -31,8 +35,11 @@ const SellerDashboard = () => {
                             }
                             <span className='text-base'>{`6 ( reviews )`}</span>
                         </div>
+
+
                     </div>
                     <div className='w-full border-t-[0.2px]'></div>
+
                     <div className='grid grid-cols-2 gap-2 text-slate-500 py-5'>
                         <div className='flex gap-10'>
                             <FaMapMarkerAlt />
@@ -50,6 +57,7 @@ const SellerDashboard = () => {
                         </div>
                         <h3 className='text-end'>3 months</h3>
                     </div>
+
                     <div className='w-full border-t-[0.2px]'></div>
                 </div>
                 <div className='xl:col-span-8'>
@@ -57,6 +65,7 @@ const SellerDashboard = () => {
                         <div className='bg-white p-3 border border-slate-300'>
                             <h2 className='uppercase font-bold text-sm text-start'>Active gigs</h2>
                         </div>
+
                         <div className='grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5 mt-5 xl:mt-10'>
                             {
                                 [1, 2, 3, 4, 5, 6].map((cart, index) => {
@@ -79,12 +88,14 @@ const SellerDashboard = () => {
                                     </div>
                                 })
                             }
+
                             <Link to='/' className="w-full overflow-hidden bg-white border border-slate-300 flex flex-col justify-center items-center py-7">
                                 <div className='w-24 text-green-600'>
                                     <FaPlusCircle className='w-full text-8xl' />
                                 </div>
                                 <h3 className='font-semibold'>Create a new gig</h3>
                             </Link>
+
                         </div>
                     </div>
                 </div>
