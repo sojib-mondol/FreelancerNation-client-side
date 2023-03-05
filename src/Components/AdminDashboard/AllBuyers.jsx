@@ -12,7 +12,7 @@ const AllBuyers = () => {
         queryFn: async () => {
             try {
 
-                const res = await fetch(`http://localhost:5000/allBuyers`)
+                const res = await fetch(`https://freelancer-nation-backend.vercel.app/allBuyers`)
                 const data = await res.json();
                 return data;
 
@@ -31,7 +31,7 @@ const AllBuyers = () => {
 
         if (agree) {
             // console.log(_id);
-            fetch(`http://localhost:5000/users/delete/${_id}`, {
+            fetch(`https://freelancer-nation-backend.vercel.app/users/delete/${_id}`, {
                 method: "DELETE"
             })
                 .then(res => res.json())
