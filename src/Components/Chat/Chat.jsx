@@ -1,19 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { ChatIcon } from '@heroicons/react/outline';
 import { CheckCircleIcon } from '@heroicons/react/solid';
-import io from 'socket.io-client';
 
-const socket = io('http://localhost:4000/'); // differnt server for that 
+import { toast } from 'react-hot-toast';
+
 
 const Chat = () => {
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState('');
 
-  useEffect(() => {
-    socket.on('message', (message) => {
-      setMessages((prevMessages) => [...prevMessages, message]);
-    });
-  }, []);
 
   const handleInputChange = (e) => {
     setInput(e.target.value);
@@ -29,9 +24,11 @@ const Chat = () => {
         timestamp: new Date().toLocaleString(),
         status: 'sent',
       };
-      socket.emit('message', newMessage);
+      
       setMessages((prevMessages) => [...prevMessages, newMessage]);
       setInput('');
+      toast.success('Work In progress..')
+      
     }
   };
 
