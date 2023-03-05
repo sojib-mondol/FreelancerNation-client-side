@@ -2,17 +2,12 @@ import React, { useContext } from 'react';
 import { Link, Outlet } from 'react-router-dom';
 import UseAdmin from '../../API/UseAdmin';
 import { AuthContext } from '../../context/AuthProvider';
-import Navbar from '../Shared/NavBar/Navbar';
+
 
 const AdminDashboardLayout = () => {
     const { user } = useContext(AuthContext);
     const [isAdmin] = UseAdmin(user?.email);
 
-    // console.log(user);
-    console.log(isAdmin);
-    // if (isSellerLoading) {
-    //     return <Loading></Loading>
-    // }
 
     return (
         <div>

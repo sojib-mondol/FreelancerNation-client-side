@@ -1,6 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import AllBuyers from "../AdminDashboard/AllBuyers";
 import AllSellers from "../AdminDashboard/AllSellers";
+import SellerDetails from "../AdminDashboard/SellerDetails";
 import WelcomeDashboard from "../AdminDashboard/WelcomeDashboard";
 import BecomeASeller from "../BecomeASeller/BecomeASeller";
 import BuyerDashboard from "../BuyerDashboard/BuyerDashboard";
@@ -80,6 +81,11 @@ export const router = createBrowserRouter([{
                 {
                     path: '/dashboard/allBuyers',
                     element: <AllBuyers></AllBuyers>
+                },
+                {
+                    path: '/dashboard/seller/details/:id',
+                    loader: ({params}) => fetch(`/seller/details/${params.id}`),
+                    element: <SellerDetails></SellerDetails>
                 },
                 
             ]

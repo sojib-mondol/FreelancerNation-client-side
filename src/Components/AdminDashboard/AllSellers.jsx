@@ -1,6 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
 import React from 'react';
 import toast from 'react-hot-toast';
+import { Link } from 'react-router-dom';
 import AdminSkeleton from '../Shared/Skeleton/AdminSkeleton';
 
 
@@ -75,28 +76,34 @@ const AllSellers = () => {
                             <th>Image</th>
                             <th>Name</th>
                             <th>Email</th>
+                            <th>Details</th>
                             <th>Delete</th>
                         </tr>
                     </thead>
                     <tbody>
 
                         {
-                            sellers.map((buyer, i) =>
-                                <tr key={buyer._id}>
+                            sellers.map((seller, i) =>
+                                <tr key={seller._id}>
                                     <th>{i + 1}</th>
                                     <td>
                                         <div className="avatar">
                                             <div className="w-24 rounded-lg">
-                                                <img src={buyer.image} alt='' />
+                                                <img src={seller.image} alt='' />
                                             </div>
                                         </div>
 
                                     </td>
-                                    <td>{buyer.name}</td>
-                                    <td>{buyer.email}</td>
+                                    <td>{seller.name}</td>
+                                    <td>{seller.email}</td>
+                                    <td>
+                                        <Link to={`/dashboard/seller/details/${seller?._id}`}>
+                                            <button className="btn btn-sm btn-success text-white">Details</button>
+                                        </Link>
+                                    </td>
                                     <td>
                                         <label
-                                            onClick={() => handleDeletingSeller(buyer._id)}
+                                            onClick={() => handleDeletingSeller(seller._id)}
                                             className="btn btn-sm btn-error text-white">Delete</label>
                                     </td>
                                 </tr>)
