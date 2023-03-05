@@ -30,7 +30,7 @@ const Login = () => {
                 }
 
 
-                fetch(`http://localhost:5000/users`, {
+                fetch(`https://freelancer-nation-backend.vercel.app/users`, {
                     method: 'PUT',
                     headers: {
                         'content-type': 'application/json'

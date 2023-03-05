@@ -16,7 +16,7 @@ const Registration = () => {
     const imageHostKey = process.env.REACT_APP_IMGBB_key;
 
     const navigate = useNavigate();
-   
+
 
     // reload page
     function handleButtonClick() {
@@ -32,7 +32,7 @@ const Registration = () => {
                 const userInfo = {
                     name: user?.displayName,
                     email: user?.email,
-                    image : user?.photoURL,
+                    image: user?.photoURL,
                     sellerAccount: false,
                 }
 
@@ -72,7 +72,7 @@ const Registration = () => {
                 const user = result.user;
                 // console.log(user);
                 setError('');
-                
+
 
 
                 const image = data.image[0]
@@ -85,12 +85,12 @@ const Registration = () => {
                 })
                     .then(res => res.json())
                     .then(imgData => {
-                      
+
                         if (imgData.success) {
 
 
                             const fullName = data?.firstName + data?.lastName
-                     
+
                             //user update---------
                             const profile = { displayName: fullName }
 
@@ -122,7 +122,7 @@ const Registration = () => {
             image: photoURL
         }
 
-        fetch(`http://localhost:5000/users`, {
+        fetch(`https://freelancer-nation-backend.vercel.app/users`, {
             method: "PUT",
             headers: {
                 'content-type': "application/json"
@@ -132,7 +132,7 @@ const Registration = () => {
             .then(res => res.json())
             .then(data => {
                 // console.log("save user", data);
-               
+
                 toast.success("Login successful!!! ");
                 setError('');
                 navigate('/')
