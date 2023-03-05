@@ -1,5 +1,6 @@
 import { GoogleAuthProvider } from 'firebase/auth';
 import React, { useContext, useState } from 'react';
+import { useForm } from 'react-hook-form';
 import { toast } from 'react-hot-toast';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthProvider';
@@ -7,14 +8,20 @@ import LoginSkeleton from '../Shared/Skeleton/LoginSkeleton';
 import './Registration.css';
 
 const Registration = () => {
+    const { register, handleSubmit, formState: { errors } } = useForm();
     const [error, setError] = useState('');
     const { providerSignIn, createUser, updateUserProfile } = useContext(AuthContext);
     const [isDisabled, setIsDisabled] = useState(false);
+
+    const imageHostKey = process.env.REACT_APP_IMGBB_key;
+
 
     const navigate = useNavigate();
     const location = useLocation();
 
     const from = location.state?.from?.pathname || '/';
+
+
 
     // google login system-----------
     const handleGoogleSignIn = () => {
@@ -22,10 +29,11 @@ const Registration = () => {
         providerSignIn(provider)
             .then(result => {
                 const user = result.user;
-                const buyerInfo = {
+                const userInfo = {
                     name: user?.displayName,
                     email: user?.email,
-                    buyer: true,
+                    image : user?.photoURL,
+                    sellerAccount: false,
                 }
 
                 fetch(`https://freelancer-nation-backend.vercel.app/buyerData`, {
@@ -33,7 +41,7 @@ const Registration = () => {
                     headers: {
                         'content-type': 'application/json'
                     },
-                    body: JSON.stringify(buyerInfo)
+                    body: JSON.stringify(userInfo)
                 })
                     .then(res => res.json())
                     .then(data => {
@@ -45,74 +53,107 @@ const Registration = () => {
 
 
 
-
             })
             .catch(err => setError(err.message))
     }
 
 
     // handle form data-------
-    const handleSubmit = e => {
-        e.preventDefault();
-        const form = e.target;
-        const firstName = form.firstName.value;
-        const lastName = form.lastName.value;
-        const email = form.email.value;
-        const password = form.password.value;
-        const name = firstName + ' ' + lastName;
 
 
-        // register data here--------------
-        createUser(email, password)
+
+    // user sign up---------
+    const handleSignUp = data => {
+
+        createUser(data.email, data.password)
             .then(result => {
+                const user = result.user;
+                // console.log(user);
                 setError('');
+                
 
-                // update user profile
-                const profile = { displayName: name };
-                updateUserProfile(profile)
-                    .then(() => {
 
-                        const buyerInfo = {
-                            name,
-                            email,
-                            buyer: true,
+                const image = data.image[0]
+                const formData = new FormData();
+                formData.append('image', image)
+                const url = `https://api.imgbb.com/1/upload?key=${imageHostKey}`;
+                fetch(url, {
+                    method: "POST",
+                    body: formData
+                })
+                    .then(res => res.json())
+                    .then(imgData => {
+                      
+                        if (imgData.success) {
+
+
+                            const fullName = data?.firstName + data?.lastName
+                     
+                            //user update---------
+                            const profile = { displayName: fullName }
+
+                            updateUserProfile(profile)
+                                .then(() => {
+                                    // save data -------------
+                                    saveUser(fullName, data.email, data.seller, imgData.data.display_url)
+
+                                })
+                                .catch(err => console.log(err));
                         }
 
-                        fetch(`https://freelancer-nation-backend.vercel.app/buyerData`, {
-                            method: 'PUT',
-                            headers: {
-                                'content-type': 'application/json'
-                            },
-                            body: JSON.stringify(buyerInfo)
-                        })
-                            .then(res => res.json())
-                            .then(data => {
-                                // console.log(data);
-                                toast.success("Login successful");
-                                form.reset();
-                                navigate(from, { replace: true })
-                            })
-
-
-
                     })
-                    .catch(error => console.error(error))
+            })
+            .catch(err => {
+                console.log(err);
+                setError(err.message);
+                setLoading(false);
+            })
+    };
+
+
+    // //save user --------
+    const saveUser = (fullName, email, seller, photoURL) => {
+        const user = {
+            name: fullName,
+            email,
+            sellerAccount: seller,
+            image: photoURL
+        }
+
+        fetch(`http://localhost:5000/users`, {
+            method: "PUT",
+            headers: {
+                'content-type': "application/json"
+            },
+            body: JSON.stringify(user)
+        })
+            .then(res => res.json())
+            .then(data => {
+                // console.log("save user", data);
+               
+                toast.success("Login successful!!! ");
+                setError('');
+                navigate(from, { replace: true })
+
 
             })
-            .catch(err => setError(err.message));
+
+    };
 
 
 
 
-    }
 
-    
+
+
+
+
     const [loading, setLoading] = useState(true);
     setTimeout(() => {
         setLoading(false);
     }, 1000)
 
-    if(loading){
+    if (loading) {
         return <LoginSkeleton></LoginSkeleton>
     }
 
@@ -134,17 +175,64 @@ const Registration = () => {
                             <p className="mb-4 text-white">
                                 Create your account. It’s free and only take a minute
                             </p>
-                            <form onSubmit={handleSubmit} className="mb-4">
+                            <form onSubmit={handleSubmit(handleSignUp)} className="mb-4">
                                 <div className="grid grid-cols-2 gap-5">
-                                    <input name='firstName' type="text" placeholder="Firstname" className="rounded-sm py-2 px-2" />
-                                    <input name='lastName' type="text" placeholder="Lastname" className=" rounded-sm py-2 px-2" />
+
+                                    <input name='firstName' type="text"
+                                        {...register('firstName', {
+                                            required: true
+                                        })}
+                                        placeholder="FirstName" className="rounded-sm py-2 px-2" />
+
+                                    <input name='lastName' type="text"
+                                        {...register('lastName', {
+                                            required: true
+                                        })}
+                                        placeholder="LastName" className=" rounded-sm py-2 px-2" />
                                 </div>
+
                                 <div className="mt-5">
-                                    <input name='email' type="text" placeholder="Email" className="rounded-sm py-2 px-2 w-full" />
+                                    <input name='email' type="text"
+                                        {...register('email', {
+                                            required: true
+                                        })}
+                                        placeholder="Email" className="rounded-sm py-2 px-2 w-full" />
                                 </div>
+
                                 <div className="mt-5">
-                                    <input name='password' type="password" placeholder="Password" className="rounded-sm py-2 px-2 w-full" />
+                                    <input name='password' type="password"
+                                        {...register('password', {
+                                            required: true
+                                        })}
+                                        placeholder="Password" className="rounded-sm py-2 px-2 w-full" />
                                 </div>
+
+
+
+                                <div className="grid grid-cols-2 gap-5 mt-4">
+                                    <label htmlFor="pic" className='mt-3'>
+                                        <span className='text-white p-3 border   rounded-md cursor-pointer'>Upload Your Image</span>
+                                        <input type="file" id='pic'
+                                            {...register('image', {
+                                                required: true
+                                            })}
+                                            className="hidden file-input file-input-sm file-input-success file-input-bordered  w-full max-w-xs"
+                                            placeholder="Your photo"
+                                        />
+                                    </label>
+
+                                    <div className="form-control w-full max-w-x">
+                                        <div className="form-control border rounded-md">
+                                            <label className="label cursor-pointer">
+                                                <span className="label-text text-white">Seller Account</span>
+                                                <input type="checkbox" {...register('seller')}
+                                                    className="toggle toggle-success" />
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+
 
                                 <div className="mt-5 flex justify-start  items-center">
                                     <input onClick={() => setIsDisabled(true)} type="checkbox" className="border mr-2 pt-2 border-gray-400" />

@@ -2,7 +2,9 @@ import React, { useContext, useState } from 'react';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 import logo from '../../../assets/logo.png';
 import { AuthContext } from '../../../context/AuthProvider';
-import './Navbar.css'
+import './Navbar.css';
+import { FcDownRight } from "react-icons/fc";
+import UseAdmin from '../../../API/UseAdmin';
 
 
 const Navbar = () => {
@@ -11,6 +13,10 @@ const Navbar = () => {
     const navigate = useNavigate();
     const [isHovering, setIsHovering] = useState(false);
     const [showCode, setShowCode] = useState(false);
+    const [isAdmin] = UseAdmin(user?.email);
+
+    const [dashboard, setDasboard] = useState(false);
+
 
     let activeStyle = {
         textDecoration: "underline",
@@ -20,10 +26,15 @@ const Navbar = () => {
     const handleLogOut = () => {
         logOut()
             .then(
-                navigate('/')
+                navigate('/'),
+                handleButtonClick()
             )
             .catch()
     }
+
+    function handleButtonClick() {
+        window.location.reload();
+      }
 
     //explore now sub-menu data
     const exploreNowData = [
@@ -73,10 +84,18 @@ const Navbar = () => {
         setShowCode(false);
     }
 
+
     return (
         <div className="px-4 py-5 mx-auto md:px-24 bg-slate-900">
             <div className="relative flex items-center justify-between">
 
+
+                {
+                    isAdmin &&
+                    <label htmlFor="dashboard-drawer" className="lg:hidden text-base-content ">
+                        <FcDownRight className='w-10 text-2xl' />
+                    </label>
+                }
 
                 <NavLink
                     to="/"
@@ -113,9 +132,9 @@ const Navbar = () => {
                                     <div className="explore-sub-menu-data grid grid-cols-2 gap-5">
                                         {
                                             exploreNowData?.map((data, i) => <div
-                                            key={i}>
+                                                key={i}>
                                                 <Link to={`/explores`}>
-                                                <h2 className="font-medium cursor-pointer  text-gray-700 mb-2 text-lg hover:text-green-400">{data?.title}</h2>
+                                                    <h2 className="font-medium cursor-pointer  text-gray-700 mb-2 text-lg hover:text-green-400">{data?.title}</h2>
                                                 </Link>
                                                 <p className='text-gray-400 cursor-pointer '>{data?.text}</p>
                                             </div>)
@@ -126,48 +145,76 @@ const Navbar = () => {
                         </span>
                     </li>
 
-                    <li>
-                        <NavLink
-                            style={({ isActive }) =>
-                                isActive ? activeStyle : undefined
-                            }
-                            to="/becomeASeller"
-                            aria-label="Become a Seller"
-                            title="Become a Seller"
-                            className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-deep-purple-accent-400"
-                        >
-                            Become a Seller
-                        </NavLink>
 
-                    </li>
-                    <li>
-                        <NavLink
-                            style={({ isActive }) =>
-                                isActive ? activeStyle : undefined
-                            }
-                            to="/buyer_dashboard"
-                            aria-label="Buyer Dashboard"
-                            title="Buyer Dashboard"
-                            className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-deep-purple-accent-400"
-                        >
-                            Buyer Dashboard
-                        </NavLink>
+                    {/* admin cara dekba */}
+                    {
+                     !isAdmin && 
+                        <>
 
-                    </li>
-                    <li>
-                        <NavLink
-                            style={({ isActive }) =>
-                                isActive ? activeStyle : undefined
-                            }
-                            to='/seller_dashboard'
-                            aria-label="Seller Dashboard"
-                            title="Seller Dashboard"
-                            className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-deep-purple-accent-400"
-                        >
-                            Seller Dashboard
-                        </NavLink>
+                            <li>
+                                <NavLink
+                                    style={({ isActive }) =>
+                                        isActive ? activeStyle : undefined
+                                    }
+                                    to="/becomeASeller"
+                                    aria-label="Become a Seller"
+                                    title="Become a Seller"
+                                    className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                                >
+                                    Become a Seller
+                                </NavLink>
 
-                    </li>
+                            </li>
+
+                            <li>
+                                <NavLink
+                                    style={({ isActive }) =>
+                                        isActive ? activeStyle : undefined
+                                    }
+                                    to="/buyer_dashboard"
+                                    aria-label="Buyer Dashboard"
+                                    title="Buyer Dashboard"
+                                    className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                                >
+                                    Buyer Dashboard
+                                </NavLink>
+
+                            </li>
+
+                            <li>
+                                <NavLink
+                                    style={({ isActive }) =>
+                                        isActive ? activeStyle : undefined
+                                    }
+                                    to='/seller_dashboard'
+                                    aria-label="Seller Dashboard"
+                                    title="Seller Dashboard"
+                                    className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                                >
+                                    Seller Dashboard
+                                </NavLink>
+
+                            </li>
+                        </>
+                    }
+
+                    {
+                        isAdmin && user?.uid &&
+                        <li>
+                            <NavLink
+                                style={({ isActive }) =>
+                                    isActive ? activeStyle : undefined
+                                }
+                                to="/dashboard"
+                                aria-label="dashboard"
+                                title="dashboard"
+                                className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                            >
+                                Admin Dashboard
+                            </NavLink>
+                        </li>
+                    }
+
                     {
                         user?.email ?
                             <>
@@ -265,45 +312,72 @@ const Navbar = () => {
                                                 Explore
                                             </p>
                                         </li>
-                                        <li>
-                                            <NavLink
-                                                style={({ isActive }) =>
-                                                    isActive ? activeStyle : undefined
-                                                }
-                                                to="/becomeASeller"
-                                                aria-label="Become a Seller"
-                                                title="Become a Seller"
-                                                className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-deep-purple-accent-400"
-                                            >
-                                                Become a Seller
-                                            </NavLink>
-                                        </li>
-                                        <li>
-                                            <NavLink
-                                                style={({ isActive }) =>
-                                                    isActive ? activeStyle : undefined
-                                                }
-                                                to="/seller_dashboard"
-                                                aria-label="Seller Dashboard"
-                                                title="Seller Dashboard"
-                                                className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-deep-purple-accent-400"
-                                            >
-                                                Seller Dashboard
-                                            </NavLink>
-                                        </li>
-                                        <li>
-                                            <NavLink
-                                                style={({ isActive }) =>
-                                                    isActive ? activeStyle : undefined
-                                                }
-                                                to="/buyer_dashboard"
-                                                aria-label="Buyer Dashboard"
-                                                title="Buyer Dashboard"
-                                                className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-deep-purple-accent-400"
-                                            >
-                                                Buyer Dashboard
-                                            </NavLink>
-                                        </li>
+
+                                        {/* admin cara dekba  */}
+                                        {
+                                            !isAdmin && <>
+
+                                                <li>
+                                                    <NavLink
+                                                        style={({ isActive }) =>
+                                                            isActive ? activeStyle : undefined
+                                                        }
+                                                        to="/becomeASeller"
+                                                        aria-label="Become a Seller"
+                                                        title="Become a Seller"
+                                                        className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                                                    >
+                                                        Become a Seller
+                                                    </NavLink>
+                                                </li>
+
+                                                <li>
+                                                    <NavLink
+                                                        style={({ isActive }) =>
+                                                            isActive ? activeStyle : undefined
+                                                        }
+                                                        to="/seller_dashboard"
+                                                        aria-label="Seller Dashboard"
+                                                        title="Seller Dashboard"
+                                                        className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                                                    >
+                                                        Seller Dashboard
+                                                    </NavLink>
+                                                </li>
+
+                                                <li>
+                                                    <NavLink
+                                                        style={({ isActive }) =>
+                                                            isActive ? activeStyle : undefined
+                                                        }
+                                                        to="/buyer_dashboard"
+                                                        aria-label="Buyer Dashboard"
+                                                        title="Buyer Dashboard"
+                                                        className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                                                    >
+                                                        Buyer Dashboard
+                                                    </NavLink>
+                                                </li>
+                                            </>
+                                        }
+
+                                        {/* admin dashboard  */}
+                                        {
+                                            isAdmin &&
+                                            <li>
+                                                <NavLink
+                                                    style={({ isActive }) =>
+                                                        isActive ? activeStyle : undefined
+                                                    }
+                                                    to="/dashboard"
+                                                    aria-label="dashboard"
+                                                    title="dashboard"
+                                                    className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                                                >
+                                                    Admin Dashboard
+                                                </NavLink>
+                                            </li>
+                                        }
 
                                         {
                                             user?.email ?
