@@ -8,13 +8,18 @@
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "daisyui": "^2.51.3",
     "firebase": "^9.17.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.43.2",
     "react-hot-toast": "^2.4.0",
+<<<<<<< HEAD
     "react-icon": "^1.0.0",
     "react-icons": "^4.7.1",
+=======
+    "react-icons": "^4.8.0",
+>>>>>>> 5f21d14d2b4b670dd98f3ba7cfe64112f67e3051
     "react-router-dom": "^6.8.1",
     "react-scripts": "5.0.1",
     "socket.io-client": "^4.6.1",

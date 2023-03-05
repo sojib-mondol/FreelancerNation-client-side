@@ -22,19 +22,20 @@ const Login = () => {
             .then(result => {
                 const user = result.user;
 
-                const buyerInfo = {
+                const userInfo = {
                     name: user?.displayName,
                     email: user?.email,
-                    buyer: true,
+                    image: user?.photoURL,
+                    sellerAccount: false,
                 }
 
 
-                fetch(`https://freelancer-nation-backend.vercel.app/buyerData`, {
+                fetch(`http://localhost:5000/users`, {
                     method: 'PUT',
                     headers: {
                         'content-type': 'application/json'
                     },
-                    body: JSON.stringify(buyerInfo)
+                    body: JSON.stringify(userInfo)
                 })
                     .then(res => res.json())
                     .then(data => {
@@ -65,34 +66,21 @@ const Login = () => {
             .then(result => {
                 const user = result.user;
 
-                const buyerInfo = {
-                    name: user?.displayName,
-                    email: user?.email,
-                    buyer: true,
-                }
-
-                fetch(`https://freelancer-nation-backend.vercel.app/buyerData`, {
-                    method: 'PUT',
-                    headers: {
-                        'content-type': 'application/json'
-                    },
-                    body: JSON.stringify(buyerInfo)
-                })
-                    .then(res => res.json())
-                    .then(data => {
-                        // console.log(data);
-                        toast.success("Login successful");
-                        form.reset();
-                        navigate(from, { replace: true })
-                    })
-
-
-
+                // console.log(user);
+                toast.success("Login successful");
+                form.reset();
+                setError('');
+                navigate(from, { replace: true })
 
 
             })
             .catch(err => setError(err.message))
     }
+
+
+
+
+
 
     const [loading, setLoading] = useState(true);
     setTimeout(() => {
