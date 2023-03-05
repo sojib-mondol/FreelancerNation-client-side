@@ -83,21 +83,21 @@ const AllSellers = () => {
                     <tbody>
 
                         {
-                            sellers.map((seller, i) =>
+                            sellers?.map((seller, i) =>
                                 <tr key={seller._id}>
                                     <th>{i + 1}</th>
                                     <td>
                                         <div className="avatar">
                                             <div className="w-24 rounded-lg">
-                                                <img src={seller.image} alt='' />
+                                                <img src={seller?.image} alt='' />
                                             </div>
                                         </div>
 
                                     </td>
-                                    <td>{seller.name}</td>
-                                    <td>{seller.email}</td>
+                                    <td>{seller?.name}</td>
+                                    <td>{seller?.email}</td>
                                     <td>
-                                        <Link to={`/dashboard/seller/details/${seller?._id}`}>
+                                        <Link to={`/dashboard/seller/details/${seller?.email}`}>
                                             <button className="btn btn-sm btn-success text-white">Details</button>
                                         </Link>
                                     </td>
