@@ -19,10 +19,11 @@ function SellerRegistrationForm() {
     const service = data.service;
     const pricing = data.pricing;
     const skills = data.skills;
+    const expert = data.expert;
     const paymentMethod = data.paymentMethod;
 
     const sellerInfo = {
-      fullname, email, location, phoneNumber, pricing, service, skills, paymentMethod
+      fullname, email, location, phoneNumber, pricing, service, skills, expert, paymentMethod
     }
     // console.log(sellerInfo);
     fetch(`https://freelancer-nation-backend.vercel.app/saveseller`, {
@@ -56,7 +57,7 @@ function SellerRegistrationForm() {
         onSubmit={handleSubmit(handelSellerData)}
         className='bg-gradient-to-l from-green-400 to-green-600 py-10 px-4 sm:w-full md:w-3/4 md:mx-auto md:grid md:grid-cols-1 md:gap-4 rounded-lg'
       >
-        <label htmlFor='fullName' className='block font-bold text-white mb-2'>
+        <label htmlFor='fullName' className='block font-bold text-white '>
           Full Name:
         </label>
         <input
@@ -71,7 +72,7 @@ function SellerRegistrationForm() {
           <span className='text-red-500'>This field is required</span>
         )}
 
-        <label htmlFor='email' className='block font-bold text-white mb-2'>
+        <label htmlFor='email' className='block font-bold text-white '>
           Email:
         </label>
         <input
@@ -87,7 +88,7 @@ function SellerRegistrationForm() {
         )}
 
 
-        <label htmlFor='address' className='block font-bold text-white mb-2'>
+        <label htmlFor='address' className='block font-bold text-white '>
           Address:
         </label>
         <input
@@ -107,7 +108,7 @@ function SellerRegistrationForm() {
 
         <label
           htmlFor='phoneNumber'
-          className='block text-white font-bold mb-2'
+          className='block text-white font-bold '
         >
           Phone Number:
         </label>
@@ -128,7 +129,7 @@ function SellerRegistrationForm() {
           </span>
         )}
 
-        <label htmlFor='paymentMethod' className='block font-bold text-white mb-2'>
+        <label htmlFor='paymentMethod' className='block font-bold text-white '>
           Select Service:
         </label>
         <select
@@ -154,7 +155,7 @@ function SellerRegistrationForm() {
 
 
 
-        <label htmlFor='skills' className='block text-white font-bold mb-2'>
+        <label htmlFor='skills' className='block text-white font-bold '>
           Skills:
         </label>
         <div className='flex flex-wrap gap-2 mb-4'>
@@ -171,7 +172,25 @@ function SellerRegistrationForm() {
           <span className='text-red-500'>This field is required</span>
         )}
 
-        <label htmlFor='pricing' className='block font-bold text-white mb-2'>
+        <label htmlFor='Expert' className='block text-white font-bold '>
+          Expert:
+        </label>
+        <div className='flex flex-wrap gap-2 mb-4'>
+          <input
+            type='text'
+            id='Expert'
+            name='expert'
+            {...register("expert", { required: true })}
+            placeholder='Enter your tag line'
+            className='w-full bg-gray-200 rounded-md py-2 px-4'
+          />
+        </div>
+        {errors.expert && (
+          <span className='text-red-500'>This field is required</span>
+        )}
+
+
+        <label htmlFor='pricing' className='block font-bold text-white '>
           Pricing:
         </label>
         <input
@@ -186,7 +205,7 @@ function SellerRegistrationForm() {
           <span className='text-red-500'>This field is required</span>
         )}
 
-        <label htmlFor='paymentMethod' className='block font-bold text-white mb-2'>
+        <label htmlFor='paymentMethod' className='block font-bold text-white '>
           Payment Method:
         </label>
         <select

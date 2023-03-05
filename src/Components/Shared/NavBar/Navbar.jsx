@@ -9,8 +9,9 @@ const Navbar = () => {
     const { user, logOut } = useContext(AuthContext);
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const navigate = useNavigate();
-    const [showExploreMenu, setShowExploreMenu] = useState(false)
-  
+    const [isHovering, setIsHovering] = useState(false);
+    const [showCode, setShowCode] = useState(false);
+
     let activeStyle = {
         textDecoration: "underline",
         color: 'yellow'
@@ -28,37 +29,49 @@ const Navbar = () => {
     const exploreNowData = [
         {
             title: "Discover",
-            text: "Inspiring projects made on Freelancer Nation"       
+            text: "Inspiring projects made on Freelancer Nation"
         },
         {
             title: "Community",
-            text: "Connect with fiver teams and community"       
+            text: "Connect with fiver teams and community"
         },
         {
             title: "Guides",
-            text: "In depth guides covering business topics"       
+            text: "In depth guides covering business topics"
         },
         {
             title: "Podcast",
-            text: "Inside tips from top business mind"       
+            text: "Inside tips from top business mind"
         },
         {
             title: "Lead",
-            text: "Professional online courses lead by experts"       
+            text: "Professional online courses lead by experts"
         },
         {
             title: "Blog",
-            text: "News information and community stories"       
+            text: "News information and community stories"
         },
         {
             title: "Logo Maker",
-            text: "Create logo instantly"       
+            text: "Create logo instantly"
         },
         {
             title: "F.N. workspace",
-            text: "One place to mange your business"       
+            text: "One place to mange your business"
         },
     ]
+
+    function handleMouseEnter() {
+        setIsHovering(true);
+        setTimeout(() => {
+            setShowCode(true);
+        }, 5000);
+    }
+
+    function handleMouseLeave() {
+        setIsHovering(false);
+        setShowCode(false);
+    }
 
     return (
         <div className="px-4 py-5 mx-auto md:px-24 bg-slate-900">
@@ -81,30 +94,36 @@ const Navbar = () => {
 
 
                 <ul className="flex items-center hidden space-x-8 lg:flex font-roboto">
-                    <li>
-                        <Link
+                    <li
+                        onMouseEnter={handleMouseEnter}
+                        onMouseLeave={handleMouseLeave}
+                    >
+                        <span
                             aria-label="explore"
-                            title="explore"
-                            onClick={() => setShowExploreMenu(!showExploreMenu)}
-                            className="font-medium tracking-wide text-gray-100 cursor-pointer transition-colors duration-200 hover:text-deep-purple-accent-400 relative z-50"
+                            className={isHovering ? `font-medium tracking-wide underline text-[#ffef0c] cursor-pointer transition-colors duration-200 hover:text-deep-purple-accent-400 relative z-50`
+                                :
+                                "font-medium tracking-wide text-gray-100 cursor-pointer transition-colors duration-200 hover:text-deep-purple-accent-400 relative z-50"
+                            }
                         >
                             Explore
-                        </Link>
 
-                        {/* explore now sub menu section  */}
-
-                       {
-                        showExploreMenu&&  <div className="explore-sub-menu w-[500px] bg-white p-5 rounded ">
-                        <div className="explore-sub-menu-data grid grid-cols-2 gap-5">
+                            {/* explore now sub menu section  */}
                             {
-                                exploreNowData.map(data => <div>
-                                    <h2 className="font-medium cursor-pointer  text-gray-700 mb-2 text-lg">{data.title}</h2>
-                                    <p className='text-gray-400 cursor-pointer '>{data.text}</p>
-                                </div>)
+                                isHovering && <div className="explore-sub-menu w-[500px] bg-white p-5 rounded mt-3">
+                                    <div className="explore-sub-menu-data grid grid-cols-2 gap-5">
+                                        {
+                                            exploreNowData?.map((data, i) => <div
+                                            key={i}>
+                                                <Link to={`/explores`}>
+                                                <h2 className="font-medium cursor-pointer  text-gray-700 mb-2 text-lg hover:text-green-400">{data?.title}</h2>
+                                                </Link>
+                                                <p className='text-gray-400 cursor-pointer '>{data?.text}</p>
+                                            </div>)
+                                        }
+                                    </div>
+                                </div>
                             }
-                        </div>
-                    </div>
-                       }
+                        </span>
                     </li>
 
                     <li>
