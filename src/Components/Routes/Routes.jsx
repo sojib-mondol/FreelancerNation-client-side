@@ -83,8 +83,7 @@ export const router = createBrowserRouter([{
                     element: <AllBuyers></AllBuyers>
                 },
                 {
-                    path: '/dashboard/seller/details/:id',
-                    loader: ({params}) => fetch(`/seller/details/${params.id}`),
+                    path: '/dashboard/seller/details/:email',
                     element: <SellerDetails></SellerDetails>
                 },
                 
