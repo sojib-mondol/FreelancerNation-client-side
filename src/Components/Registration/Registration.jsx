@@ -15,13 +15,13 @@ const Registration = () => {
 
     const imageHostKey = process.env.REACT_APP_IMGBB_key;
 
-
     const navigate = useNavigate();
-    const location = useLocation();
+   
 
-    const from = location.state?.from?.pathname || '/';
-
-
+    // reload page
+    function handleButtonClick() {
+        window.location.reload();
+    }
 
     // google login system-----------
     const handleGoogleSignIn = () => {
@@ -48,7 +48,9 @@ const Registration = () => {
                         // console.log(data);
                         toast.success("Login successful");
                         setError('');
-                        navigate('/')
+                        navigate('/');
+                        handleButtonClick();
+
                     })
 
 

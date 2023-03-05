@@ -9,6 +9,7 @@ const SellerDashboard = () => {
     const { user } = useContext(AuthContext);
     const [loading, setLoading] = useState(true);
     // console.log(user);
+    const photo = user?.photoURL ? user.photoURL : 'https://static.vecteezy.com/system/resources/thumbnails/002/002/403/small/man-with-beard-avatar-character-isolated-icon-free-vector.jpg'
 
     const gigs = [
         {
@@ -78,7 +79,7 @@ const SellerDashboard = () => {
                 <div className='xl:col-span-4 bg-white flex flex-col items-center p-5 border border-slate-300'>
 
                     <div className='w-48 h-48 rounded-full relative'>
-                        <img className='w-full h-full rounded-full' src={user?.photoURL} alt="user" />
+                        <img className='w-full h-full rounded-full' src={photo} alt="user" />
                         <div className='absolute top-[153px] left-[120px]'>
                             <label htmlFor="dropzone-file" className="flex flex-col items-center max-w-lg p-3 mx-auto text-center bg-white cursor-pointer rounded-full">
                                 <FaCamera className='text-2xl' />
