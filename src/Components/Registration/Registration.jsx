@@ -48,7 +48,7 @@ const Registration = () => {
                         // console.log(data);
                         toast.success("Login successful");
                         setError('');
-                        navigate(from, { replace: true })
+                        navigate('/')
                     })
 
 
@@ -133,7 +133,7 @@ const Registration = () => {
                
                 toast.success("Login successful!!! ");
                 setError('');
-                navigate(from, { replace: true })
+                navigate('/')
 
 
             })
