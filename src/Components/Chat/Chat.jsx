@@ -3,7 +3,7 @@ import { ChatIcon } from '@heroicons/react/outline';
 import { CheckCircleIcon } from '@heroicons/react/solid';
 import io from 'socket.io-client';
 
-const socket = io('https://freelancer-nation-backend.vercel.app');
+const socket = io('http://localhost:4000/'); // differnt server for that 
 
 const Chat = () => {
   const [messages, setMessages] = useState([]);

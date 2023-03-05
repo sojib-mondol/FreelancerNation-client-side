@@ -1,4 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
+import AllBuyers from "../AdminDashboard/AllBuyers";
+import AllSellers from "../AdminDashboard/AllSellers";
+import WelcomeDashboard from "../AdminDashboard/WelcomeDashboard";
 import BecomeASeller from "../BecomeASeller/BecomeASeller";
 import BuyerDashboard from "../BuyerDashboard/BuyerDashboard";
 import Chat from "../Chat/Chat";
@@ -6,6 +9,7 @@ import Error from "../Error/Error";
 import ExploreService from "../ExploreServices/ExploreService";
 import Home from "../Home/Home/Home";
 import Login from "../JoinForm/Login";
+import AdminDashboardLayout from "../Layout/AdminDashboardLayout";
 import Main from "../Layout/Main";
 import Registration from "../Registration/Registration";
 import SellerDashboard from "../SellerDashboard/SellerDashboard";
@@ -60,6 +64,27 @@ export const router = createBrowserRouter([{
             path: '/explores',
             element: <NavbarExplores></NavbarExplores>,
         },
+        {
+            path: '/dashboard',
+            element: <AdminDashboardLayout />,
+            errorElement: <Error></Error>,
+            children: [
+                {
+                    path: '/dashboard',
+                    element: <WelcomeDashboard></WelcomeDashboard>
+                },
+                {
+                    path: '/dashboard/allSellers',
+                    element: <AllSellers></AllSellers>
+                },
+                {
+                    path: '/dashboard/allBuyers',
+                    element: <AllBuyers></AllBuyers>
+                },
+                
+            ]
+    
+        }
 
 
 
