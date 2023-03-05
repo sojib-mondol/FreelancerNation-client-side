@@ -39,7 +39,7 @@ const Explore = () => {
         </div>
         <div className="flex items-center justify-center flex-col font-roboto">
           <img className="w-24" src={icon6} alt='' />
-          <span className="uppercase">Programiong & Tech</span>
+          <span className="uppercase">Programming & Tech</span>
         </div>
         <div className="flex items-center justify-center flex-col font-roboto">
           <img className="w-24" src={icon7} alt='' />

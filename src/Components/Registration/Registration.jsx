@@ -3,6 +3,7 @@ import React, { useContext, useState } from 'react';
 import { toast } from 'react-hot-toast';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthProvider';
+import LoginSkeleton from '../Shared/Skeleton/LoginSkeleton';
 import './Registration.css';
 
 const Registration = () => {
@@ -104,6 +105,18 @@ const Registration = () => {
 
 
     }
+
+    
+    const [loading, setLoading] = useState(true);
+    setTimeout(() => {
+        setLoading(false);
+    }, 1000)
+
+    if(loading){
+        return <LoginSkeleton></LoginSkeleton>
+    }
+
+
 
     return (
         <div className='regi-background'>
