@@ -161,7 +161,7 @@ const SellerDashboard = () => {
                                 })
                             }
 
-                            <Link to='/' className="w-full overflow-hidden bg-white border border-slate-300 flex flex-col justify-center items-center py-7">
+                            <Link to='/seller_dashboard/create-gig' className="w-full overflow-hidden bg-white border border-slate-300 flex flex-col justify-center items-center py-7">
                                 <div className='w-24 text-green-600'>
                                     <FaPlusCircle className='w-full text-8xl' />
                                 </div>
