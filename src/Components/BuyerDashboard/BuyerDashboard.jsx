@@ -154,9 +154,9 @@ const BuyerDashboard = () => {
                                     </div>
                                     <div className='flex gap-2'>
                                         <Link to='/buyer_dashboard/chat'>
-                                        <button className='text-green-500 mr-2'>View</button>
                                             <button className='text-green-500'>Message</button>
                                         </Link>
+                                        <button className='text-green-500 mr-2'>View</button>
                                     </div>
                                 </div>)
                             }

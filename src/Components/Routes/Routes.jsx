@@ -69,6 +69,10 @@ export const router = createBrowserRouter([{
             element: <Chat></Chat>,
         },
         {
+            path: '/seller_dashboard/chat',
+            element: <Chat></Chat>,
+        },
+        {
             path: '/explores',
             element: <NavbarExplores></NavbarExplores>,
         },
