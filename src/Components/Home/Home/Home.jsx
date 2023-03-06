@@ -8,6 +8,8 @@ import Guideline from '../../Guideline/Guideline';
 import ReviewSlider from '../../ReviewSlider/ReviewSlider';
 import TalentBanner from '../../TalentBanner/TalentBanner';
 import Skeleton from '../../Shared/Skeleton/Skeleton';
+import ShowGigs from '../../showGigs/ShowGigs';
+import ShortsGigs from '../../showGigs/ShortsGigs';
 
 
 
@@ -30,6 +32,7 @@ const Home = () => {
                     <ProfessionalServices />
                     <FeatureBanner />
                     <Explore />
+                    <ShortsGigs></ShortsGigs>
                     <ReviewSlider />
                     <BusinessSection />
                     <Guideline />

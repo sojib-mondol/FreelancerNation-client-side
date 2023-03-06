@@ -17,6 +17,7 @@ import Registration from "../Registration/Registration";
 import SellerDashboard from "../SellerDashboard/SellerDashboard";
 import SellerRegistrationForm from "../SellerRegForm/SellerRegForm";
 import NavbarExplores from "../Shared/Navbar_Explores/NavbarExplores";
+import ShowGigs from "../showGigs/ShowGigs";
 
 
 export const router = createBrowserRouter([{
@@ -54,6 +55,11 @@ export const router = createBrowserRouter([{
         {
             path: '/seller_dashboard/create-gig',
             element: <GigForm/>
+
+        },
+        {
+            path: '/allGigs',
+            element: <ShowGigs></ShowGigs>
 
         },
         {
