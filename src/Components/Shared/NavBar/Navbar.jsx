@@ -6,6 +6,7 @@ import './Navbar.css';
 import { FcDownRight } from "react-icons/fc";
 import UseAdmin from '../../../API/UseAdmin';
 import UseSeller from '../../../API/UseSeller';
+import UseBuyer from '../../../API/UseBuyer';
 
 
 const Navbar = () => {
@@ -16,8 +17,9 @@ const Navbar = () => {
     const [showCode, setShowCode] = useState(false);
     const [isAdmin] = UseAdmin(user?.email);
     const [isSeller] = UseSeller(user?.email);
+    const [isBuyer] = UseBuyer(user?.email);
 
-
+    console.log(isBuyer);
 
     let activeStyle = {
         textDecoration: "underline",
@@ -167,42 +169,42 @@ const Navbar = () => {
 
                             </li>
 
+                            {/* Seller Dashboard  */}
                             {
-                                isSeller ?
+                                isSeller &&
+                                <li>
+                                    <NavLink
+                                        style={({ isActive }) =>
+                                            isActive ? activeStyle : undefined
+                                        }
+                                        to='/seller_dashboard'
+                                        aria-label="Seller Dashboard"
+                                        title="Seller Dashboard"
+                                        className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                                    >
+                                        Seller Dashboard
+                                    </NavLink>
 
-                                    // Seller Dashboard 
-                                    <li>
-                                        <NavLink
-                                            style={({ isActive }) =>
-                                                isActive ? activeStyle : undefined
-                                            }
-                                            to='/seller_dashboard'
-                                            aria-label="Seller Dashboard"
-                                            title="Seller Dashboard"
-                                            className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-deep-purple-accent-400"
-                                        >
-                                            Seller Dashboard
-                                        </NavLink>
+                                </li>
+                            }
 
-                                    </li>
+                            {/* Buyer Dashboard */}
+                            {
+                                isBuyer &&
+                                <li>
+                                    <NavLink
+                                        style={({ isActive }) =>
+                                            isActive ? activeStyle : undefined
+                                        }
+                                        to="/buyer_dashboard"
+                                        aria-label="Buyer Dashboard"
+                                        title="Buyer Dashboard"
+                                        className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                                    >
+                                        Buyer Dashboard
+                                    </NavLink>
 
-                                    :
-
-                                    //  Buyer Dashboard
-                                    <li>
-                                        <NavLink
-                                            style={({ isActive }) =>
-                                                isActive ? activeStyle : undefined
-                                            }
-                                            to="/buyer_dashboard"
-                                            aria-label="Buyer Dashboard"
-                                            title="Buyer Dashboard"
-                                            className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-deep-purple-accent-400"
-                                        >
-                                            Buyer Dashboard
-                                        </NavLink>
-
-                                    </li>
+                                </li>
                             }
                         </>
                     }
@@ -325,8 +327,8 @@ const Navbar = () => {
                                         {/* admin cara dekba  */}
                                         {
                                             !isAdmin && <>
-                                            
-                                                 {/* become a seller  */}
+
+                                                {/* become a seller  */}
                                                 <li>
                                                     <NavLink
                                                         style={({ isActive }) =>
@@ -341,43 +343,41 @@ const Navbar = () => {
                                                     </NavLink>
                                                 </li>
 
+                                                {/* Seller Dashboard */}
                                                 {
-                                                    isSeller ?
-                                                    // Seller Dashboard
-                                                        <li>
-                                                            <NavLink
-                                                                style={({ isActive }) =>
-                                                                    isActive ? activeStyle : undefined
-                                                                }
-                                                                to="/seller_dashboard"
-                                                                aria-label="Seller Dashboard"
-                                                                title="Seller Dashboard"
-                                                                className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-deep-purple-accent-400"
-                                                            >
-                                                                Seller Dashboard
-                                                            </NavLink>
-                                                        </li>
+                                                    isSeller &&
+                                                    <li>
+                                                        <NavLink
+                                                            style={({ isActive }) =>
+                                                                isActive ? activeStyle : undefined
+                                                            }
+                                                            to="/seller_dashboard"
+                                                            aria-label="Seller Dashboard"
+                                                            title="Seller Dashboard"
+                                                            className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                                                        >
+                                                            Seller Dashboard
+                                                        </NavLink>
+                                                    </li>
 
-                                                        :
-
-                                                        // Buyer Dashboard
-                                                        <li>
-                                                            <NavLink
-                                                                style={({ isActive }) =>
-                                                                    isActive ? activeStyle : undefined
-                                                                }
-                                                                to="/buyer_dashboard"
-                                                                aria-label="Buyer Dashboard"
-                                                                title="Buyer Dashboard"
-                                                                className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-deep-purple-accent-400"
-                                                            >
-                                                                Buyer Dashboard
-                                                            </NavLink>
-                                                        </li>
                                                 }
 
-
-
+                                                {/* Buyer Dashboard */}
+                                                {isBuyer &&
+                                                    <li>
+                                                        <NavLink
+                                                            style={({ isActive }) =>
+                                                                isActive ? activeStyle : undefined
+                                                            }
+                                                            to="/buyer_dashboard"
+                                                            aria-label="Buyer Dashboard"
+                                                            title="Buyer Dashboard"
+                                                            className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                                                        >
+                                                            Buyer Dashboard
+                                                        </NavLink>
+                                                    </li>
+                                                }
                                             </>
                                         }
 
