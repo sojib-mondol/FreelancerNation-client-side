@@ -42,11 +42,11 @@ const Navbar = () => {
     const exploreNowData = [
         {
             title: "Discover",
-            text: "Inspiring projects made on Freelancer Nation"
+            text: "Inspiring projects made on FreelanceNation"
         },
         {
             title: "Community",
-            text: "Connect with fiver teams and community"
+            text: "Connect with FreelanceNation teams and community"
         },
         {
             title: "Guides",
