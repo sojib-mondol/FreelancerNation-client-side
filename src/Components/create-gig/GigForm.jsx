@@ -44,7 +44,7 @@ function GigCreationForm() {
           }
 
 
-          fetch(`http://localhost:5000/seller/gig`, {
+          fetch(`https://freelancer-nation-backend.vercel.app/seller/gig`, {
             method: 'POST',
             headers: {
               'content-type': 'application/json'
