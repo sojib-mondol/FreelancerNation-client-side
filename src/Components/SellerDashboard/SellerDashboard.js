@@ -1,5 +1,7 @@
-import React, { useContext, useState } from 'react';
-import { FaCamera, FaStar, FaTrashAlt, FaUser, FaMapMarkerAlt, FaPaperPlane, FaPlusCircle } from "react-icons/fa";
+import { useQuery } from '@tanstack/react-query';
+import React, { useContext } from 'react';
+import { toast } from 'react-hot-toast';
+import { FaStar, FaTrashAlt, FaUser, FaMapMarkerAlt, FaPaperPlane, FaPlusCircle } from "react-icons/fa";
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthProvider';
 import Skeleton from '../Shared/Skeleton/Skeleton';
@@ -7,84 +9,68 @@ import Skeleton from '../Shared/Skeleton/Skeleton';
 
 const SellerDashboard = () => {
     const { user } = useContext(AuthContext);
-    const [loading, setLoading] = useState(true);
-    // console.log(user);
+
+
     const photo = user?.photoURL ? user.photoURL : 'https://static.vecteezy.com/system/resources/thumbnails/002/002/403/small/man-with-beard-avatar-character-isolated-icon-free-vector.jpg'
 
-    const gigs = [
-        {
-            service_name: "Creative Logo Design",
-            service_image: "https://cdn.pixabay.com/photo/2014/11/17/18/10/gears-534991_960_720.jpg",
-            price: 75
-        },
-        {
-            service_name: "Social Media Management",
-            service_image: "https://cdn.pixabay.com/photo/2020/08/22/14/33/social-media-5508549__340.png",
-            price: 150
-        },
-        {
-            service_name: "Website Development",
-            service_image: "https://cdn.pixabay.com/photo/2018/05/18/15/30/web-design-3411373__340.jpg",
-            price: 500
-        },
-        {
-            service_name: "Video Editing",
-            service_image: "https://cdn.pixabay.com/photo/2021/11/27/18/52/sony-6828729__340.jpg",
-            price: 100
-        },
-        {
-            service_name: "Copywriting",
-            service_image: "https://cdn.pixabay.com/photo/2020/08/07/05/58/copywrite-5469752__340.jpg",
-            price: 50
-        },
-        {
-            service_name: "Virtual Assistance",
-            service_image: "https://cdn.pixabay.com/photo/2019/03/21/15/51/chatbot-4071274__340.jpg",
-            price: 25
-        },
-        {
-            service_name: "Search Engine Optimization",
-            service_image: "https://cdn.pixabay.com/photo/2017/12/09/09/08/seo-3007488_960_720.jpg",
-            price: 200
-        },
-        {
-            service_name: "Graphic Design",
-            service_image: "https://cdn.pixabay.com/photo/2017/10/10/21/47/laptop-2838921_960_720.jpg",
-            price: 75
-        },
-        {
-            service_name: "Content Writing",
-            service_image: "https://cdn.pixabay.com/photo/2020/02/22/22/06/note-book-4871741_960_720.jpg",
-            price: 75
-        },
-        {
-            service_name: "Logo Animation",
-            service_image: "https://cdn.pixabay.com/photo/2016/11/01/23/06/ball-closure-rings-1789995_960_720.jpg",
-            price: 250
+
+    const { data: gigs = [], isLoading, refetch } = useQuery({
+        queryKey: [''],
+        queryFn: async () => {
+            try {
+
+                const res = await fetch(`https://freelancer-nation-backend.vercel.app/seller/gig/${user?.email}`)
+                const data = await res.json();
+                return data;
+
+            }
+            catch (err) {
+                console.log(err);
+            }
         }
-    ]
+    })
 
-   
-    setTimeout(() => {
-        setLoading(false);
-    }, 2000);
 
-    if (loading) {
+    const handleDeletingGig = _id => {
+
+        const agree = window.confirm('Are you sure delete this buyer !!!')
+
+        if (agree) {
+            // console.log(_id);
+            fetch(`https://freelancer-nation-backend.vercel.app/gig/delete/${_id}`, {
+                method: "DELETE"
+            })
+                .then(res => res.json())
+                .then(data => {
+                    if (data.deletedCount > 0) {
+                        toast.success(`Seller Gig deleted successfully`)
+                        refetch();
+                    }
+
+                })
+
+        }
+
+
+    };
+
+
+
+    if (isLoading) {
         return <Skeleton></Skeleton>
     };
 
+
+
+
     return (
-        <div className='px-4 py-5 mx-auto md:px-10 lg:px-24 lg:py-16'>
+        <div className='px-4 py-5 mx-auto md:px-10 lg:px-24 lg:py-16 bg-gray-100'>
             <div className='grid grid-cols-1 md:grid-cols-2 xl:grid-cols-12 gap-5 xl:gap-16 items-start'>
                 <div className='xl:col-span-4 bg-white flex flex-col items-center p-5 border border-slate-300'>
 
                     <div className='w-48 h-48 rounded-full relative'>
                         <img className='w-full h-full rounded-full' src={photo} alt="user" />
                         <div className='absolute top-[153px] left-[120px]'>
-                            <label htmlFor="dropzone-file" className="flex flex-col items-center max-w-lg p-3 mx-auto text-center bg-white cursor-pointer rounded-full">
-                                <FaCamera className='text-2xl' />
-                                <input id="dropzone-file" type="file" className="hidden" />
-                            </label>
                         </div>
                     </div>
 
@@ -92,7 +78,7 @@ const SellerDashboard = () => {
                         <h2 className='font-bold text-lg'>{user?.displayName}</h2>
 
                         {/* set expert  */}
-                        <h3 className='italic'>WordPress And eCommerce expert</h3>
+                        <h3 className='italic'>Front-end Developer</h3>
 
 
                         <div className='flex gap-2 justify-center'>
@@ -130,6 +116,16 @@ const SellerDashboard = () => {
                     </div>
 
                     <div className='w-full border-t-[0.2px]'></div>
+                    <Link to='/becomeASeller/service_category/registerseller'>
+                        <button>
+                            <svg width="64px" height="64px" viewBox="-24 -24 72.00 72.00" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M13 21H21" stroke="#323232" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M20.0651 7.39423L7.09967 20.4114C6.72438 20.7882 6.21446 21 5.68265 21H4.00383C3.44943 21 3 20.5466 3 19.9922V18.2987C3 17.7696 3.20962 17.2621 3.58297 16.8873L16.5517 3.86681C19.5632 1.34721 22.5747 4.87462 20.0651 7.39423Z" stroke="#323232" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M15.3097 5.30981L18.7274 8.72755" stroke="#323232" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
+                        </button>
+                    </Link>
+                    <Link to='/seller_dashboard/chat'>
+                        <button>
+                            <svg width="64px" height="64px" viewBox="-22.56 -22.56 69.12 69.12" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M16 10H16.01M12 10H12.01M8 10H8.01M3 10C3 4.64706 5.11765 3 12 3C18.8824 3 21 4.64706 21 10C21 15.3529 18.8824 17 12 17C11.6592 17 11.3301 16.996 11.0124 16.9876L7 21V16.4939C4.0328 15.6692 3 13.7383 3 10Z" stroke="#000000" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
+                        </button>
+                    </Link>
                 </div>
                 <div className='xl:col-span-8'>
                     <div>
@@ -143,15 +139,20 @@ const SellerDashboard = () => {
                                     return <div key={index}>
                                         <div className="w-full overflow-hidden bg-white border border-slate-300 rounded-md hover:shadow-2xl">
 
-                                            <img className="object-cover w-full h-36" src={gig?.service_image} alt="avatar" />
+                                            <img className="object-cover w-full h-36" src={gig?.serviceImage} alt="avatar" />
 
                                             <div className="py-5 px-3 text-star">
-                                                <span className="text-sm text-slate-600">{gig?.service_name}</span>
+                                                <span className="text-sm text-slate-600">{gig?.title}</span>
 
                                                 <div className='mt-5 flex justify-between flex-row-reverse items-center'>
-                                                    <h3 className='font-semibol uppercase text-green-600'>starting at ${gig?.price}</h3>
+                                                    <h3 className='font-semibold uppercase text-green-600'>starting at <strong className='text-black'>
+                                                        ${gig?.price}
+                                                    </strong></h3>
+
                                                     <button>
-                                                        <FaTrashAlt className='text-red-500' />
+                                                        <FaTrashAlt
+                                                            onClick={() => handleDeletingGig(gig._id)}
+                                                            className='text-red-500' />
                                                     </button>
                                                 </div>
                                             </div>
@@ -160,6 +161,8 @@ const SellerDashboard = () => {
                                     </div>
                                 })
                             }
+
+
 
                             <Link to='/seller_dashboard/create-gig' className="w-full overflow-hidden bg-white border border-slate-300 flex flex-col justify-center items-center py-7">
                                 <div className='w-24 text-green-600'>

@@ -69,8 +69,11 @@ const BuyerDashboard = () => {
 
     ]
 
+    // kaj baki ace-------------------------ok 
+
+
     return (
-        <div className='px-4 py-5 mx-auto md:px-10 lg:px-24 lg:py-16'>
+        <div className='px-4 py-5 mx-auto md:px-10 lg:px-24 lg:py-16 bg-gray-100'>
 
 
             <div className='grid grid-cols-1 md:grid-cols-2 xl:grid-cols-12 gap-5 xl:gap-16 items-start'>
@@ -154,9 +157,9 @@ const BuyerDashboard = () => {
                                     </div>
                                     <div className='flex gap-2'>
                                         <Link to='/buyer_dashboard/chat'>
-                                        <button className='text-green-500 mr-2'>View</button>
                                             <button className='text-green-500'>Message</button>
                                         </Link>
+                                        <button className='text-green-500 mr-2'>View</button>
                                     </div>
                                 </div>)
                             }

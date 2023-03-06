@@ -2,13 +2,13 @@ import { GoogleAuthProvider } from 'firebase/auth';
 import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-hot-toast';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthProvider';
 import LoginSkeleton from '../Shared/Skeleton/LoginSkeleton';
 import './Registration.css';
 
 const Registration = () => {
-    const { register, handleSubmit, formState: { errors } } = useForm();
+    const { register, handleSubmit } = useForm();
     const [error, setError] = useState('');
     const { providerSignIn, createUser, updateUserProfile } = useContext(AuthContext);
     const [isDisabled, setIsDisabled] = useState(false);
@@ -60,7 +60,6 @@ const Registration = () => {
     }
 
 
-    // handle form data-------
 
 
 
@@ -69,7 +68,7 @@ const Registration = () => {
 
         createUser(data.email, data.password)
             .then(result => {
-                const user = result.user;
+                // const user = result.user;
                 // console.log(user);
                 setError('');
 
@@ -92,7 +91,7 @@ const Registration = () => {
                             const fullName = data?.firstName + data?.lastName
 
                             //user update---------
-                            const profile = { displayName: fullName }
+                            const profile = { displayName: fullName, photoURL: imgData.data.display_url }
 
                             updateUserProfile(profile)
                                 .then(() => {
@@ -135,6 +134,7 @@ const Registration = () => {
 
                 toast.success("Login successful!!! ");
                 setError('');
+                handleButtonClick();
                 navigate('/')
 
 

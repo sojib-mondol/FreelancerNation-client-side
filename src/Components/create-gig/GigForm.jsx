@@ -1,138 +1,141 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
+import { toast } from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../../context/AuthProvider";
+import LoginSkeleton from "../Shared/Skeleton/LoginSkeleton";
 
 function GigCreationForm() {
-  const [serviceImages, setServiceImages] = useState([]);
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm();
+  const { user } = useContext(AuthContext);
+  const [loading, setLoading] = useState(false);
 
-  const handleServiceImageChange = (event) => {
-    const files = event.target.files;
-    const urls = [];
+  const { register, handleSubmit, formState: { errors }, } = useForm();
 
-    for (let i = 0; i < files.length; i++) {
-      const file = files[i];
-      const reader = new FileReader();
+  const imageHostKey = process.env.REACT_APP_IMGBB_key;
 
-      reader.onload = (event) => {
-        urls.push(event.target.result);
-        if (urls.length === files.length) {
-          setServiceImages(urls);
-        }
-      };
+  const navigate = useNavigate();
 
-      reader.readAsDataURL(file);
-    }
-  };
 
+
+  // handle form submission logic
   const onSubmit = (data) => {
-    // handle form submission logic
-    console.log(data);
-      const serviceImg1 = data.serviceImg1
-      const serviceImg2 = data.serviceImg2
-      const description = data.description
-      const price = data.price
-      console.log(serviceImg1,serviceImg2,description,price);
+    setLoading(true);
+
+
+    const image = data.image[0]
+    const formData = new FormData();
+    formData.append('image', image)
+    const url = `https://api.imgbb.com/1/upload?key=${imageHostKey}`;
+    fetch(url, {
+      method: "POST",
+      body: formData
+    })
+      .then(res => res.json())
+      .then(imgData => {
+
+        if (imgData.success) {
+
+          const gig = {
+            title: data.title,
+            serviceImage: imgData.data.display_url,
+            price: data.price,
+            email: user?.email
+          }
+
+
+          fetch(`https://freelancer-nation-backend.vercel.app/seller/gig`, {
+            method: 'POST',
+            headers: {
+              'content-type': 'application/json'
+            },
+            body: JSON.stringify(gig)
+          })
+            .then(res => res.json())
+            .then(data => {
+              // console.log(data);
+              toast.success("Gig complete successful");
+              setLoading(false)
+              navigate('/seller_dashboard');
+
+
+            })
+
+
+        }
+
+
+      })
+
+
   };
+
+
+  if (loading) {
+    return <LoginSkeleton></LoginSkeleton>
+  }
+
+
 
   return (
-    <div className='my-10'>
-      <h2 className='text-2xl uppercase text-center'>Create gig</h2>
+    <div className='py-10 bg-gray-200'>
+      <h2 className='text-2xl uppercase text-center font-bold'>Create gig</h2>
       <div className='flex justify-center items-center'>
         <form
           onSubmit={handleSubmit(onSubmit)}
-          className='w-96 md:w-2/3 lg:w-1/2 xl:w-1/3 bg-green-400 p-10'
+          className='w-96 md:w-2/3 lg:w-1/2 xl:w-1/3 bg-green-400 p-10 rounded-md'
         >
-          <div className='mb-4'>
-            <label
-              className='block text-gray-700 font-bold mb-2'
-              htmlFor='serviceImages'
-            >
-              Service Images1
-            </label>
-            <input
-              className='border rounded py-2 px-3 leading-tight focus:outline-none focus:shadow-outline'
-              id='serviceImages'
-              name='serviceImage1'
-              type='file'
-              multiple
-              accept='image/*'
-              onChange={handleServiceImageChange}
-              {...register("serviceImage1", { required: true })}
-            />
-            {errors.serviceImages && (
-              <span className='text-red-500 text-sm'>
-                This field is required
-              </span>
-            )}
-            <div className='flex flex-wrap mt-2'>
-              {serviceImages.map((url, index) => (
-                <div key={index} className='w-1/3 p-2'>
-                  <img
-                    src={url}
-                    alt={`ServiceImage ${index + 1}`}
-                    className='w-full'
-                  />
-                </div>
-              ))}
-            </div>
 
+          <div className='mb-4'>
+            <label
+              className='block text-gray-700 font-bold mb-2'
+              htmlFor='title'
+            >
+              Title
+            </label>
+            <input
+              className='border rounded py-2 px-3 leading-tight focus:outline-none focus:shadow-outline w-full'
+              id='title'
+              name='title'
+              type='text'
+              placeholder="Enter your gig title"
+              {...register("title", { required: true })}
+            />
+            {errors.title && errors.title.type === "required" && (
+              <span className='text-red-500 text-sm'>
+                This field is required
+              </span>
+            )}
+          </div>
+
+
+
+          {/* image  */}
+          <div className='mb-4'>
             <label
               className='block text-gray-700 font-bold mb-2'
               htmlFor='serviceImages'
             >
-              Service Images2
+              Service Images
             </label>
             <input
-              className='border rounded py-2 px-3 leading-tight focus:outline-none focus:shadow-outline'
+              className='border rounded py-2 px-3 leading-tight focus:outline-none focus:shadow-outline w-full'
               id='serviceImages'
-              name='serviceImage2'
+              name='image'
               type='file'
               multiple
               accept='image/*'
-              onChange={handleServiceImageChange}
-              {...register("serviceImage2", { required: true })}
+              {...register("image", { required: true })}
             />
-            {errors.serviceImages && (
+            {errors.image && (
               <span className='text-red-500 text-sm'>
                 This field is required
               </span>
             )}
-            <div className='flex flex-wrap mt-2'>
-              {serviceImages.map((url, index) => (
-                <div key={index} className='w-1/3 p-2'>
-                  <img
-                    src={url}
-                    alt={`ServiceImage ${index + 1}`}
-                    className='w-full'
-                  />
-                </div>
-              ))}
-            </div>
+
           </div>
-          <div className='mb-4'>
-            <label
-              className='block text-gray-700 font-bold mb-2'
-              htmlFor='description'
-            >
-              Description
-            </label>
-            <textarea
-              className='border rounded py-3 px-3 leading-tight focus:outline-none focus:shadow-outline'
-              id='description'
-              name='description'
-              rows='5'
-              {...register("description", { required: true })}
-            />
-            {errors.description && (
-              <span className='text-red-500 text-sm'>
-                This field is required
-              </span>
-            )}
-          </div>
+
+
+          {/* price  */}
           <div className='mb-4'>
             <label
               className='block text-gray-700 font-bold mb-2'
@@ -141,12 +144,13 @@ function GigCreationForm() {
               Price
             </label>
             <input
-              className='border rounded py-2 px-3 leading-tight focus:outline-none focus:shadow-outline'
+              className='border rounded py-2 px-3 leading-tight focus:outline-none focus:shadow-outline w-full'
               id='price'
               name='price'
               type='number'
               min='0'
               step='0.01'
+              placeholder="Enter price"
               {...register("price", { required: true, min: 0 })}
             />
             {errors.price && errors.price.type === "required" && (
@@ -160,6 +164,8 @@ function GigCreationForm() {
               </span>
             )}
           </div>
+
+
           <button
             className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline'
             type='submit'
