@@ -19,7 +19,7 @@ const SellerDashboard = () => {
         queryFn: async () => {
             try {
 
-                const res = await fetch(`http://localhost:5000/seller/gig`)
+                const res = await fetch(`https://freelancer-nation-backend.vercel.app/seller/gig`)
                 const data = await res.json();
                 return data;
 
@@ -37,7 +37,7 @@ const SellerDashboard = () => {
 
         if (agree) {
             // console.log(_id);
-            fetch(`http://localhost:5000/gig/delete/${_id}`, {
+            fetch(`https://freelancer-nation-backend.vercel.app/gig/delete/${_id}`, {
                 method: "DELETE"
             })
                 .then(res => res.json())
