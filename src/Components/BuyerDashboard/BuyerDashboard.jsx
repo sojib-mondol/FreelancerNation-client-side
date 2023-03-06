@@ -69,8 +69,11 @@ const BuyerDashboard = () => {
 
     ]
 
+    // kaj baki ace------------------------- 
+
+
     return (
-        <div className='px-4 py-5 mx-auto md:px-10 lg:px-24 lg:py-16'>
+        <div className='px-4 py-5 mx-auto md:px-10 lg:px-24 lg:py-16 bg-gray-100'>
 
 
             <div className='grid grid-cols-1 md:grid-cols-2 xl:grid-cols-12 gap-5 xl:gap-16 items-start'>

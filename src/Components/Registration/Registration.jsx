@@ -134,6 +134,7 @@ const Registration = () => {
 
                 toast.success("Login successful!!! ");
                 setError('');
+                handleButtonClick();
                 navigate('/')
 
 
