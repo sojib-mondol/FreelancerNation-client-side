@@ -35,7 +35,6 @@ function GigCreationForm() {
 
         if (imgData.success) {
 
-
           const gig = {
             title: data.title,
             serviceImage: imgData.data.display_url,
