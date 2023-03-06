@@ -19,7 +19,6 @@ const Navbar = () => {
     const [isSeller] = UseSeller(user?.email);
     const [isBuyer] = UseBuyer(user?.email);
 
-    console.log(isBuyer);
 
     let activeStyle = {
         textDecoration: "underline",
