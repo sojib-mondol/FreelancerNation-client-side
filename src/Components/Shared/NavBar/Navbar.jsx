@@ -152,22 +152,7 @@ const Navbar = () => {
                     {
                         !isAdmin &&
                         <>
-                            {/* become seller */}
-                            <li>
-                                <NavLink
-                                    style={({ isActive }) =>
-                                        isActive ? activeStyle : undefined
-                                    }
-                                    to="/becomeASeller"
-                                    aria-label="Become a Seller"
-                                    title="Become a Seller"
-                                    className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-deep-purple-accent-400"
-                                >
-                                    Become a Seller
-                                </NavLink>
-
-                            </li>
-
+                        
                             {/* Seller Dashboard  */}
                             {
                                 isSeller &&
@@ -326,21 +311,6 @@ const Navbar = () => {
                                         {/* admin cara dekba  */}
                                         {
                                             !isAdmin && <>
-
-                                                {/* become a seller  */}
-                                                <li>
-                                                    <NavLink
-                                                        style={({ isActive }) =>
-                                                            isActive ? activeStyle : undefined
-                                                        }
-                                                        to="/becomeASeller"
-                                                        aria-label="Become a Seller"
-                                                        title="Become a Seller"
-                                                        className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-deep-purple-accent-400"
-                                                    >
-                                                        Become a Seller
-                                                    </NavLink>
-                                                </li>
 
                                                 {/* Seller Dashboard */}
                                                 {
