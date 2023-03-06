@@ -6,6 +6,7 @@ import WelcomeDashboard from "../AdminDashboard/WelcomeDashboard";
 import BecomeASeller from "../BecomeASeller/BecomeASeller";
 import BuyerDashboard from "../BuyerDashboard/BuyerDashboard";
 import Chat from "../Chat/Chat";
+import GigForm from "../create-gig/GigForm";
 import Error from "../Error/Error";
 import ExploreService from "../ExploreServices/ExploreService";
 import Home from "../Home/Home/Home";
@@ -44,9 +45,15 @@ export const router = createBrowserRouter([{
 
             path: '/becomeASeller/service_category/registerseller',
             element: <SellerRegistrationForm></SellerRegistrationForm>,
-        }, {
+        },
+        {
             path: '/seller_dashboard',
             element: <SellerDashboard />
+
+        },
+        {
+            path: '/seller_dashboard/create-gig',
+            element: <GigForm/>
 
         },
         {
