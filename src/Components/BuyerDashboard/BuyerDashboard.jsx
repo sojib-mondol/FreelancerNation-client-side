@@ -69,7 +69,7 @@ const BuyerDashboard = () => {
 
     ]
 
-    // kaj baki ace------------------------- 
+    // kaj baki ace-------------------------ok 
 
 
     return (
