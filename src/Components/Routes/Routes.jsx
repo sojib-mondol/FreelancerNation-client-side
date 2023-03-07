@@ -8,7 +8,16 @@ import BuyerDashboard from "../BuyerDashboard/BuyerDashboard";
 import Chat from "../Chat/Chat";
 import GigForm from "../create-gig/GigForm";
 import Error from "../Error/Error";
+import Business from "../exeploreComponents/Business";
+import DataScience from "../exeploreComponents/DataScience";
+import DegitalMarketing from "../exeploreComponents/DegitalMarketing";
 import GraphicDesign from "../exeploreComponents/GraphicDesign";
+import Lifestyle from "../exeploreComponents/Lifestyle";
+import MusicAndAudio from "../exeploreComponents/MusicAndAudio";
+import Photography from "../exeploreComponents/Photography";
+import ProgrammingAndTech from "../exeploreComponents/ProgrammingAndTech";
+import VideoAnimation from "../exeploreComponents/VideoAnimation";
+import Writing from "../exeploreComponents/Writing";
 import ExploreService from "../ExploreServices/ExploreService";
 import Home from "../Home/Home/Home";
 import Login from "../JoinForm/Login";
@@ -77,6 +86,42 @@ export const router = createBrowserRouter([
       {
         path: "/graphic-design",
         element: <GraphicDesign></GraphicDesign>,
+      },
+      {
+        path: "/digital-merketing",
+        element: <DegitalMarketing></DegitalMarketing>,
+      },
+      {
+        path: "/writing",
+        element: <Writing></Writing>,
+      },
+      {
+        path: "/video-animation",
+        element: <VideoAnimation></VideoAnimation>,
+      },
+      {
+        path: "/music-audio",
+        element: <MusicAndAudio></MusicAndAudio>,
+      },
+      {
+        path: "/programming-tech",
+        element: <ProgrammingAndTech></ProgrammingAndTech>,
+      },
+      {
+        path: "/business",
+        element: <Business></Business>,
+      },
+      {
+        path: "/lifeStyle",
+        element: <Lifestyle></Lifestyle>,
+      },
+      {
+        path: "/dataScience",
+        element: <DataScience></DataScience>,
+      },
+      {
+        path: "/photography",
+        element: <Photography></Photography>,
       },
       {
         path: "/explores",
