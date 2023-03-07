@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { FaCamera, FaMapMarkerAlt, FaStar, FaUser } from 'react-icons/fa';
+import { FaMapMarkerAlt, FaStar, FaUser } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthProvider';
 
@@ -79,16 +79,10 @@ const BuyerDashboard = () => {
             <div className='grid grid-cols-1 md:grid-cols-2 xl:grid-cols-12 gap-5 xl:gap-16 items-start'>
                 <div className='xl:col-span-4 bg-white flex flex-col items-center p-5 border border-slate-300'>
                     <div className='w-48 h-48 rounded-full relative'>
-                        <img className='w-full h-full rounded-full' src={photo} alt="" />
-                        <div div className='absolute top-[153px] left-[120px]'>
-                            <label htmlFor="dropzone-file" className="flex flex-col items-center max-w-lg p-3 mx-auto text-center bg-white cursor-pointer rounded-full">
-                                <FaCamera className='text-2xl' />
-                                <input id="dropzone-file" type="file" className="hidden" />
-                            </label>
-                        </div>
+                        <img className='w-full h-full rounded-full' src={photo} alt="buyer pic" />
                     </div>
 
-                    <div className='flex flex-col gap-2 items-center mt-5'>
+                    <div className='flex flex-col gap-2 items-center mt-5 mb-2'>
                         <h2 className='font-bold text-lg'>{user?.displayName}</h2>
                         <div className='flex gap-2 justify-center items-center'>
                             {
@@ -98,7 +92,7 @@ const BuyerDashboard = () => {
                                     </div>
                                 })
                             }
-                            <span className='text-base'>5</span>
+                            <span className='text-base mt-1'>5</span>
                         </div>
                     </div>
                     <div className='w-full border-t-[0.2px]'></div>
