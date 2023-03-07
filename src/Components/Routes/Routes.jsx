@@ -29,7 +29,7 @@ import SellerRegistrationForm from "../SellerRegForm/SellerRegForm";
 import NavbarExplores from "../Shared/Navbar_Explores/NavbarExplores";
 import ShowGigs from "../showGigs/ShowGigs";
 import FreelancerGuide from "../FreelancerGuide/FreelancerGuide";
-
+//router error fiexed
 export const router = createBrowserRouter([
   {
     path: "/",
