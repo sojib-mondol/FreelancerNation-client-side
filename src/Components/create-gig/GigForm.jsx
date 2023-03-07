@@ -39,7 +39,8 @@ function GigCreationForm() {
             title: data.title,
             serviceImage: imgData.data.display_url,
             price: data.price,
-            email: user?.email
+            email: user?.email,
+            status: false
           }
 
 
