@@ -8,7 +8,9 @@ const ShortsGigs = () => {
   const { data: gigs = [], isLoading } = useQuery({
     queryKey: ["gigs"],
     queryFn: async () => {
-      const res = await fetch("http://localhost:5000/sellerGigShort");
+      const res = await fetch(
+        "https://freelancer-nation-backend.vercel.app/sellerGigShort"
+      );
       const data = await res.json();
       return data;
     },
@@ -26,9 +28,9 @@ const ShortsGigs = () => {
       </div>
       <div className="text-center animate-bounce mt-16">
         <Link to="/allGigs">
-          <button class="group rounded-2xl h-12 w-48 bg-yellow-300 font-bold text-lg text-black  relative overflow-hidden">
+          <button className="group rounded-2xl h-12 w-48 bg-yellow-300 font-bold text-lg text-black  relative overflow-hidden">
             Show All
-            <div class="absolute duration-300 inset-0 w-full h-full transition-all scale-0 group-hover:scale-100 group-hover:bg-white/30 rounded-2xl"></div>
+            <div className="absolute duration-300 inset-0 w-full h-full transition-all scale-0 group-hover:scale-100 group-hover:bg-white/30 rounded-2xl"></div>
           </button>
         </Link>
       </div>

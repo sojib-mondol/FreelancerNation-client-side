@@ -9,52 +9,55 @@ import icon7 from "../../assets/icon7.svg";
 import icon8 from "../../assets/icon8.svg";
 import icon9 from "../../assets/icon9.svg";
 import icon10 from "../../assets/icon10.svg";
+import { Link } from "react-router-dom";
 
 const Explore = () => {
   return (
-    <div className='max-w-[1440px] w-[95vw] mx-auto my-10'>
-      <h3 className='text-3xl font-bold font-montserrat ml-16 my-8'>
+    <div className="max-w-[1440px] w-[95vw] mx-auto my-10">
+      <h3 className="text-3xl font-bold font-montserrat ml-16 my-8">
         Explore the Marketplace
       </h3>
-      <div className='my-8 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8'>
+      <div className="my-8 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+        <Link to="/graphic-design">
+          <div className="  flex items-center justify-center flex-col font-roboto">
+            <img className="w-24" src={icon1} alt="" />
+            <span className="uppercase">Graphic Design</span>
+          </div>
+        </Link>
         <div className="flex items-center justify-center flex-col font-roboto">
-          <img className="w-24" src={icon1} alt='' />
-          <span className="uppercase">Graphic Design</span>
-        </div>
-        <div className="flex items-center justify-center flex-col font-roboto">
-          <img className="w-24" src={icon2} alt='' />
+          <img className="w-24" src={icon2} alt="" />
           <span className="uppercase">Digital Marketing</span>
         </div>
         <div className="flex items-center justify-center flex-col font-roboto">
-          <img className="w-24" src={icon3} alt='' />
+          <img className="w-24" src={icon3} alt="" />
           <span className="uppercase">Writing & Translation</span>
         </div>
         <div className="flex items-center justify-center flex-col font-roboto">
-          <img className="w-24" src={icon4} alt='' />
+          <img className="w-24" src={icon4} alt="" />
           <span className="uppercase">Video & Animation</span>
         </div>
         <div className="flex items-center justify-center flex-col font-roboto">
-          <img className="w-24" src={icon5} alt='' />
+          <img className="w-24" src={icon5} alt="" />
           <span className="uppercase">Music & audio</span>
         </div>
         <div className="flex items-center justify-center flex-col font-roboto">
-          <img className="w-24" src={icon6} alt='' />
+          <img className="w-24" src={icon6} alt="" />
           <span className="uppercase">Programming & Tech</span>
         </div>
         <div className="flex items-center justify-center flex-col font-roboto">
-          <img className="w-24" src={icon7} alt='' />
+          <img className="w-24" src={icon7} alt="" />
           <span className="uppercase">Business</span>
         </div>
         <div className="flex items-center justify-center flex-col font-roboto">
-          <img className="w-24" src={icon8} alt='' />
+          <img className="w-24" src={icon8} alt="" />
           <span className="uppercase">LifeStyle</span>
         </div>
         <div className="flex items-center justify-center flex-col font-roboto">
-          <img className="w-24" src={icon9} alt='' />
+          <img className="w-24" src={icon9} alt="" />
           <span className="uppercase">Data Science</span>
         </div>
         <div className="flex items-center justify-center flex-col font-roboto">
-          <img className="w-24" src={icon10} alt='' />
+          <img className="w-24" src={icon10} alt="" />
           <span className="uppercase">Photography</span>
         </div>
       </div>
