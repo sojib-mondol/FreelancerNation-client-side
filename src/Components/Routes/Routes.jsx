@@ -28,15 +28,16 @@ import SellerDashboard from "../SellerDashboard/SellerDashboard";
 import SellerRegistrationForm from "../SellerRegForm/SellerRegForm";
 import NavbarExplores from "../Shared/Navbar_Explores/NavbarExplores";
 import ShowGigs from "../showGigs/ShowGigs";
-import FreelancerGuide from '../FreelancerGuide/FreelancerGuide';
-
-
-
+import FreelancerGuide from "../FreelancerGuide/FreelancerGuide";
+//router error fiexed
 export const router = createBrowserRouter([
-    {
+  {
+    path: "/",
+    element: <Main></Main>,
+    errorElement: <Error></Error>,
+    children: [
+      {
         path: "/",
-
-        element: <Main></Main>,
 
         element: <Home></Home>,
       },
@@ -129,95 +130,34 @@ export const router = createBrowserRouter([
         element: <NavbarExplores></NavbarExplores>,
       },
       {
-        path: "/dashboard",
-        element: <AdminDashboardLayout />,
+        path: "/freelancer-guide",
+        element: <FreelancerGuide></FreelancerGuide>,
+        loader: () => fetch("FreelancerGuide.json"),
+      },
+    ],
+  },
 
-        errorElement: <Error></Error>,
-        children: [
-            {
-                path: "/",
-                element: <Home></Home>,
-            },
-            {
-                path: "/becomeASeller",
-                element: <BecomeASeller></BecomeASeller>,
-            },
-            {
-                path: "/login",
-                element: <Login></Login>,
-            },
-            {
-                path: "/becomeASeller/service_category",
-                element: <ExploreService></ExploreService>,
-            },
-            {
-                path: "/becomeASeller/service_category/registerseller",
-                element: <SellerRegistrationForm></SellerRegistrationForm>,
-            },
-            {
-                path: "/seller_dashboard",
-                element: <SellerDashboard />,
-            },
-            {
-                path: "/seller_dashboard/create-gig",
-                element: <GigForm />,
-            },
-            {
-                path: "/allGigs",
-                element: <ShowGigs></ShowGigs>,
-            },
-            {
-                path: "/registration",
-                element: <Registration></Registration>,
-            },
-            {
-                path: "/buyer_dashboard",
-                element: <BuyerDashboard></BuyerDashboard>,
-            },
-            {
-                path: "/buyer_dashboard/chat",
-                element: <Chat></Chat>,
-            },
-            {
-                path: "/seller_dashboard/chat",
-                element: <Chat></Chat>,
-            },
-            {
-                path: "/graphic-design",
-                element: <GraphicDesign></GraphicDesign>,
-            },
-            {
-                path: "/explores",
-                element: <NavbarExplores></NavbarExplores>,
-            },
-            {
-                path: "/freelancer-guide",
-                element: <FreelancerGuide></FreelancerGuide>,
-                loader: () => fetch('FreelancerGuide.json')
-            },
-            {
-                path: "/dashboard",
-                element: <AdminDashboardLayout />,
-                errorElement: <Error></Error>,
-                children: [
-                    {
-                        path: "/dashboard",
-                        element: <WelcomeDashboard></WelcomeDashboard>,
-                    },
-                    {
-                        path: "/dashboard/allSellers",
-                        element: <AllSellers></AllSellers>,
-                    },
-                    {
-                        path: "/dashboard/allBuyers",
-                        element: <AllBuyers></AllBuyers>,
-                    },
-                    {
-                        path: "/dashboard/seller/details/:email",
-                        element: <SellerDetails></SellerDetails>,
-                    },
-                ],
-            },
-        ],
-    },
+  {
+    path: "/dashboard",
+    element: <AdminDashboardLayout />,
+    errorElement: <Error></Error>,
+    children: [
+      {
+        path: "/dashboard",
+        element: <WelcomeDashboard></WelcomeDashboard>,
+      },
+      {
+        path: "/dashboard/allSellers",
+        element: <AllSellers></AllSellers>,
+      },
+      {
+        path: "/dashboard/allBuyers",
+        element: <AllBuyers></AllBuyers>,
+      },
+      {
+        path: "/dashboard/seller/details/:email",
+        element: <SellerDetails></SellerDetails>,
+      },
+    ],
+  },
 ]);
