@@ -20,8 +20,8 @@ import SellerRegistrationForm from "../SellerRegForm/SellerRegForm";
 import NavbarExplores from "../Shared/Navbar_Explores/NavbarExplores";
 import ShowGigs from "../showGigs/ShowGigs";
 import FreelancerGuide from '../FreelancerGuide/FreelancerGuide';
-import FreelancerGuideDetails from '../FreelancerGuide/FreelancerGuideDetails';
-import Guideline from "../Guideline/Guideline";
+
+
 
 export const router = createBrowserRouter([
     {
@@ -84,6 +84,11 @@ export const router = createBrowserRouter([
             {
                 path: "/explores",
                 element: <NavbarExplores></NavbarExplores>,
+            },
+            {
+                path: "/freelancer-guide",
+                element: <FreelancerGuide></FreelancerGuide>,
+                loader: () => fetch('FreelancerGuide.json')
             },
             {
                 path: "/dashboard",
