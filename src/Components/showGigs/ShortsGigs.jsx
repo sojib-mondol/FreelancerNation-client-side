@@ -8,7 +8,9 @@ const ShortsGigs = () => {
   const { data: gigs = [], isLoading } = useQuery({
     queryKey: ["gigs"],
     queryFn: async () => {
-      const res = await fetch("http://localhost:5000/sellerGigShort");
+      const res = await fetch(
+        "https://freelancer-nation-backend.vercel.app/sellerGigShort"
+      );
       const data = await res.json();
       return data;
     },

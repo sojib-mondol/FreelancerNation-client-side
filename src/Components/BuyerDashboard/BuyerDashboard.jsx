@@ -4,19 +4,15 @@ import { FaMapMarkerAlt, FaStar, FaUser } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../context/AuthProvider";
 
-
 const BuyerDashboard = () => {
   const { user } = useContext(AuthContext);
 
-  const {
-    data: buyerOrders = [],
-  
-  } = useQuery({
+  const { data: buyerOrders = [] } = useQuery({
     queryKey: [""],
     queryFn: async () => {
       try {
         const res = await fetch(
-          `http://localhost:5000/buyer/gigOrders/${user?.email}`
+          `https://freelancer-nation-backend.vercel.app/buyer/gigOrders/${user?.email}`
         );
         const data = await res.json();
         return data;
@@ -25,8 +21,6 @@ const BuyerDashboard = () => {
       }
     },
   });
-
- 
 
   return (
     <div className="px-4 py-5 mx-auto md:px-10 lg:px-24 lg:py-16 bg-gray-100">

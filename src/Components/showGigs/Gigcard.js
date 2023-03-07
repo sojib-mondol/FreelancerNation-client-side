@@ -18,7 +18,7 @@ const Gigcard = ({ gig }) => {
         buyerEmail: user?.email,
       };
 
-      fetch(`http://localhost:5000/order/gig`, {
+      fetch(`https://freelancer-nation-backend.vercel.app/order/gig`, {
         method: "POST",
         headers: {
           "content-type": "application/json",
