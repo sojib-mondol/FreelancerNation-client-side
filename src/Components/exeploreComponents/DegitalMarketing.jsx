@@ -8,7 +8,9 @@ const DegitalMarketing = () => {
   const { data: digitalMarketing = [], isLoading } = useQuery({
     queryKey: ["digitalMarketing"],
     queryFn: async () => {
-      const res = await fetch("http://localhost:5000/digitalMarketing");
+      const res = await fetch(
+        " https://freelancer-nation-backend.vercel.app/digitalMarketing"
+      );
       const data = await res.json();
       return data;
     },

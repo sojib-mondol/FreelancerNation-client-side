@@ -8,7 +8,9 @@ const ProgrammingAndTech = () => {
   const { data: programmingAndtech = [], isLoading } = useQuery({
     queryKey: ["programmingAndtech"],
     queryFn: async () => {
-      const res = await fetch("http://localhost:5000/programming-tech");
+      const res = await fetch(
+        " https://freelancer-nation-backend.vercel.app/programming-tech"
+      );
       const data = await res.json();
       return data;
     },

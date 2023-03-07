@@ -8,7 +8,9 @@ const Lifestyle = () => {
   const { data: lifeStyle = [], isLoading } = useQuery({
     queryKey: ["lifeStyle"],
     queryFn: async () => {
-      const res = await fetch("http://localhost:5000/lifestyle");
+      const res = await fetch(
+        " https://freelancer-nation-backend.vercel.app/lifestyle"
+      );
       const data = await res.json();
       return data;
     },

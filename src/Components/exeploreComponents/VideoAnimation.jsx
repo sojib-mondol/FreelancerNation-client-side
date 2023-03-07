@@ -8,7 +8,9 @@ const VideoAnimation = () => {
   const { data: videoAnimation = [], isLoading } = useQuery({
     queryKey: ["videoAnimation"],
     queryFn: async () => {
-      const res = await fetch("http://localhost:5000/video-animation");
+      const res = await fetch(
+        " https://freelancer-nation-backend.vercel.app/video-animation"
+      );
       const data = await res.json();
       return data;
     },

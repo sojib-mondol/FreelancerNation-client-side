@@ -8,7 +8,9 @@ const MusicAndAudio = () => {
   const { data: musicAudio = [], isLoading } = useQuery({
     queryKey: ["musicAudio"],
     queryFn: async () => {
-      const res = await fetch("http://localhost:5000/music-audio");
+      const res = await fetch(
+        " https://freelancer-nation-backend.vercel.app/music-audio"
+      );
       const data = await res.json();
       return data;
     },

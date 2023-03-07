@@ -8,7 +8,9 @@ const DataScience = () => {
   const { data: DataScience = [], isLoading } = useQuery({
     queryKey: ["DataScience"],
     queryFn: async () => {
-      const res = await fetch("http://localhost:5000/dataScience");
+      const res = await fetch(
+        " https://freelancer-nation-backend.vercel.app/dataScience"
+      );
       const data = await res.json();
       return data;
     },

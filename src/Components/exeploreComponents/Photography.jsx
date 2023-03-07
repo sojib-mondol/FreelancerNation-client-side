@@ -8,7 +8,9 @@ const Photography = () => {
   const { data: photography = [], isLoading } = useQuery({
     queryKey: ["photography"],
     queryFn: async () => {
-      const res = await fetch("http://localhost:5000/photography");
+      const res = await fetch(
+        " https://freelancer-nation-backend.vercel.app/photography"
+      );
       const data = await res.json();
       return data;
     },

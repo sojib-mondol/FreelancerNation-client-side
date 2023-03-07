@@ -9,7 +9,9 @@ const GraphicDesign = () => {
   const { data: graphicDesign = [], isLoading } = useQuery({
     queryKey: ["graphicDesign"],
     queryFn: async () => {
-      const res = await fetch("http://localhost:5000/graphic-design");
+      const res = await fetch(
+        " https://freelancer-nation-backend.vercel.app/graphic-design"
+      );
       const data = await res.json();
       return data;
     },

@@ -8,7 +8,9 @@ const Business = () => {
   const { data: business = [], isLoading } = useQuery({
     queryKey: ["business"],
     queryFn: async () => {
-      const res = await fetch("http://localhost:5000/business");
+      const res = await fetch(
+        " https://freelancer-nation-backend.vercel.app/business"
+      );
       const data = await res.json();
       return data;
     },
