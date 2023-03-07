@@ -24,42 +24,61 @@ const Explore = () => {
             <span className="uppercase">Graphic Design</span>
           </div>
         </Link>
-        <div className="flex items-center justify-center flex-col font-roboto">
-          <img className="w-24" src={icon2} alt="" />
-          <span className="uppercase">Digital Marketing</span>
-        </div>
-        <div className="flex items-center justify-center flex-col font-roboto">
-          <img className="w-24" src={icon3} alt="" />
-          <span className="uppercase">Writing & Translation</span>
-        </div>
-        <div className="flex items-center justify-center flex-col font-roboto">
-          <img className="w-24" src={icon4} alt="" />
-          <span className="uppercase">Video & Animation</span>
-        </div>
-        <div className="flex items-center justify-center flex-col font-roboto">
-          <img className="w-24" src={icon5} alt="" />
-          <span className="uppercase">Music & audio</span>
-        </div>
-        <div className="flex items-center justify-center flex-col font-roboto">
-          <img className="w-24" src={icon6} alt="" />
-          <span className="uppercase">Programming & Tech</span>
-        </div>
-        <div className="flex items-center justify-center flex-col font-roboto">
-          <img className="w-24" src={icon7} alt="" />
-          <span className="uppercase">Business</span>
-        </div>
-        <div className="flex items-center justify-center flex-col font-roboto">
-          <img className="w-24" src={icon8} alt="" />
-          <span className="uppercase">LifeStyle</span>
-        </div>
-        <div className="flex items-center justify-center flex-col font-roboto">
-          <img className="w-24" src={icon9} alt="" />
-          <span className="uppercase">Data Science</span>
-        </div>
+        <Link to="/digital-merketing">
+          <div className="flex items-center justify-center flex-col font-roboto">
+            <img className="w-24" src={icon2} alt="" />
+            <span className="uppercase">Digital Marketing</span>
+          </div>
+        </Link>
+        <Link to="/writing">
+          <div className="flex items-center justify-center flex-col font-roboto">
+            <img className="w-24" src={icon3} alt="" />
+            <span className="uppercase">Writing & Translation</span>
+          </div>
+        </Link>
+        <Link to="/video-animation">
+          <div className="flex items-center justify-center flex-col font-roboto">
+            <img className="w-24" src={icon4} alt="" />
+            <span className="uppercase">Video & Animation</span>
+          </div>
+        </Link>
+        <Link to="/music-audio">
+          <div className="flex items-center justify-center flex-col font-roboto">
+            <img className="w-24" src={icon5} alt="" />
+            <span className="uppercase">Music & audio</span>
+          </div>
+        </Link>
+        <Link to="/programming-tech">
+          <div className="flex items-center justify-center flex-col font-roboto">
+            <img className="w-24" src={icon6} alt="" />
+            <span className="uppercase">Programming & Tech</span>
+          </div>
+        </Link>
+        <Link to="/business">
+          <div className="flex items-center justify-center flex-col font-roboto">
+            <img className="w-24" src={icon7} alt="" />
+            <span className="uppercase">Business</span>
+          </div>
+        </Link>
+        <Link to="/lifeStyle">
+          <div className="flex items-center justify-center flex-col font-roboto">
+            <img className="w-24" src={icon8} alt="" />
+            <span className="uppercase">LifeStyle</span>
+          </div>
+        </Link>
+        <Link to="/dataScience">
+          <div className="flex items-center justify-center flex-col font-roboto">
+            <img className="w-24" src={icon9} alt="" />
+            <span className="uppercase">Data Science</span>
+          </div>
+        </Link>
+
+        <Link to='/photography'>
         <div className="flex items-center justify-center flex-col font-roboto">
           <img className="w-24" src={icon10} alt="" />
           <span className="uppercase">Photography</span>
         </div>
+        </Link>
       </div>
     </div>
   );

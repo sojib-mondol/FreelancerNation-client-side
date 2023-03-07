@@ -52,7 +52,7 @@ const Gigcard = ({ gig }) => {
             {!isSeller && (
               <label
                 onClick={() => handleOrderConfirm(gig)}
-                className="text-lg block font-semibold py-2 px-6 text-green-100 hover:text-white bg-green-400 rounded-lg shadow hover:shadow-md transition duration-300"
+                className="cursor-pointer text-lg block font-semibold py-2 px-6 text-green-100 hover:text-white bg-green-400 rounded-lg shadow hover:shadow-md transition duration-300"
               >
                 Order
               </label>
