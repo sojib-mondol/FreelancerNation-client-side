@@ -8,18 +8,22 @@
 
     0%,
     100% {
-        background-image: url(../../assets/hero-banner-2.jpg);
+        background-image: url(../../assets/hero-banner-2.png);
+        opacity: 0.8;
     }
 
     25% {
-        background-image: url(../../assets/hero-banner-3.jpg);
+        background-image: url(../../assets/hero-banner-3.png);
+        opacity: 0.8;
     }
 
     50% {
-        background-image: url(../../assets/hero-banner-4.jpg);
+        background-image: url(../../assets/hero-banner-4.png);
+        opacity: 0.8;
     }
 
     75% {
-        background-image: url(../../assets/hero-banner-5.jpg);
+        background-image: url(../../assets/hero-banner-5.png);
+        opacity: 0.8;
     }
 }
