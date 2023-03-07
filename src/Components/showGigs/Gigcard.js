@@ -1,33 +1,36 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { toast } from "react-hot-toast";
 import UseSeller from "../../API/UseSeller";
 import { AuthContext } from "../../context/AuthProvider";
-import GigOrderModal from "./GigOrderModal";
 
 const Gigcard = ({ gig }) => {
   const { title, serviceImage, price } = gig;
   const { user } = useContext(AuthContext);
   const [isSeller] = UseSeller(user?.email);
 
-  const handleOrderConfirm = () => {
-    const newOrder = {
-      sellerGigId: gig._id,
-      gigInfo: gig,
-      buyerEmail: user?.email,
-    };
+  const handleOrderConfirm = (orderGigNew) => {
+    const agree = window.confirm("Are you sure delete this buyer !!!");
 
-    fetch(`http://localhost:5000/order/gig`, {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(newOrder),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        // console.log(data);
-        toast.success("Gig order completed successfully!");
-      });
+    if (agree) {
+      const newOrder = {
+        sellerGigId: orderGigNew._id,
+        gigInfo: orderGigNew,
+        buyerEmail: user?.email,
+      };
+
+      fetch(`http://localhost:5000/order/gig`, {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(newOrder),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          // console.log(data);
+          toast.success("Gig order completed successfully!");
+        });
+    }
   };
 
   return (
@@ -48,7 +51,7 @@ const Gigcard = ({ gig }) => {
 
             {!isSeller && (
               <label
-                htmlFor="my-modal"
+                onClick={() => handleOrderConfirm(gig)}
                 className="text-lg block font-semibold py-2 px-6 text-green-100 hover:text-white bg-green-400 rounded-lg shadow hover:shadow-md transition duration-300"
               >
                 Order
@@ -57,8 +60,6 @@ const Gigcard = ({ gig }) => {
           </div>
         </div>
       </div>
-
-      {<GigOrderModal handleOrderConfirm={handleOrderConfirm}></GigOrderModal>}
     </div>
   );
 };
