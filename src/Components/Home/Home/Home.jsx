@@ -24,7 +24,7 @@ const Home = () => {
         <>
             {loading ?
                 <Skeleton></Skeleton>
-             
+
 
                 :
                 <div>

@@ -18,6 +18,9 @@ import SellerDashboard from "../SellerDashboard/SellerDashboard";
 import SellerRegistrationForm from "../SellerRegForm/SellerRegForm";
 import NavbarExplores from "../Shared/Navbar_Explores/NavbarExplores";
 import ShowGigs from "../showGigs/ShowGigs";
+import FreelancerGuide from '../FreelancerGuide/FreelancerGuide';
+import FreelancerGuideDetails from '../FreelancerGuide/FreelancerGuideDetails';
+import Guideline from "../Guideline/Guideline";
 
 
 export const router = createBrowserRouter([{
@@ -54,7 +57,7 @@ export const router = createBrowserRouter([{
         },
         {
             path: '/seller_dashboard/create-gig',
-            element: <GigForm/>
+            element: <GigForm />
 
         },
         {
@@ -83,6 +86,21 @@ export const router = createBrowserRouter([{
             element: <NavbarExplores></NavbarExplores>,
         },
         {
+            path: '/guideline',
+            element: <Guideline></Guideline>,
+            loader: () => fetch('FreelancerGuide.json')
+        },
+        {
+            path: '/freelancer-guide',
+            element: <FreelancerGuide></FreelancerGuide>,
+            loader: () => fetch('FreelancerGuide.json')
+        },
+        {
+            path: '/freelancer-guide',
+            element: <FreelancerGuideDetails></FreelancerGuideDetails>,
+            loader: () => fetch('FreelancerGuide.json')
+        },
+        {
             path: '/dashboard',
             element: <AdminDashboardLayout />,
             errorElement: <Error></Error>,
@@ -103,9 +121,9 @@ export const router = createBrowserRouter([{
                     path: '/dashboard/seller/details/:email',
                     element: <SellerDetails></SellerDetails>
                 },
-                
+
             ]
-    
+
         }
 
 
