@@ -52,7 +52,7 @@ function SellerRegistrationForm() {
 
 
   return (
-    <div className='p-2 md:p-8 flex flex-col'>
+    <div className='p-2 md:p-8 flex flex-col bg-gray-100'>
       <form
         onSubmit={handleSubmit(handelSellerData)}
         className='bg-gradient-to-l from-green-400 to-green-600 py-10 px-4 sm:w-full md:w-3/4 md:mx-auto md:grid md:grid-cols-1 md:gap-4 rounded-lg'
