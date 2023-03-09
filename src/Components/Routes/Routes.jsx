@@ -18,7 +18,12 @@ import Photography from "../exeploreComponents/Photography";
 import ProgrammingAndTech from "../exeploreComponents/ProgrammingAndTech";
 import VideoAnimation from "../exeploreComponents/VideoAnimation";
 import Writing from "../exeploreComponents/Writing";
+import BlogDetails from "../ExploreDetails/BlogDetails";
+import CommunityDetails from "../ExploreDetails/CommunityDetails";
+import DiscoverDetails from "../ExploreDetails/DiscoverDetails";
+import GuideDetails from "../ExploreDetails/GuideDetails";
 import ExploreService from "../ExploreServices/ExploreService";
+import FreelancerGuide from "../FreelancerGuide/FreelancerGuide";
 import Home from "../Home/Home/Home";
 import Login from "../JoinForm/Login";
 import AdminDashboardLayout from "../Layout/AdminDashboardLayout";
@@ -28,7 +33,6 @@ import SellerDashboard from "../SellerDashboard/SellerDashboard";
 import SellerRegistrationForm from "../SellerRegForm/SellerRegForm";
 import NavbarExplores from "../Shared/Navbar_Explores/NavbarExplores";
 import ShowGigs from "../showGigs/ShowGigs";
-import FreelancerGuide from "../FreelancerGuide/FreelancerGuide";
 //router error fiexed
 export const router = createBrowserRouter([
   {
@@ -128,6 +132,39 @@ export const router = createBrowserRouter([
       {
         path: "/explores",
         element: <NavbarExplores></NavbarExplores>,
+      },
+      //dynamic explore route
+      {
+        path: "/explores/discover",
+        element: <DiscoverDetails/>
+      },
+      {
+        path: "/explores/community",
+        element: <CommunityDetails/>
+      },
+      {
+        path: "/explores/guides",
+        element: <GuideDetails/>
+      },
+      {
+        path: "/explores/podcast",
+        element: <NavbarExplores/>
+      },
+      {
+        path: "/explores/lead",
+        element: <NavbarExplores/>
+      },
+      {
+        path: "/explores/blog",
+        element: <BlogDetails/>
+      },
+      {
+        path: "/explores/Logo-Maker",
+        element: <NavbarExplores/>
+      },
+      {
+        path: "/explores/workspace",
+        element: <NavbarExplores/>
       },
       {
         path: "/freelancer-guide",

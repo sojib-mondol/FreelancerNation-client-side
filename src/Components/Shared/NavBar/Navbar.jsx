@@ -65,11 +65,11 @@ const Navbar = () => {
             text: "News information and community stories"
         },
         {
-            title: "Logo Maker",
+            title: "Logo-Maker",
             text: "Create logo instantly"
         },
         {
-            title: "F.N. workspace",
+            title: "workspace",
             text: "One place to mange your business"
         },
     ]
@@ -135,7 +135,7 @@ const Navbar = () => {
                                         {
                                             exploreNowData?.map((data, i) => <div
                                                 key={i}>
-                                                <Link to={`/explores`}>
+                                                <Link to={`/explores/${data.title}`}>
                                                     <h2 className="font-medium cursor-pointer  text-gray-700 mb-2 text-lg hover:text-green-400">{data?.title}</h2>
                                                 </Link>
                                                 <p className='text-gray-400 cursor-pointer '>{data?.text}</p>

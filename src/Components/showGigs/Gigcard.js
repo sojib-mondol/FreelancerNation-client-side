@@ -1,15 +1,17 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import { toast } from "react-hot-toast";
+import { Link } from "react-router-dom";
 import UseSeller from "../../API/UseSeller";
 import { AuthContext } from "../../context/AuthProvider";
 
 const Gigcard = ({ gig }) => {
+  
   const { title, serviceImage, price } = gig;
   const { user } = useContext(AuthContext);
   const [isSeller] = UseSeller(user?.email);
 
   const handleOrderConfirm = (orderGigNew) => {
-    const agree = window.confirm("Are you sure delete this buyer !!!");
+    const agree = window.confirm("Proceed to buy ?");
 
     if (agree) {
       const newOrder = {
@@ -49,14 +51,30 @@ const Gigcard = ({ gig }) => {
               ${price}
             </button>
 
-            {!isSeller && (
+            {!isSeller && 
+              
+                !user?.uid ? 
+                <>
+                <Link to="/login">
+                <label
+           
+                className="cursor-pointer text-lg block font-semibold py-2 px-6 text-green-100 hover:text-white bg-green-400 rounded-lg shadow hover:shadow-md transition duration-300"
+              >
+                Order
+              </label>
+                </Link>
+                </>
+                :
               <label
                 onClick={() => handleOrderConfirm(gig)}
                 className="cursor-pointer text-lg block font-semibold py-2 px-6 text-green-100 hover:text-white bg-green-400 rounded-lg shadow hover:shadow-md transition duration-300"
               >
                 Order
               </label>
-            )}
+              
+              
+              
+            }
           </div>
         </div>
       </div>
